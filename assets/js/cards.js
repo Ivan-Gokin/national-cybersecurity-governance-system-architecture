@@ -4,9 +4,11 @@ import { CFG, D, S, t, fmt, esc, L, many, group, live, vl, KLIMBURG, ROLE_GROUP,
   name, rolesOf, linksOut, linksIn, root, family, isClass, mandatesOf, isMulti, objectivesOf, stepsOf, typesOf, groupsOf, checks } from "./core.js";
 import { LINK_GLYPH, actorLink, actorHref, actRef, grcActHref, mBadge, confBadge, statusBadge, covBadge, gap, crumbs, repo, ext } from "./ui.js";
 import { setTitle } from "./app.js";
+import { capsSection } from "./capmap.js";
 
 export function renderActorCard(app) {
   const a = D.actor[S.arg];
+  if (!a && D.anyActor[S.arg]) { setTitle(name(S.arg)); app.innerHTML = `<p class="notice">${esc(t("notYet"))} <a href="${actorHref(S.arg)}?at=">${esc(t("atClear"))}</a></p>`; return; }
   if (!a) { setTitle(t("notFound")); app.innerHTML = `<p class="notice">${esc(t("notFound"))} <a href="#/actors">${esc(t("nav_actors"))}</a></p>`; return; }
   return isClass(a) ? classCard(app, a) : bodyCard(app, a);
 }
@@ -56,6 +58,7 @@ function bodyCard(app, a) {
     ${flags.length ? `<div class="flags">${flags.map((f) => `<p class="notice flag-${esc(f.c)}"><b>${esc(t("chk_" + f.c))}.</b> ${esc(f.text)}</p>`).join("")}</div>` : ""}
     ${famTypes.length ? `<h2>${esc(t("typesFilled"))}</h2><p class="lead-sm">${esc(t("typesFilledLead"))}</p>
       <ul class="plain type-list">${famTypes.map((x) => `<li><a href="#/types?t=${esc(x.id)}">${esc(L(x, "name"))}</a> ${covBadge(x.coverage)} <span class="small muted">${many(x.actors).filter((m) => fam.includes(m)).map((m) => esc(name(m))).join(", ")}</span></li>`).join("")}</ul>` : ""}
+    ${capsSection(r)}
     <h2>${esc(fam.length > 1 ? fmt(t("rolesOfThis"), L(a, "short")) : t("rolesTitle"))}</h2>
     ${roleRows ? `<div class="table-wrap"><table class="roles"><thead><tr><th>${esc(t("colRole"))}</th><th>${esc(t("colMandate"))}</th><th>${esc(t("colBasis"))}</th><th>${esc(t("colRegime"))}</th><th>${esc(t("colConf"))}</th><th>${esc(t("colNotes"))}</th></tr></thead><tbody>${roleRows}</tbody></table></div>` : `<p class="muted">${esc(t("noRoleUnit"))}</p>`}
     <div class="cards cards-2 link-cards">

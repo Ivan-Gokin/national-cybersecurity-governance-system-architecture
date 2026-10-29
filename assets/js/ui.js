@@ -13,8 +13,8 @@ export const LINK_GLYPH = { subordination: "↑", membership: "◇", oversight: 
 
 export const repo = () => (CFG.repoUrl || "").replace(/\/$/, "");
 export const actorHref = (id) => `#/actor/${encodeURIComponent(id)}`;
-export const actorLink = (id, cls = "") => (D.actor[id]
-  ? `<a${cls ? ` class="${cls}"` : ""} href="${actorHref(id)}" title="${esc(L(D.actor[id], "name"))}">${esc(name(id))}</a>` : esc(id));
+export const actorLink = (id, cls = "") => { const a = D.actor[id] || (D.anyActor || {})[id];
+  return a ? `<a${cls ? ` class="${cls}"` : ""} href="${actorHref(id)}" title="${esc(L(a, "name"))}">${esc(name(id))}</a>` : esc(id); };
 export const actHref = (id) => `#/act/${encodeURIComponent(id)}`;
 
 // An act cited by its register id: the label opens the act card on this site; the register and the official text are a click further

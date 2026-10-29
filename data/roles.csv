@@ -1,44 +1,44 @@
-id,actor,role,mandate,act,provision,regime,status,confidence,notes_uk,notes_en
-president.policy,president,policy,XC,ua-law-2469-viii,,all,in_force,medium,,
-nsdc.coordinator,nsdc,coordinator,XC,ua-law-183-98-vr,,all,in_force,medium,Координація через НКЦК.,Coordinates through the NCCC.
-nccc.coordinator,nccc,coordinator,XC,ua-pres-242-2016,,all,in_force,medium,"Координує і контролює діяльність суб'єктів сектору безпеки й оборони, що забезпечують кібербезпеку; арбітражної процедури немає.",Coordinates and controls security and defence subjects that ensure cybersecurity; no arbitration procedure.
-cmu.policy,cmu,policy,M4,ua-law-2163-viii,ст. 8,all,in_force,medium,,
-ssscip.policy,ssscip,policy,M4,ua-law-3475-iv,,all,in_force,medium,Формує і реалізує державну політику з кіберзахисту.,Forms and implements state cyber-protection policy.
-ssscip.standards,ssscip,standards,M4,ua-law-4336-ix,,all,in_force,medium,Вимоги до кіберзахисту ДІР і ОКІ (після 4336-IX — на основі управління ризиками замість КСЗІ).,"Cyber-protection requirements for state resources and CI (after 4336-IX risk-based, replacing KSZI)."
-ssscip.assessment,ssscip,assessment,M4,ua-law-4336-ix,,all,in_force,medium,Оцінювання стану кіберзахисту; авторизація систем.,Assessment of cyber protection; system authorisation.
-ssscip.oversight,ssscip,oversight,M4,ua-law-3475-iv,,all,in_force,medium,Державний контроль за станом кіберзахисту.,State control over cyber protection.
-ssscip.coordinator,ssscip,coordinator,M4,ua-cmu-1426-2021,,all,in_force,medium,Вибудовує трирівневу інфраструктуру кіберзахисту за ОТМ.,Builds the three-tier cyber-protection infrastructure under the OTM.
-ssscip.crisis,ssscip,crisis,M4,ua-cmu-1533-2025,,crisis,in_force,medium,Виконує Національний план реагування.,Executes the National Response Plan.
-cert-ua.national_csirt,cert-ua,national_csirt,M4,ua-law-4336-ix,,all,in_force,medium,Національна команда в національній системі реагування.,The national team in the national response system.
-ssscip-acp.active_protection,ssscip-acp,active_protection,M4,ua-law-3475-iv,,all,in_force,low,,
-cyberpolice.investigator,cyberpolice,investigator,M2,ua-law-2163-viii,ст. 8,all,in_force,medium,,
-npu.awareness,npu,awareness,OUT,ua-law-2163-viii,ст. 8,all,in_force,medium,Підвищення поінформованості громадян про безпеку в кіберпросторі.,Raising citizens' awareness of cyber safety.
-ogp.prosecutor,ogp,prosecutor,M2,ua-law-1697-vii,,all,in_force,medium,,
-sbu.counterintelligence,sbu,counterintelligence,M3,ua-law-2163-viii,ст. 8,all,in_force,medium,Контррозвідувальні заходи проти кібершпигунства і кібертероризму.,Counter-intelligence against cyber espionage and cyber terrorism.
-sbu.investigator,sbu,investigator,M2,ua-law-2163-viii,ст. 8,all,in_force,medium,"Кіберзлочини, що загрожують життєво важливим інтересам держави.",Cybercrime threatening the state's vital interests.
-sbu.assessment,sbu,assessment,M3,ua-law-2163-viii,ст. 8,all,in_force,medium,Негласно перевіряє готовність об'єктів КІ до кібератак.,Covertly tests CI readiness for cyberattacks.
-mod.military_ops,mod,military_ops,M1,ua-law-2163-viii,ст. 8,all,in_force,medium,,
-gs.military_ops,gs,military_ops,M1,ua-law-2163-viii,ст. 8,all,in_force,medium,,
-mod-csirt.sectoral_csirt,mod-csirt,sectoral_csirt,M1,ua-law-1932-xii,,all,in_force,low,,
-cyber-forces.military_ops,cyber-forces,military_ops,M1,ua-bill-12349,,all,draft,medium,,
-hur.intelligence,hur,intelligence,M3,ua-law-912-ix,,all,in_force,medium,,
-hur.military_ops,hur,military_ops,M1,ua-law-912-ix,,all,in_force,low,Кібероперації за повідомленнями ГУР; правову підставу звірити.,Cyber operations per HUR statements; check the legal basis.
-szr.intelligence,szr,intelligence,M3,ua-law-912-ix,,all,in_force,medium,,
-dpsu.intelligence,dpsu,intelligence,M3,ua-law-2163-viii,ст. 8,all,in_force,low,,
-nbu.regulator,nbu,regulator,M4,ua-law-679-xiv,,all,in_force,medium,Регулятор кіберзахисту банківської системи.,Regulates cyber protection in banking.
-csirt-nbu.sectoral_csirt,csirt-nbu,sectoral_csirt,M4,ua-law-679-xiv,,all,in_force,low,,
-mintsyfry.digital_identity,mintsyfry,digital_identity,OUT,ua-pres-447-2021,,all,in_force,low,,
-mintsyfry.awareness,mintsyfry,awareness,OUT,ua-pres-447-2021,,all,in_force,low,,
-mintsyfry.diplomacy,mintsyfry,diplomacy,M5,ua-pres-447-2021,,all,in_force,low,,
-mfa.diplomacy,mfa,diplomacy,M5,ua-law-1764-viii,,all,in_force,medium,,
-mon.education,mon,education,OUT,ua-pres-447-2021,,all,in_force,low,,
-nasu.research,nasu,research,OUT,ua-pres-447-2021,,all,in_force,low,,
-ombudsman.data_protection,ombudsman,data_protection,OUT,ua-law-2297-vi,,all,in_force,medium,,
-sectoral-csirts.sectoral_csirt,sectoral-csirts,sectoral_csirt,M4,ua-law-4336-ix,,all,planned,medium,,
-regional-csirts.sectoral_csirt,regional-csirts,sectoral_csirt,M4,ua-law-4336-ix,,all,planned,medium,,
-state-bodies.entity,state-bodies,entity,M4,ua-law-4336-ix,,all,in_force,medium,Мають штатного керівника з кіберзахисту.,Must have a staff cyber-protection lead.
-ci-operators.entity,ci-operators,entity,M4,ua-cmu-1470-2025,,all,in_force,medium,,
-ssscip.regulator,ssscip,regulator,M4,ua-law-3475-iv,,all,in_force,medium,"Регулятор у сферах кіберзахисту, захисту інформації, спеціального зв'язку.","Regulator for cyber protection, information protection and special communications."
-ssscip.info_protection,ssscip,info_protection,M4,ua-law-3475-iv,,all,in_force,medium,"Режим криптографічного і технічного захисту інформації (НД ТЗІ, експертиза КСЗІ).","Cryptographic and technical protection regime (ND TZI, KSZI expertise)."
-ssscip.service_provider,ssscip,service_provider,M4,ua-law-3475-iv,,all,in_force,low,"Спеціальний і урядовий зв'язок, національна система конфіденційного зв'язку.","Special and government communications, the national confidential communication system."
-ssscip-dckz.service_provider,ssscip-dckz,service_provider,M4,ua-law-3475-iv,,all,in_force,low,Послуги кіберзахисту для державних органів.,Cyber protection services for state bodies.
+id,actor,role,mandate,act,provision,regime,status,confidence,notes_uk,notes_en,valid_from,valid_to
+president.policy,president,policy,XC,ua-law-2469-viii,,all,in_force,medium,,,,
+nsdc.coordinator,nsdc,coordinator,XC,ua-law-183-98-vr,,all,in_force,medium,Координація через НКЦК.,Coordinates through the NCCC.,,
+nccc.coordinator,nccc,coordinator,XC,ua-pres-242-2016,,all,in_force,medium,"Координує і контролює діяльність суб'єктів сектору безпеки й оборони, що забезпечують кібербезпеку; арбітражної процедури немає.",Coordinates and controls security and defence subjects that ensure cybersecurity; no arbitration procedure.,2016-06-07,
+cmu.policy,cmu,policy,M4,ua-law-2163-viii,ст. 8,all,in_force,medium,,,2018-05-09,
+ssscip.policy,ssscip,policy,M4,ua-law-3475-iv,,all,in_force,medium,Формує і реалізує державну політику з кіберзахисту.,Forms and implements state cyber-protection policy.,2018-05-09,
+ssscip.standards,ssscip,standards,M4,ua-law-4336-ix,,all,in_force,medium,Вимоги до кіберзахисту ДІР і ОКІ (після 4336-IX — на основі управління ризиками замість КСЗІ).,"Cyber-protection requirements for state resources and CI (after 4336-IX risk-based, replacing KSZI).",2018-05-09,
+ssscip.assessment,ssscip,assessment,M4,ua-law-4336-ix,,all,in_force,medium,Оцінювання стану кіберзахисту; авторизація систем.,Assessment of cyber protection; system authorisation.,2025-03-27,
+ssscip.oversight,ssscip,oversight,M4,ua-law-3475-iv,,all,in_force,medium,Державний контроль за станом кіберзахисту.,State control over cyber protection.,2018-05-09,
+ssscip.coordinator,ssscip,coordinator,M4,ua-cmu-1426-2021,,all,in_force,medium,Вибудовує трирівневу інфраструктуру кіберзахисту за ОТМ.,Builds the three-tier cyber-protection infrastructure under the OTM.,2021-12-29,
+ssscip.crisis,ssscip,crisis,M4,ua-cmu-1533-2025,,crisis,in_force,medium,Виконує Національний план реагування.,Executes the National Response Plan.,2025-11-26,
+cert-ua.national_csirt,cert-ua,national_csirt,M4,ua-law-4336-ix,,all,in_force,medium,Урядова команда реагування з 2007 року; статус національної команди — за Законом № 2163-VIII (2018) і в нинішньому вигляді — за 4336-IX.,"The government response team since 2007; national-team status under Law No. 2163-VIII (2018) and, in its current form, under 4336-IX.",2007,
+ssscip-acp.active_protection,ssscip-acp,active_protection,M4,ua-law-3475-iv,,all,in_force,low,,,,
+cyberpolice.investigator,cyberpolice,investigator,M2,ua-law-2163-viii,ст. 8,all,in_force,medium,,,2015-10-13,
+npu.awareness,npu,awareness,OUT,ua-law-2163-viii,ст. 8,all,in_force,medium,Підвищення поінформованості громадян про безпеку в кіберпросторі.,Raising citizens' awareness of cyber safety.,2018-05-09,
+ogp.prosecutor,ogp,prosecutor,M2,ua-law-1697-vii,,all,in_force,medium,,,,
+sbu.counterintelligence,sbu,counterintelligence,M3,ua-law-2163-viii,ст. 8,all,in_force,medium,Контррозвідувальні заходи проти кібершпигунства і кібертероризму.,Counter-intelligence against cyber espionage and cyber terrorism.,2018-05-09,
+sbu.investigator,sbu,investigator,M2,ua-law-2163-viii,ст. 8,all,in_force,medium,"Кіберзлочини, що загрожують життєво важливим інтересам держави.",Cybercrime threatening the state's vital interests.,2018-05-09,
+sbu.assessment,sbu,assessment,M3,ua-law-2163-viii,ст. 8,all,in_force,medium,Негласно перевіряє готовність об'єктів КІ до кібератак.,Covertly tests CI readiness for cyberattacks.,2018-05-09,
+mod.military_ops,mod,military_ops,M1,ua-law-2163-viii,ст. 8,all,in_force,medium,,,2018-05-09,
+gs.military_ops,gs,military_ops,M1,ua-law-2163-viii,ст. 8,all,in_force,medium,,,2018-05-09,
+mod-csirt.sectoral_csirt,mod-csirt,sectoral_csirt,M1,ua-law-1932-xii,,all,in_force,low,,,,
+cyber-forces.military_ops,cyber-forces,military_ops,M1,ua-bill-12349,,all,draft,medium,,,,
+hur.intelligence,hur,intelligence,M3,ua-law-912-ix,,all,in_force,medium,,,,
+hur.military_ops,hur,military_ops,M1,ua-law-912-ix,,all,in_force,low,Кібероперації за повідомленнями ГУР; правову підставу звірити.,Cyber operations per HUR statements; check the legal basis.,,
+szr.intelligence,szr,intelligence,M3,ua-law-912-ix,,all,in_force,medium,,,,
+dpsu.intelligence,dpsu,intelligence,M3,ua-law-2163-viii,ст. 8,all,in_force,low,,,2018-05-09,
+nbu.regulator,nbu,regulator,M4,ua-law-679-xiv,,all,in_force,medium,Регулятор кіберзахисту банківської системи.,Regulates cyber protection in banking.,2018-05-09,
+csirt-nbu.sectoral_csirt,csirt-nbu,sectoral_csirt,M4,ua-law-679-xiv,,all,in_force,low,,,,
+mintsyfry.digital_identity,mintsyfry,digital_identity,OUT,ua-pres-447-2021,,all,in_force,low,,,2019-09-02,
+mintsyfry.awareness,mintsyfry,awareness,OUT,ua-pres-447-2021,,all,in_force,low,,,2021-08-26,
+mintsyfry.diplomacy,mintsyfry,diplomacy,M5,ua-pres-447-2021,,all,in_force,low,,,2021-08-26,
+mfa.diplomacy,mfa,diplomacy,M5,ua-law-1764-viii,,all,in_force,medium,,,,
+mon.education,mon,education,OUT,ua-pres-447-2021,,all,in_force,low,,,2021-08-26,
+nasu.research,nasu,research,OUT,ua-pres-447-2021,,all,in_force,low,,,2021-08-26,
+ombudsman.data_protection,ombudsman,data_protection,OUT,ua-law-2297-vi,,all,in_force,medium,,,2014-01-01,
+sectoral-csirts.sectoral_csirt,sectoral-csirts,sectoral_csirt,M4,ua-law-4336-ix,,all,planned,medium,,,,
+regional-csirts.sectoral_csirt,regional-csirts,sectoral_csirt,M4,ua-law-4336-ix,,all,planned,medium,,,,
+state-bodies.entity,state-bodies,entity,M4,ua-law-4336-ix,,all,in_force,medium,Мають штатного керівника з кіберзахисту.,Must have a staff cyber-protection lead.,2018-05-09,
+ci-operators.entity,ci-operators,entity,M4,ua-cmu-1470-2025,,all,in_force,medium,,,2018-05-09,
+ssscip.regulator,ssscip,regulator,M4,ua-law-3475-iv,,all,in_force,medium,"Регулятор у сферах кіберзахисту, захисту інформації, спеціального зв'язку.","Regulator for cyber protection, information protection and special communications.",2006-02-23,
+ssscip.info_protection,ssscip,info_protection,M4,ua-law-3475-iv,,all,in_force,medium,"Режим криптографічного і технічного захисту інформації (НД ТЗІ, експертиза КСЗІ).","Cryptographic and technical protection regime (ND TZI, KSZI expertise).",2006-02-23,
+ssscip.service_provider,ssscip,service_provider,M4,ua-law-3475-iv,,all,in_force,low,"Спеціальний і урядовий зв'язок, національна система конфіденційного зв'язку.","Special and government communications, the national confidential communication system.",2006-02-23,
+ssscip-dckz.service_provider,ssscip-dckz,service_provider,M4,ua-law-3475-iv,,all,in_force,low,Послуги кіберзахисту для державних органів.,Cyber protection services for state bodies.,,

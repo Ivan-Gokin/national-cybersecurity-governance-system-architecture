@@ -12,7 +12,7 @@ A mandate reduces neither to hierarchy nor to function. Two bodies can share a f
 
 ## Metamodel
 
-The map is a graph of nine entities. Every view on the site is a projection of the same graph for one question; the checks and the catalogue of expected institution types are tools on top of it that add nothing to the data.
+The map is a graph of eleven entities. Every view on the site is a projection of the same graph for one question; the checks and the catalogue of expected institution types are tools on top of it that add nothing to the data.
 
 | Entity | File | What it is |
 | --- | --- | --- |
@@ -20,6 +20,8 @@ The map is a graph of nine entities. Every view on the site is a projection of t
 | Role | `roles.csv` | What the actor does in the system; carries a mandate, legal basis, regime and status |
 | Mandate | `mandates.csv` | Klimburg's five mandates plus two service columns: cross-mandate coordination and outside mandates |
 | Legal act | GRC foundation register | The act that grants a role or sets a link. There is no table of its own: the build takes title, status and links from a pinned copy of the register |
+| Function | `capabilities.csv`, `realizations.csv` | The tree of the system's functions after the OTM, and who performs each through which role |
+| Secondary source | `refs.csv` | Explainers and reports the map relies on |
 | Expected institution type | `expected_types.csv` | A type of body a national system is expected to have (NIS2, NCAF 2.0, EU practice), and whether Ukraine has one |
 | Link | `links.csv` | A typed relation between two actors with a legal basis |
 | NCAF 2.0 objective | `ncaf_objectives.csv` | The objective's mandate and its primary subjects in Ukraine |
@@ -51,6 +53,20 @@ An actor gets two mandates when acts give it tasks under two different legal reg
 **Action-plan coverage** (column `plan_2026`) records whether the 2026 plan has at least one task with a named executor. Not yet coded in the prototype.
 
 **A link** without a type is not accepted. Types: subordination, membership, oversight, reporting, approval, information exchange, donor support, help, sanction, requirements and warnings. The last three serve the personal card: a link from a class of organisations (public bodies, CI operators, other organisations, citizens) to a body reads as "whom I report to", "where I turn", "who supervises me". An empty section of the card is a gap in the system.
+
+## The capability map
+
+The functional view is a tree of nine groups and 39 functions (`capabilities.csv`). It is built on the organisational and technical model of cyber protection (Cabinet Resolution No. 1426): its directions, the functions of the governing infrastructure, the functions of the cyber forces, the CERT functions and the five cyber-protection actions. Each function cites these provisions, the ENISA NCAF 2.0 objectives and a NIST CSF 2.0 function — the framework SSSCIP's 2026 methodological recommendations also use. Functions the model does not name directly (attribution, supply-chain security, personal data protection) come from the NCAF or other states' practice, and the function's card says so.
+
+Who performs a function is recorded in `realizations.csv`: the actor, its part ("leads" or "contributes") and the role that gives the legal basis. A function has no legal basis of its own; it rests on a role. This keeps the mandate (under which authority) and the function (what is done) as separate dimensions, and taking part without a role shows up as a gap.
+
+The model's provisions are cited from the 2021 text. SSSCIP's explainer is useful for the structure but may lag behind the current edition, so every reference still has to be checked against the act.
+
+## Time
+
+Actors, roles and links carry `valid_from` and `valid_to`. A role's date is when the function first had a legal basis; the `act` column holds today's basis, which may be later (e.g. CERT-UA: the government team since 2007, the national team under Law No. 2163-VIII, in its current form under 4336-IX). A blank date means "before 2014 or not established": such rows are shown in every snapshot and drawn dotted. Drafts and entities not yet set up are not shown in past snapshots.
+
+A chosen date applies to every view, card and check until it is cleared. The same toolkit can thus assess any change to the system: code the dates and compare two snapshots.
 
 ## Confidence levels
 

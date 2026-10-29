@@ -22,7 +22,7 @@ export const ROLE_GROUP = {
 };
 export const GROUPS = ["policy", "regulation", "control", "operations", "services", "coordination", "other"];
 
-export const S = { lang: "uk", route: "home", arg: "", p: new URLSearchParams(), planned: true };
+export const S = { lang: "uk", route: "home", arg: "", p: new URLSearchParams(), planned: true, at: "" };
 export const D = {};
 
 // ------------------------------------------------------------------ helpers
@@ -66,19 +66,44 @@ export async function loadGraph() {
   D.vocab = {}; D.vocabOrder = {};
   Object.entries(g.vocab).forEach(([kind, rows]) => { D.vocab[kind] = by(rows); D.vocabOrder[kind] = rows.map((r) => r.id); });
   D.mandates = g.mandates; D.mandate = by(g.mandates);
-  D.actors = g.actors; D.actor = by(g.actors);
+  D.raw = { actors: g.actors, roles: g.roles, links: g.links, realizations: g.realizations || [] };
   D.order = Object.fromEntries(g.actors.map((a, i) => [a.id, i]));
-  D.children = group(g.actors.filter((a) => a.parent), "parent");
-  D.roles = g.roles; D.rolesBy = group(g.roles, "actor"); D.rolesByAct = group(g.roles.filter((r) => r.act), "act");
-  D.links = g.links; D.linksOut = group(g.links, "from"); D.linksIn = group(g.links, "to"); D.linksByAct = group(g.links.filter((k) => k.act), "act");
+  D.anyActor = by(g.actors); // every actor, whatever date the map is read at
   D.acts = g.acts; D.act = by(g.acts); D.actRelations = g.act_relations;
   D.clusters = g.ncaf_clusters; D.objectives = g.ncaf_objectives.sort((a, b) => +a.id - +b.id); D.objective = by(g.ncaf_objectives);
   D.steps = g.flow_steps; D.step = by(g.flow_steps); D.handoffs = g.flow_handoffs;
   D.types = g.expected_types; D.grcSectors = by(g.grc_sectors || []);
+  D.caps = g.capabilities || []; D.cap = by(D.caps); D.capKids = group(D.caps.filter((c) => c.parent), "parent");
+  D.capTop = D.caps.filter((c) => !c.parent);
+  D.refs = by(g.refs || []);
+  index();
 }
 
+// ------------------------------------------------------------------ the time axis
+// The map can be read as it stood on a date (S.at). Rows carry valid_from / valid_to; a blank valid_from means "before
+// 2014 or not established", so such rows are always shown. Drafts and entities not yet set up never existed in the past.
+export const day = (d) => (!d ? "" : d.length === 4 ? `${d}-01-01` : d.length === 7 ? `${d}-01` : d);
+export const existsAt = (r, at) => !at || ((!r.valid_from || day(r.valid_from) <= at) && (!r.valid_to || day(r.valid_to) > at)
+  && !(r.status && r.status !== "in_force"));
+export function setDate(at) { S.at = at || ""; index(); }
+// rebuild every index from the rows that exist on S.at; views and checks only ever read these
+function index() {
+  const at = S.at;
+  const actors = D.raw.actors.filter((a) => existsAt(a, at));
+  const ok = new Set(actors.map((a) => a.id));
+  const roles = D.raw.roles.filter((r) => ok.has(r.actor) && existsAt(r, at));
+  const links = D.raw.links.filter((k) => ok.has(k.from) && ok.has(k.to) && existsAt(k, at));
+  const roleIds = new Set(roles.map((r) => r.id));
+  const by = (rows) => Object.fromEntries(rows.map((r) => [r.id, r]));
+  D.actors = actors; D.actor = by(actors);
+  D.children = group(actors.filter((a) => a.parent), "parent");
+  D.roles = roles; D.role = by(roles); D.rolesBy = group(roles, "actor"); D.rolesByAct = group(roles.filter((r) => r.act), "act");
+  D.links = links; D.linksOut = group(links, "from"); D.linksIn = group(links, "to"); D.linksByAct = group(links.filter((k) => k.act), "act");
+  D.real = D.raw.realizations.filter((x) => ok.has(x.actor) && (!x.role || roleIds.has(x.role)));
+  D.realByCap = group(D.real, "capability");
+}
 // ------------------------------------------------------------------ queries
-export const name = (id) => (D.actor[id] ? L(D.actor[id], "short") : id);
+export const name = (id) => { const a = D.actor[id] || D.anyActor[id]; return a ? L(a, "short") : id; };
 export const rolesOf = (id) => (D.rolesBy[id] || []).filter(live);
 export const linksOut = (id) => (D.linksOut[id] || []).filter(live);
 export const linksIn = (id) => (D.linksIn[id] || []).filter(live);
@@ -97,6 +122,17 @@ export const objectivesOf = (id) => D.objectives.filter((o) => many(o.subjects).
 export const stepsOf = (id) => D.steps.filter((s) => s.actor === id);
 export const typesOf = (id) => D.types.filter((x) => many(x.actors).includes(id));
 export const isClass = (a) => a && a.tier === "entity";
+// capability map: who performs a function, and in what part; a realization counts only while its role is shown
+export const realsOf = (capId) => (D.realByCap[capId] || []).filter((x) => !x.role || live(D.role[x.role]));
+export const leadsOf = (capId) => realsOf(capId).filter((x) => x.part === "lead");
+export function capFlags(capId) {
+  const leads = leadsOf(capId);
+  const inForce = leads.filter((x) => !x.role || D.role[x.role].status === "in_force");
+  const insts = new Set(inForce.filter((x) => !isClass(D.actor[x.actor])).map((x) => root(x.actor)));
+  const absent = D.types.filter((x) => x.capability === capId && x.coverage === "absent");
+  return { noLead: !inForce.length, plannedOnly: !inForce.length && leads.length > 0, multi: insts.size > 1, absent };
+}
+export const capsOfFamily = (rootId) => D.real.filter((x) => root(x.actor) === rootId && (!x.role || live(D.role[x.role])));
 export function groupsOf(ids) { // role groups held across a set of actors: {group: [roles]}
   const out = {};
   ids.forEach((id) => rolesOf(id).forEach((r) => { const g = ROLE_GROUP[r.role] || "other"; (out[g] = out[g] || []).push(r); }));
@@ -139,6 +175,11 @@ export function checks() {
     .map((lv) => ({ text: vl("level", lv) })));
   // duties with no deadline or channel in the model yet
   add("deadlines", "warn", D.links.filter((k) => live(k) && k.type === "reporting" && isClass(D.actor[k.from])).map((k) => ({ actor: k.from, to: k.to, text: t("noDeadline") })));
+  // capability map: functions nobody leads, functions several institutions lead, performers without a legal basis
+  const leaves = D.caps.filter((c) => c.parent);
+  add("capNoLead", "gap", leaves.filter((c) => capFlags(c.id).noLead).map((c) => ({ cap: c.id, text: L(c, "name") })));
+  add("capMulti", "warn", leaves.filter((c) => capFlags(c.id).multi).map((c) => ({ cap: c.id, text: `${L(c, "name")}: ${[...new Set(leadsOf(c.id).map((x) => name(root(x.actor))))].join(", ")}` })));
+  add("capNoBasis", "info", D.real.filter((x) => !x.role).map((x) => ({ actor: x.actor, cap: x.capability, text: L(D.cap[x.capability], "name") })));
   // acts cited but not checked in the register
   add("unverified", "info", D.acts.filter((a) => !a.last_verified).map((a) => ({ act: a.id })));
   return out;

@@ -1,0 +1,90 @@
+id,capability,actor,part,role,confidence,notes_uk,notes_en
+gov.strategy>ssscip,gov.strategy,ssscip,lead,ssscip.policy,medium,,
+gov.strategy>cmu,gov.strategy,cmu,contrib,cmu.policy,medium,,
+gov.strategy>president,gov.strategy,president,contrib,president.policy,medium,Затверджує Стратегію кібербезпеки.,Approves the Cybersecurity Strategy.
+gov.strategy>nsdc,gov.strategy,nsdc,contrib,nsdc.coordinator,medium,,
+gov.regulation>ssscip,gov.regulation,ssscip,lead,ssscip.standards,medium,,
+gov.regulation>cmu,gov.regulation,cmu,contrib,cmu.policy,medium,Затверджує вимоги постановами.,Adopts the requirements by resolution.
+gov.regulation>nbu,gov.regulation,nbu,contrib,nbu.regulator,medium,У банківському секторі.,In the banking sector.
+gov.harmonisation>ssscip,gov.harmonisation,ssscip,lead,ssscip.policy,low,,
+gov.harmonisation>mintsyfry,gov.harmonisation,mintsyfry,contrib,mintsyfry.diplomacy,low,,
+gov.infoprot>ssscip,gov.infoprot,ssscip,lead,ssscip.info_protection,medium,,
+gov.certification>ssscip,gov.certification,ssscip,lead,ssscip.info_protection,low,Експертиза КСЗІ і засобів захисту; окремого органу сертифікації кібербезпеки немає.,Evaluation of protection systems and means; no separate cybersecurity certification authority.
+gov.supply>ssscip,gov.supply,ssscip,contrib,ssscip.standards,low,Окремі вимоги в загальних вимогах; цілісної функції не визначено.,Some provisions within the general requirements; no function as a whole.
+gov.privacy>ombudsman,gov.privacy,ombudsman,lead,ombudsman.data_protection,medium,,
+ctl.inventory>ssscip,ctl.inventory,ssscip,lead,ssscip.regulator,low,,
+ctl.risk>nccc,ctl.risk,nccc,contrib,nccc.coordinator,low,Окремої процедури національної оцінки ризиків не знайдено.,No separate national risk-assessment procedure found.
+ctl.risk>ssscip,ctl.risk,ssscip,contrib,ssscip.coordinator,low,,
+ctl.oversight>ssscip,ctl.oversight,ssscip,lead,ssscip.oversight,medium,,
+ctl.oversight>nbu,ctl.oversight,nbu,contrib,nbu.regulator,medium,У банківському секторі.,In the banking sector.
+ctl.assessment>ssscip,ctl.assessment,ssscip,lead,ssscip.assessment,medium,,
+ctl.readiness>sbu,ctl.readiness,sbu,lead,sbu.assessment,medium,,
+sa.monitoring>cert-ua,sa.monitoring,cert-ua,lead,cert-ua.national_csirt,medium,,
+sa.monitoring>ssscip-acp,sa.monitoring,ssscip-acp,contrib,ssscip-acp.active_protection,low,,
+sa.monitoring>sbu,sa.monitoring,sbu,contrib,sbu.counterintelligence,medium,,
+sa.monitoring>csirt-nbu,sa.monitoring,csirt-nbu,contrib,csirt-nbu.sectoral_csirt,low,У банківському секторі.,In the banking sector.
+sa.monitoring>mod-csirt,sa.monitoring,mod-csirt,contrib,mod-csirt.sectoral_csirt,low,У секторі оборони.,In the defence sector.
+sa.intel>sbu,sa.intel,sbu,lead,sbu.counterintelligence,medium,Усередині країни.,At home.
+sa.intel>hur,sa.intel,hur,lead,hur.intelligence,medium,Ззовні.,Abroad.
+sa.intel>cert-ua,sa.intel,cert-ua,contrib,cert-ua.national_csirt,medium,,
+sa.intel>szr,sa.intel,szr,contrib,szr.intelligence,medium,,
+sa.sharing>cert-ua,sa.sharing,cert-ua,lead,cert-ua.national_csirt,medium,,
+sa.sharing>csirt-nbu,sa.sharing,csirt-nbu,contrib,csirt-nbu.sectoral_csirt,low,,
+sa.sharing>mod-csirt,sa.sharing,mod-csirt,contrib,mod-csirt.sectoral_csirt,low,,
+sa.sharing>sbu,sa.sharing,sbu,contrib,sbu.counterintelligence,medium,,
+sa.vuln>ssscip,sa.vuln,ssscip,contrib,,low,Програма bug bounty; формально координатора розкриття вразливостей не визначено.,A bug bounty programme; no coordinator of vulnerability disclosure is formally designated.
+sa.vuln>cert-ua,sa.vuln,cert-ua,contrib,cert-ua.national_csirt,low,,
+sa.vuln>cyberpolice,sa.vuln,cyberpolice,contrib,cyberpolice.investigator,low,,
+ir.reporting>cert-ua,ir.reporting,cert-ua,lead,cert-ua.national_csirt,medium,,
+ir.reporting>cyberpolice,ir.reporting,cyberpolice,contrib,cyberpolice.investigator,medium,Повідомлення громадян про кіберзлочини.,Citizens' reports of cybercrime.
+ir.reporting>csirt-nbu,ir.reporting,csirt-nbu,contrib,csirt-nbu.sectoral_csirt,low,У банківському секторі.,In the banking sector.
+ir.response>cert-ua,ir.response,cert-ua,lead,cert-ua.national_csirt,medium,,
+ir.response>csirt-nbu,ir.response,csirt-nbu,contrib,csirt-nbu.sectoral_csirt,low,,
+ir.response>mod-csirt,ir.response,mod-csirt,contrib,mod-csirt.sectoral_csirt,low,,
+ir.response>sectoral-csirts,ir.response,sectoral-csirts,contrib,sectoral-csirts.sectoral_csirt,medium,,
+ir.response>regional-csirts,ir.response,regional-csirts,contrib,regional-csirts.sectoral_csirt,medium,,
+ir.crisis>ssscip,ir.crisis,ssscip,lead,ssscip.crisis,medium,,
+ir.crisis>nccc,ir.crisis,nccc,lead,nccc.coordinator,medium,Координація на рівні РНБО.,Coordination at NSDC level.
+ir.active>ssscip-acp,ir.active,ssscip-acp,lead,ssscip-acp.active_protection,low,,
+ir.active>sbu,ir.active,sbu,contrib,sbu.counterintelligence,medium,,
+ir.active>hur,ir.active,hur,contrib,hur.military_ops,low,,
+ir.recovery>ci-operators,ir.recovery,ci-operators,lead,ci-operators.entity,low,Відновлення — обов'язок власника; національної спроможності з відновлення не визначено.,Recovery is the owner's duty; no national recovery capability is designated.
+ir.recovery>state-bodies,ir.recovery,state-bodies,lead,state-bodies.entity,low,,
+ir.recovery>cert-ua,ir.recovery,cert-ua,contrib,cert-ua.national_csirt,low,,
+le.investigation>cyberpolice,le.investigation,cyberpolice,lead,cyberpolice.investigator,medium,,
+le.investigation>sbu,le.investigation,sbu,lead,sbu.investigator,medium,Злочини проти державної безпеки.,Crimes against state security.
+le.prosecution>ogp,le.prosecution,ogp,lead,ogp.prosecutor,medium,,
+le.counterintel>sbu,le.counterintel,sbu,lead,sbu.counterintelligence,medium,,
+le.attribution>sbu,le.attribution,sbu,contrib,sbu.counterintelligence,low,Процедури атрибуції немає; висновки роблять окремі органи.,No attribution procedure; individual bodies draw their own conclusions.
+le.attribution>hur,le.attribution,hur,contrib,hur.intelligence,low,,
+le.attribution>cert-ua,le.attribution,cert-ua,contrib,cert-ua.national_csirt,low,,
+def.cyberdefence>gs,def.cyberdefence,gs,lead,gs.military_ops,medium,,
+def.cyberdefence>mod,def.cyberdefence,mod,contrib,mod.military_ops,medium,,
+def.cyberdefence>hur,def.cyberdefence,hur,contrib,hur.military_ops,low,,
+def.cyberdefence>cyber-forces,def.cyberdefence,cyber-forces,lead,cyber-forces.military_ops,medium,За законопроєктом.,Under the draft law.
+def.intel>hur,def.intel,hur,lead,hur.intelligence,medium,,
+def.intel>szr,def.intel,szr,lead,szr.intelligence,medium,,
+def.intel>dpsu,def.intel,dpsu,contrib,dpsu.intelligence,low,,
+svc.special>ssscip,svc.special,ssscip,lead,ssscip.service_provider,low,,
+svc.stateprot>ssscip-dckz,svc.stateprot,ssscip-dckz,lead,ssscip-dckz.service_provider,low,,
+svc.help>cert-ua,svc.help,cert-ua,lead,cert-ua.national_csirt,medium,,
+svc.help>cyberpolice,svc.help,cyberpolice,contrib,cyberpolice.investigator,medium,Громадянам.,For citizens.
+svc.identity>mintsyfry,svc.identity,mintsyfry,lead,mintsyfry.digital_identity,low,,
+dev.forces>ssscip,dev.forces,ssscip,lead,ssscip.coordinator,low,,
+dev.forces>cmu,dev.forces,cmu,contrib,cmu.policy,low,,
+dev.exercises>ssscip,dev.exercises,ssscip,lead,ssscip.coordinator,low,,
+dev.exercises>nccc,dev.exercises,nccc,contrib,nccc.coordinator,low,,
+dev.exercises>cert-ua,dev.exercises,cert-ua,contrib,cert-ua.national_csirt,low,,
+dev.education>mon,dev.education,mon,lead,mon.education,low,,
+dev.education>mintsyfry,dev.education,mintsyfry,contrib,mintsyfry.awareness,low,,
+dev.research>nasu,dev.research,nasu,contrib,nasu.research,low,Окремого фінансування кібердосліджень немає.,No dedicated funding for cyber research.
+dev.research>mon,dev.research,mon,contrib,mon.education,low,,
+dev.awareness>mintsyfry,dev.awareness,mintsyfry,lead,mintsyfry.awareness,low,,
+dev.awareness>npu,dev.awareness,npu,contrib,npu.awareness,medium,,
+dev.awareness>cert-ua,dev.awareness,cert-ua,contrib,cert-ua.national_csirt,low,,
+dev.ppp>ssscip,dev.ppp,ssscip,contrib,ssscip.coordinator,low,Постійного майданчика немає; взаємодія відбувається в окремих форматах.,No standing platform; cooperation happens in separate formats.
+coord.national>nccc,coord.national,nccc,lead,nccc.coordinator,medium,,
+coord.national>nsdc,coord.national,nsdc,contrib,nsdc.coordinator,medium,,
+coord.national>ssscip,coord.national,ssscip,contrib,ssscip.coordinator,medium,,
+coord.intl>mfa,coord.intl,mfa,lead,mfa.diplomacy,medium,,
+coord.intl>mintsyfry,coord.intl,mintsyfry,contrib,mintsyfry.diplomacy,low,,

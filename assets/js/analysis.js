@@ -38,7 +38,8 @@ function itemHtml(i) {
   const parts = [];
   if (i.actor) parts.push(actorLink(i.actor));
   if (i.to) parts.push(`→ ${actorLink(i.to)}`);
-  if (i.type) parts.push(`<a href="#/types?t=${esc(i.type)}">${esc(i.text)}</a> ${covBadge(i.coverage)}`);
+  if (i.cap) parts.push(`${i.actor ? "· " : ""}<a href="#/cap/${esc(i.cap)}">${esc(i.text)}</a>`);
+  else if (i.type) parts.push(`<a href="#/types?t=${esc(i.type)}">${esc(i.text)}</a> ${covBadge(i.coverage)}`);
   else if (i.objective) parts.push(`<a href="#/ncaf">${esc(i.objective)}</a> ${esc(i.text)}`);
   else if (i.act) parts.push(actRef(i.act));
   else if (i.text) parts.push(`<span class="${i.actor ? "muted" : ""}">${i.actor ? "· " : ""}${esc(i.text)}</span>`);
@@ -112,7 +113,7 @@ export function renderSearch(app) {
 export async function renderMethod(app) {
   setTitle(t("nav_method"));
   const r = repo();
-  const files = [["actors.csv", D.actors], ["roles.csv", D.roles], ["links.csv", D.links], ["expected_types.csv", D.types], ["mandates.csv", D.mandates],
+  const files = [["actors.csv", D.raw.actors], ["roles.csv", D.raw.roles], ["links.csv", D.raw.links], ["expected_types.csv", D.types], ["capabilities.csv", D.caps], ["realizations.csv", D.raw.realizations], ["refs.csv", Object.values(D.refs)], ["mandates.csv", D.mandates],
     ["ncaf_objectives.csv", D.objectives], ["ncaf_clusters.csv", D.clusters], ["flow_steps.csv", D.steps], ["flow_handoffs.csv", D.handoffs]];
   const vocabTable = (kind) => `<div class="table-wrap"><table class="vocab"><tbody>${order(kind).map((id) => `<tr><th scope="row"><code>${esc(id)}</code></th><td>${esc(vl(kind, id))}</td><td class="small muted">${esc(vd(kind, id))}</td></tr>`).join("")}</tbody></table></div>`;
   const conf = {};
@@ -127,9 +128,11 @@ export async function renderMethod(app) {
     <p><a class="btn btn-line" href="data/cybersecurity-governance-data.zip" download>${esc(t("zipAll"))}</a></p>
     <p class="small">${esc(fmt(t("registerPinned"), reg.repo || "", (reg.commit || "").slice(0, 7), reg.data_version || ""))}</p>
     <p class="small">${esc(t("confState"))} ${Object.entries(conf).map(([c, n]) => `${confBadge(c)} ${n}`).join(" ")}</p>
+    <h3>${esc(t("refsTitle"))}</h3><ul>${Object.values(D.refs).map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(L(x, "title"))}</a> — ${esc(L(x, "publisher"))}. ${esc(L(x, "notes"))}</li>`).join("")}</ul>
     <h3>${esc(t("vocabLinks"))}</h3>${vocabTable("link_type")}
     <h3>${esc(t("vocabRoles"))}</h3>${vocabTable("role")}
     <h3>${esc(t("vocabCoverage"))}</h3>${vocabTable("coverage")}
+    <h3>${esc(t("vocabOtm"))}</h3>${vocabTable("otm")}
     <h3>${esc(t("vocabConf"))}</h3>${vocabTable("confidence")}
     ${r ? `<h2>${esc(t("contributeTitle"))}</h2><p>${esc(t("contributeLead"))}</p>
       <p class="home-cta"><a class="btn" href="${esc(r)}/issues/new?template=actor.yml" target="_blank" rel="noopener">${esc(t("issueActor"))}</a><a class="btn" href="${esc(r)}/issues/new?template=link.yml" target="_blank" rel="noopener">${esc(t("issueLink"))}</a><a class="btn" href="${esc(r)}" target="_blank" rel="noopener">GitHub</a></p>` : ""}

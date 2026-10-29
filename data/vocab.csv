@@ -76,3 +76,51 @@ coverage,partial,Частково,Partly,"Функцію виконує орга
 coverage,planned,Передбачено,Provided for,"Передбачено актом чи проєктом, але ще не створено.","Provided for by an act or bill, not yet set up."
 coverage,absent,Немає,Absent,Такого органу немає.,No such body.
 coverage,unknown,Невідомо,Unknown,Даних недостатньо; потрібна перевірка.,Not enough data; needs checking.
+otm,fn.1,"Напрями функціонування, 1: формування і реалізація політики кібербезпеки","Directions, 1: shaping and implementing cybersecurity policy",,
+otm,fn.2,"Напрями функціонування, 2: координація суб'єктів захисту ОКІІ і державних ресурсів","Directions, 2: coordinating those who protect CII and state resources",,
+otm,fn.3,"Напрями функціонування, 3: захист систем і ОКІІ, кіберстійкість, безперервний моніторинг","Directions, 3: protecting systems and CII, cyber resilience, continuous monitoring",,
+otm,fn.4,"Напрями функціонування, 4: розвиток реагування на кіберзагрози","Directions, 4: developing response to cyber threats",,
+otm,fn.5,"Напрями функціонування, 5: розвиток сил кіберзахисту і їх координація","Directions, 5: developing the cyber forces and coordinating them",,
+otm,fn.6,"Напрями функціонування, 6: системи управління ризиками на об'єктах КІ","Directions, 6: risk-management systems at CI objects",,
+otm,fn.7,"Напрями функціонування, 7: спроможності суб'єктів кібербезпеки","Directions, 7: capabilities of cybersecurity actors",,
+otm,fn.8,"Напрями функціонування, 8: безпечна інфраструктура для органів влади, військових формувань і організацій","Directions, 8: secure infrastructure for public bodies, military formations and organisations",,
+otm,fn.9,"Напрями функціонування, 9: державно-приватна взаємодія","Directions, 9: public-private cooperation",,
+otm,fn.10,"Напрями функціонування, 10: кадрове, матеріально-технічне й аналітичне забезпечення сил кіберзахисту","Directions, 10: staffing, material and analytical support for the cyber forces",,
+otm,fn.11,"Напрями функціонування, 11: постійне вдосконалення захисту ОКІІ за результатами оцінювання","Directions, 11: continuous improvement of CII protection based on assessment",,
+otm,ki.1,"Функції керівної інфраструктури, 1: нормативне регулювання захисту КІ і систем","Governing infrastructure, 1: regulating the protection of CI and systems",,
+otm,ki.2,"Функції керівної інфраструктури, 2: гармонізація з правом ЄС","Governing infrastructure, 2: harmonisation with EU law",,
+otm,ki.3,"Функції керівної інфраструктури, 3: розвиток сил кіберзахисту і їх забезпечення","Governing infrastructure, 3: developing and supporting the cyber forces",,
+otm,ki.4,"Функції керівної інфраструктури, 4: регулярні тренування із запобігання, реагування і відновлення","Governing infrastructure, 4: regular training in prevention, response and recovery",,
+otm,ki.5,"Функції керівної інфраструктури, 5: залучення науки і фахової спільноти до нормотворення","Governing infrastructure, 5: involving research and professional communities in drafting",,
+otm,ki.6,"Функції керівної інфраструктури, 6: перегляд ОКІІ, державних ресурсів і інформації, що охороняється законом","Governing infrastructure, 6: reviewing CII objects, state resources and legally protected information",,
+otm,ki.7,"Функції керівної інфраструктури, 7: спроможності сил виявляти і зупиняти атаки та відновлюватися","Governing infrastructure, 7: the forces' ability to detect and stop attacks and recover",,
+otm,ki.8,"Функції керівної інфраструктури, 8: сучасні принципи державного управління","Governing infrastructure, 8: modern public-management principles",,
+otm,ki.9,"Функції керівної інфраструктури, 9: міжнародна співпраця","Governing infrastructure, 9: international cooperation",,
+otm,ki.10,"Функції керівної інфраструктури, 10: протоколи, регламенти, плани реагування і відновлення","Governing infrastructure, 10: protocols, procedures, response and recovery plans",,
+otm,ki.11,"Функції керівної інфраструктури, 11: кібернавчання, сценарії, кібергігієна","Governing infrastructure, 11: exercises, scenarios, cyber hygiene",,
+otm,ti.1,"Функції сил кіберзахисту, 1: протидія атакам, кіберзлочинності, кібертероризму і кібершпигунству, кібероборона і кіберрозвідка","Cyber forces, 1: countering attacks, cybercrime, cyberterrorism and espionage; cyber defence and cyber intelligence",,
+otm,ti.2,"Функції сил кіберзахисту, 2: оперативне (кризове) реагування і контрзаходи","Cyber forces, 2: operational (crisis) response and countermeasures",,
+otm,ti.3,"Функції сил кіберзахисту, 3: захист ОКІІ і систем органів влади та військових формувань","Cyber forces, 3: protecting CII and the systems of public bodies and military formations",,
+otm,ti.4,"Функції сил кіберзахисту, 4: системи оцінювання ризиків і реагування на інциденти","Cyber forces, 4: risk-assessment and incident-response systems",,
+otm,ti.5,"Функції сил кіберзахисту, 5: розвиток мережі CERT і співпраця з ними","Cyber forces, 5: developing the CERT network and cooperating with CERTs",,
+otm,ti.6,"Функції сил кіберзахисту, 6: взаємодія з іншими силами","Cyber forces, 6: interaction with other forces",,
+otm,ti.7,"Функції сил кіберзахисту, 7: інформування, прийом повідомлень (зокрема від громадян), консультації і допомога","Cyber forces, 7: informing, receiving reports (including from citizens), advice and help",,
+otm,ti.8,"Функції сил кіберзахисту, 8: допомога органам влади, організаціям і громадянам у кіберзахисті","Cyber forces, 8: helping public bodies, organisations and citizens with cyber protection",,
+otm,ti.9,"Функції сил кіберзахисту, 9: захищений доступ до інтернету й антивірусний захист державних ресурсів","Cyber forces, 9: secure internet access and anti-virus protection for state resources",,
+otm,ti.10,"Функції сил кіберзахисту, 10: участь у навчаннях і сценаріях","Cyber forces, 10: taking part in exercises and scenarios",,
+otm,cert,"Функції команд CERT: виявлення, аналіз, реагування, обмін, рекомендації","CERT functions: detection, analysis, response, exchange, recommendations",,
+otm,ie,Обмін інформацією між рівнями технологічної інфраструктури,Information exchange between the levels of the technological infrastructure,,
+otm,bi,"Функції базової інфраструктури: захист власних систем, кібергігієна, інформування громадян","Base infrastructure: protecting own systems, cyber hygiene, informing citizens",,
+otm,act.identify,Дії з кіберзахисту: ідентифікація,Cyber-protection actions: identify,,
+otm,act.protect,Дії з кіберзахисту: захист,Cyber-protection actions: protect,,
+otm,act.detect,Дії з кіберзахисту: виявлення,Cyber-protection actions: detect,,
+otm,act.respond,Дії з кіберзахисту: реагування,Cyber-protection actions: respond,,
+otm,act.recover,Дії з кіберзахисту: відновлення,Cyber-protection actions: recover,,
+csf,GV,Управління,Govern,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+csf,ID,Ідентифікація,Identify,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+csf,PR,Захист,Protect,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+csf,DE,Виявлення,Detect,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+csf,RS,Реагування,Respond,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+csf,RC,Відновлення,Recover,Функція NIST CSF 2.0; ту саму рамку використовують методичні рекомендації Держспецзв'язку 2026 року.,A NIST CSF 2.0 function; SSSCIP's 2026 methodological recommendations use the same framework.
+part,lead,Відповідає,Leads,Головний виконавець функції за актом.,The main performer of the function under an act.
+part,contrib,Бере участь,Contributes,Виконує частину функції або в окремому секторі.,Performs part of the function or does it in one sector.

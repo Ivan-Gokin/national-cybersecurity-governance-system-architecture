@@ -1,61 +1,61 @@
-id,from,to,type,act,status,confidence,notes_uk,notes_en
-nsdc>president:subordination,nsdc,president,subordination,ua-law-183-98-vr,in_force,medium,Очолює Президент.,Chaired by the President.
-nccc>nsdc:subordination,nccc,nsdc,subordination,ua-pres-242-2016,in_force,medium,Робочий орган РНБО.,A working body of the NSDC.
-ssscip>nccc:membership,ssscip,nccc,membership,ua-pres-242-2016,in_force,medium,,
-npu>nccc:membership,npu,nccc,membership,ua-pres-242-2016,in_force,medium,,
-sbu>nccc:membership,sbu,nccc,membership,ua-pres-242-2016,in_force,medium,,
-mod>nccc:membership,mod,nccc,membership,ua-pres-242-2016,in_force,medium,,
-gs>nccc:membership,gs,nccc,membership,ua-pres-242-2016,in_force,medium,,
-hur>nccc:membership,hur,nccc,membership,ua-pres-242-2016,in_force,medium,,
-szr>nccc:membership,szr,nccc,membership,ua-pres-242-2016,in_force,medium,,
-dpsu>nccc:membership,dpsu,nccc,membership,ua-pres-242-2016,in_force,medium,,
-nbu>nccc:membership,nbu,nccc,membership,ua-pres-242-2016,in_force,medium,,
-mintsyfry>nccc:membership,mintsyfry,nccc,membership,ua-pres-242-2016,in_force,medium,"За складом у п. 5 указу; МЗС і Мінцифри — члени, але не основні суб'єкти за ст. 8 Закону № 2163-VIII.",Per the membership in para. 5 of the decree; the MFA and MinDigital are members but not principal subjects under art. 8 of Law No. 2163-VIII.
-mfa>nccc:membership,mfa,nccc,membership,ua-pres-242-2016,in_force,medium,"За складом у п. 5 указу; МЗС і Мінцифри — члени, але не основні суб'єкти за ст. 8 Закону № 2163-VIII.",Per the membership in para. 5 of the decree; the MFA and MinDigital are members but not principal subjects under art. 8 of Law No. 2163-VIII.
-ssscip>cmu:subordination,ssscip,cmu,subordination,ua-law-3475-iv,in_force,medium,ЦОВВ зі спецстатусом; інших зовнішніх наглядових зв'язків на карті немає.,Central executive body with special status; no other external supervisory link on the map.
-ssscip-acp>ssscip:subordination,ssscip-acp,ssscip,subordination,ua-law-3475-iv,in_force,low,,
-npu>cmu:subordination,npu,cmu,subordination,ua-law-580-viii,in_force,medium,Через Міністра внутрішніх справ.,Through the Minister of Internal Affairs.
-cyberpolice>npu:subordination,cyberpolice,npu,subordination,ua-law-580-viii,in_force,medium,,
-sbu>president:subordination,sbu,president,subordination,ua-law-2229-xii,in_force,medium,,
-szr>president:subordination,szr,president,subordination,ua-law-912-ix,in_force,low,,
-hur>mod:subordination,hur,mod,subordination,ua-law-912-ix,in_force,medium,,
-gs>mod:subordination,gs,mod,subordination,ua-law-1932-xii,in_force,low,,
-cyber-forces>gs:subordination,cyber-forces,gs,subordination,ua-bill-12349,draft,low,,
-mod-csirt>mod:subordination,mod-csirt,mod,subordination,ua-law-1932-xii,in_force,low,,
-csirt-nbu>nbu:subordination,csirt-nbu,nbu,subordination,ua-law-679-xiv,in_force,low,,
-ombudsman>vru:subordination,ombudsman,vru,subordination,ua-law-776-97-vr,in_force,medium,,
-mintsyfry>cmu:subordination,mintsyfry,cmu,subordination,,in_force,medium,,
-mfa>cmu:subordination,mfa,cmu,subordination,,in_force,medium,,
-mon>cmu:subordination,mon,cmu,subordination,,in_force,medium,,
-mintsyfry>ssscip:reporting,mintsyfry,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,"Звіт про виконання плану на 2026 рік — до Адміністрації Держспецзв'язку, не до НКЦК.","Reports on the 2026 plan go to the SSSCIP Administration, not the NCCC."
-mfa>ssscip:reporting,mfa,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,
-mon>ssscip:reporting,mon,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,
-npu>ssscip:reporting,npu,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,
-sbu>ssscip:reporting,sbu,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,
-ssscip>state-bodies:oversight,ssscip,state-bodies,oversight,ua-law-3475-iv,in_force,medium,,
-ssscip>ci-operators:oversight,ssscip,ci-operators,oversight,ua-law-4336-ix,in_force,medium,,
-state-bodies>ssscip:approval,state-bodies,ssscip,approval,ua-law-4336-ix,in_force,medium,Призначення керівника з кіберзахисту погоджується з Адміністрацією Держспецзв'язку.,Appointment of the cyber-protection lead is approved by the SSSCIP Administration.
-state-bodies>sbu:approval,state-bodies,sbu,approval,ua-law-4336-ix,in_force,medium,СБУ перевіряє кандидата на керівника з кіберзахисту.,The SBU vets the candidate cyber-protection lead.
-ci-operators>cert-ua:reporting,ci-operators,cert-ua,reporting,ua-cmu-1533-2025,in_force,low,Повідомлення про інциденти.,Incident notification.
-state-bodies>cert-ua:reporting,state-bodies,cert-ua,reporting,ua-cmu-1533-2025,in_force,low,,
-cert-ua>sbu:info_exchange,cert-ua,sbu,info_exchange,ua-cmu-1533-2025,in_force,low,,
-cert-ua>csirt-nbu:info_exchange,cert-ua,csirt-nbu,info_exchange,ua-law-4336-ix,in_force,low,,
-cert-ua>mod-csirt:info_exchange,cert-ua,mod-csirt,info_exchange,ua-law-4336-ix,in_force,low,,
-sectoral-csirts>cert-ua:info_exchange,sectoral-csirts,cert-ua,info_exchange,ua-law-4336-ix,planned,medium,,
-regional-csirts>cert-ua:info_exchange,regional-csirts,cert-ua,info_exchange,ua-law-4336-ix,planned,medium,,
-tallinn>ssscip:support,tallinn,ssscip,support,,in_force,medium,,
-mfa>eu:info_exchange,mfa,eu,info_exchange,,in_force,low,Кібердіалог ЄС–Україна.,EU–Ukraine cyber dialogue.
-eu>ssscip:support,eu,ssscip,support,,in_force,low,Доступ до EU Cybersecurity Reserve (червень 2026).,Access to the EU Cybersecurity Reserve (June 2026).
-orgs>cert-ua:help,orgs,cert-ua,help,ua-law-2163-viii,in_force,low,Повідомлення про інцидент і технічна допомога.,Incident report and technical assistance.
-orgs>cyberpolice:help,orgs,cyberpolice,help,ua-law-580-viii,in_force,low,Якщо є ознаки кіберзлочину.,When there are signs of a cybercrime.
-citizens>cyberpolice:help,citizens,cyberpolice,help,ua-law-580-viii,in_force,low,"Шахрайство, злам облікових записів.","Fraud, account takeover."
-citizens>ombudsman:help,citizens,ombudsman,help,ua-law-2297-vi,in_force,low,Порушення захисту персональних даних.,Breach of personal data protection.
-ci-operators>cert-ua:help,ci-operators,cert-ua,help,ua-law-2163-viii,in_force,low,,
-state-bodies>cert-ua:help,state-bodies,cert-ua,help,ua-law-2163-viii,in_force,low,,
-sbu>ci-operators:oversight,sbu,ci-operators,oversight,ua-law-2163-viii,in_force,medium,Негласна перевірка готовності об'єктів КІ до кібератак (ст. 8).,Covert testing of CI readiness for cyberattacks (art. 8).
-cert-ua>state-bodies:guidance,cert-ua,state-bodies,guidance,ua-law-2163-viii,in_force,low,Попередження про загрози.,Threat alerts.
-cert-ua>ci-operators:guidance,cert-ua,ci-operators,guidance,ua-law-2163-viii,in_force,low,Попередження про загрози.,Threat alerts.
-ssscip>ci-operators:guidance,ssscip,ci-operators,guidance,ua-cmu-1470-2025,in_force,medium,Загальні вимоги до кіберзахисту ОКІ.,General cyber-protection requirements for CI.
-ssscip>state-bodies:guidance,ssscip,state-bodies,guidance,ua-cmu-447-2025,in_force,medium,Вимоги до кіберзахисту державних інформаційних ресурсів.,Cyber-protection requirements for state information resources.
-cert-ua>ssscip-dckz:subordination,cert-ua,ssscip-dckz,subordination,ua-law-3475-iv,in_force,low,,
-ssscip-dckz>ssscip:subordination,ssscip-dckz,ssscip,subordination,ua-law-3475-iv,in_force,low,,
+id,from,to,type,act,status,confidence,notes_uk,notes_en,valid_from,valid_to
+nsdc>president:subordination,nsdc,president,subordination,ua-law-183-98-vr,in_force,medium,Очолює Президент.,Chaired by the President.,,
+nccc>nsdc:subordination,nccc,nsdc,subordination,ua-pres-242-2016,in_force,medium,Робочий орган РНБО.,A working body of the NSDC.,2016-06-07,
+ssscip>nccc:membership,ssscip,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+npu>nccc:membership,npu,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+sbu>nccc:membership,sbu,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+mod>nccc:membership,mod,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+gs>nccc:membership,gs,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+hur>nccc:membership,hur,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+szr>nccc:membership,szr,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+dpsu>nccc:membership,dpsu,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+nbu>nccc:membership,nbu,nccc,membership,ua-pres-242-2016,in_force,medium,,,2016-06-07,
+mintsyfry>nccc:membership,mintsyfry,nccc,membership,ua-pres-242-2016,in_force,medium,"За складом у п. 5 указу; МЗС і Мінцифри — члени, але не основні суб'єкти за ст. 8 Закону № 2163-VIII.",Per the membership in para. 5 of the decree; the MFA and MinDigital are members but not principal subjects under art. 8 of Law No. 2163-VIII.,2019-09-02,
+mfa>nccc:membership,mfa,nccc,membership,ua-pres-242-2016,in_force,medium,"За складом у п. 5 указу; МЗС і Мінцифри — члени, але не основні суб'єкти за ст. 8 Закону № 2163-VIII.",Per the membership in para. 5 of the decree; the MFA and MinDigital are members but not principal subjects under art. 8 of Law No. 2163-VIII.,2016-06-07,
+ssscip>cmu:subordination,ssscip,cmu,subordination,ua-law-3475-iv,in_force,medium,ЦОВВ зі спецстатусом; інших зовнішніх наглядових зв'язків на карті немає.,Central executive body with special status; no other external supervisory link on the map.,,
+ssscip-acp>ssscip:subordination,ssscip-acp,ssscip,subordination,ua-law-3475-iv,in_force,low,,,,
+npu>cmu:subordination,npu,cmu,subordination,ua-law-580-viii,in_force,medium,Через Міністра внутрішніх справ.,Through the Minister of Internal Affairs.,2015-11-07,
+cyberpolice>npu:subordination,cyberpolice,npu,subordination,ua-law-580-viii,in_force,medium,,,2015-10-13,
+sbu>president:subordination,sbu,president,subordination,ua-law-2229-xii,in_force,medium,,,,
+szr>president:subordination,szr,president,subordination,ua-law-912-ix,in_force,low,,,,
+hur>mod:subordination,hur,mod,subordination,ua-law-912-ix,in_force,medium,,,,
+gs>mod:subordination,gs,mod,subordination,ua-law-1932-xii,in_force,low,,,,
+cyber-forces>gs:subordination,cyber-forces,gs,subordination,ua-bill-12349,draft,low,,,,
+mod-csirt>mod:subordination,mod-csirt,mod,subordination,ua-law-1932-xii,in_force,low,,,,
+csirt-nbu>nbu:subordination,csirt-nbu,nbu,subordination,ua-law-679-xiv,in_force,low,,,,
+ombudsman>vru:subordination,ombudsman,vru,subordination,ua-law-776-97-vr,in_force,medium,,,,
+mintsyfry>cmu:subordination,mintsyfry,cmu,subordination,,in_force,medium,,,2019-09-02,
+mfa>cmu:subordination,mfa,cmu,subordination,,in_force,medium,,,,
+mon>cmu:subordination,mon,cmu,subordination,,in_force,medium,,,,
+mintsyfry>ssscip:reporting,mintsyfry,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,"Звіт про виконання плану на 2026 рік — до Адміністрації Держспецзв'язку, не до НКЦК.","Reports on the 2026 plan go to the SSSCIP Administration, not the NCCC.",2026-06-24,
+mfa>ssscip:reporting,mfa,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,,2026-06-24,
+mon>ssscip:reporting,mon,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,,2026-06-24,
+npu>ssscip:reporting,npu,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,,2026-06-24,
+sbu>ssscip:reporting,sbu,ssscip,reporting,ua-cmu-631r-2026,in_force,medium,,,2026-06-24,
+ssscip>state-bodies:oversight,ssscip,state-bodies,oversight,ua-law-3475-iv,in_force,medium,,,2018-05-09,
+ssscip>ci-operators:oversight,ssscip,ci-operators,oversight,ua-law-4336-ix,in_force,medium,,,2018-05-09,
+state-bodies>ssscip:approval,state-bodies,ssscip,approval,ua-law-4336-ix,in_force,medium,Призначення керівника з кіберзахисту погоджується з Адміністрацією Держспецзв'язку.,Appointment of the cyber-protection lead is approved by the SSSCIP Administration.,2025-03-27,
+state-bodies>sbu:approval,state-bodies,sbu,approval,ua-law-4336-ix,in_force,medium,СБУ перевіряє кандидата на керівника з кіберзахисту.,The SBU vets the candidate cyber-protection lead.,2025-03-27,
+ci-operators>cert-ua:reporting,ci-operators,cert-ua,reporting,ua-cmu-1533-2025,in_force,low,Повідомлення про інциденти.,Incident notification.,2018-05-09,
+state-bodies>cert-ua:reporting,state-bodies,cert-ua,reporting,ua-cmu-1533-2025,in_force,low,,,2018-05-09,
+cert-ua>sbu:info_exchange,cert-ua,sbu,info_exchange,ua-cmu-1533-2025,in_force,low,,,2018-05-09,
+cert-ua>csirt-nbu:info_exchange,cert-ua,csirt-nbu,info_exchange,ua-law-4336-ix,in_force,low,,,2025-03-27,
+cert-ua>mod-csirt:info_exchange,cert-ua,mod-csirt,info_exchange,ua-law-4336-ix,in_force,low,,,2025-03-27,
+sectoral-csirts>cert-ua:info_exchange,sectoral-csirts,cert-ua,info_exchange,ua-law-4336-ix,planned,medium,,,,
+regional-csirts>cert-ua:info_exchange,regional-csirts,cert-ua,info_exchange,ua-law-4336-ix,planned,medium,,,,
+tallinn>ssscip:support,tallinn,ssscip,support,,in_force,medium,,,2023-12-20,
+mfa>eu:info_exchange,mfa,eu,info_exchange,,in_force,low,Кібердіалог ЄС–Україна.,EU–Ukraine cyber dialogue.,,
+eu>ssscip:support,eu,ssscip,support,,in_force,low,Доступ до EU Cybersecurity Reserve (червень 2026).,Access to the EU Cybersecurity Reserve (June 2026).,2026-06,
+orgs>cert-ua:help,orgs,cert-ua,help,ua-law-2163-viii,in_force,low,Повідомлення про інцидент і технічна допомога.,Incident report and technical assistance.,2018-05-09,
+orgs>cyberpolice:help,orgs,cyberpolice,help,ua-law-580-viii,in_force,low,Якщо є ознаки кіберзлочину.,When there are signs of a cybercrime.,2015-10-13,
+citizens>cyberpolice:help,citizens,cyberpolice,help,ua-law-580-viii,in_force,low,"Шахрайство, злам облікових записів.","Fraud, account takeover.",2015-10-13,
+citizens>ombudsman:help,citizens,ombudsman,help,ua-law-2297-vi,in_force,low,Порушення захисту персональних даних.,Breach of personal data protection.,2014-01-01,
+ci-operators>cert-ua:help,ci-operators,cert-ua,help,ua-law-2163-viii,in_force,low,,,2018-05-09,
+state-bodies>cert-ua:help,state-bodies,cert-ua,help,ua-law-2163-viii,in_force,low,,,2018-05-09,
+sbu>ci-operators:oversight,sbu,ci-operators,oversight,ua-law-2163-viii,in_force,medium,Негласна перевірка готовності об'єктів КІ до кібератак (ст. 8).,Covert testing of CI readiness for cyberattacks (art. 8).,2018-05-09,
+cert-ua>state-bodies:guidance,cert-ua,state-bodies,guidance,ua-law-2163-viii,in_force,low,Попередження про загрози.,Threat alerts.,2018-05-09,
+cert-ua>ci-operators:guidance,cert-ua,ci-operators,guidance,ua-law-2163-viii,in_force,low,Попередження про загрози.,Threat alerts.,2018-05-09,
+ssscip>ci-operators:guidance,ssscip,ci-operators,guidance,ua-cmu-1470-2025,in_force,medium,Загальні вимоги до кіберзахисту ОКІ.,General cyber-protection requirements for CI.,2025-11-13,
+ssscip>state-bodies:guidance,ssscip,state-bodies,guidance,ua-cmu-447-2025,in_force,medium,Вимоги до кіберзахисту державних інформаційних ресурсів.,Cyber-protection requirements for state information resources.,2025-03-28,
+cert-ua>ssscip-dckz:subordination,cert-ua,ssscip-dckz,subordination,ua-law-3475-iv,in_force,low,,,,
+ssscip-dckz>ssscip:subordination,ssscip-dckz,ssscip,subordination,ua-law-3475-iv,in_force,low,,,,

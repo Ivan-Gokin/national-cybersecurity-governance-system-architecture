@@ -17,16 +17,22 @@ COLUMNS = {
     "vocab.csv": ["vocab", "id", "label_uk", "label_en", "description_uk", "description_en"],
     "mandates.csv": ["id", "order", "name_uk", "name_en", "regime_uk", "regime_en", "description_uk", "description_en"],
     "actors.csv": ["id", "short_uk", "short_en", "name_uk", "name_en", "type", "level", "parent", "tier", "categories",
-                   "grc_sectors", "confidence", "notes_uk", "notes_en", "last_verified"],
-    "roles.csv": ["id", "actor", "role", "mandate", "act", "provision", "regime", "status", "confidence", "notes_uk", "notes_en"],
-    "links.csv": ["id", "from", "to", "type", "act", "status", "confidence", "notes_uk", "notes_en"],
+                   "grc_sectors", "confidence", "notes_uk", "notes_en", "last_verified", "valid_from", "valid_to"],
+    "roles.csv": ["id", "actor", "role", "mandate", "act", "provision", "regime", "status", "confidence", "notes_uk", "notes_en",
+                  "valid_from", "valid_to"],
+    "links.csv": ["id", "from", "to", "type", "act", "status", "confidence", "notes_uk", "notes_en", "valid_from", "valid_to"],
     "ncaf_clusters.csv": ["id", "name_uk", "name_en"],
     "ncaf_objectives.csv": ["id", "cluster", "name_uk", "name_en", "mandates", "subjects", "plan_2026", "notes_uk", "notes_en"],
     "flow_steps.csv": ["id", "stage", "actor", "activity_uk", "activity_en", "absent"],
     "flow_handoffs.csv": ["id", "from", "to", "ncaf", "rule_act", "notes_uk", "notes_en"],
-    "expected_types.csv": ["id", "name_uk", "name_en", "basis_uk", "basis_en", "ncaf", "coverage", "actors", "confidence",
-                           "notes_uk", "notes_en"],
+    "expected_types.csv": ["id", "name_uk", "name_en", "basis_uk", "basis_en", "ncaf", "capability", "coverage", "actors",
+                           "confidence", "notes_uk", "notes_en"],
+    "capabilities.csv": ["id", "parent", "name_uk", "name_en", "description_uk", "description_en", "csf", "otm", "ncaf", "refs",
+                         "notes_uk", "notes_en"],
+    "realizations.csv": ["id", "capability", "actor", "part", "role", "confidence", "notes_uk", "notes_en"],
+    "refs.csv": ["id", "title_uk", "title_en", "publisher_uk", "publisher_en", "url", "notes_uk", "notes_en"],
 }
+DATE_RE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
 PLAN_VALUES = {"unknown", "covered", "partial", "none", "na"}
 # fields of a register row the site needs; everything else stays in the register
 ACT_FIELDS = ["id", "register_no", "eli", "type", "number", "adopted", "short_ref_uk", "short_ref_en", "title_uk", "title_en",
@@ -175,8 +181,50 @@ def check(t):
         need(r, "ncaf", OB, "NCAF objective", blank_ok=True)
         need_act(r, "rule_act")
 
+    # the time axis: valid_from / valid_to are dates (YYYY, YYYY-MM or YYYY-MM-DD); blank = before 2014 or not established
+    for name in ("actors.csv", "roles.csv", "links.csv"):
+        for r in t[name]:
+            for col in ("valid_from", "valid_to"):
+                if r.get(col) and not DATE_RE.match(r[col]):
+                    errors.append(f"{r['_where']}: {col} '{r[col]}' is not a date (YYYY, YYYY-MM or YYYY-MM-DD)")
+            if r.get("valid_from") and r.get("valid_to") and r["valid_to"] < r["valid_from"]:
+                errors.append(f"{r['_where']}: valid_to is before valid_from")
+
+    # the capability map: a tree of functions, and who performs each on what legal basis
+    CAP = unique("capabilities.csv")
+    RF = unique("refs.csv")
+    roles = {r["id"]: r for r in t["roles.csv"]}
+    for r in t["capabilities.csv"]:
+        need(r, "parent", CAP, "capability", blank_ok=True)
+        need_many(r, "csf", V.get("csf", set()), "CSF function")
+        need_many(r, "otm", V.get("otm", set()), "OTM provision")
+        need_many(r, "ncaf", OB, "NCAF objective")
+        need_many(r, "refs", RF, "reference")
+        if r["parent"] and next((c for c in t["capabilities.csv"] if c["id"] == r["parent"]), {}).get("parent"):
+            errors.append(f"{r['_where']}: the capability map has two levels; '{r['parent']}' is itself a child")
+    leaves = {r["id"] for r in t["capabilities.csv"] if r["parent"]}
+    seen = set()
+    for r in t["realizations.csv"]:
+        need(r, "capability", leaves, "second-level capability")
+        need(r, "actor", X, "actor")
+        need(r, "part", V.get("part", set()), "part")
+        need(r, "confidence", V.get("confidence", set()), "confidence")
+        if r["id"] != f"{r['capability']}>{r['actor']}":
+            errors.append(f"{r['_where']}: id must be '<capability>><actor>', got '{r['id']}'")
+        if r["role"]:
+            if r["role"] not in roles:
+                errors.append(f"{r['_where']}: role '{r['role']}' does not exist")
+            elif roles[r["role"]]["actor"] != r["actor"]:
+                errors.append(f"{r['_where']}: role '{r['role']}' belongs to '{roles[r['role']]['actor']}', not '{r['actor']}'")
+        else:
+            warnings.append(f"{r['_where']}: {r['actor']} performs {r['capability']} with no role (legal basis) coded")
+        seen.add(r["capability"])
+    for c in sorted(leaves - seen):
+        warnings.append(f"capabilities.csv: nobody performs '{c}'")
+
     unique("expected_types.csv")
     for r in t["expected_types.csv"]:
+        need(r, "capability", leaves, "second-level capability", blank_ok=True)
         need(r, "coverage", V.get("coverage", set()), "coverage")
         need_many(r, "actors", X, "actor")
         need(r, "ncaf", OB, "NCAF objective", blank_ok=True)
@@ -250,6 +298,9 @@ def graph(t):
         "flow_steps": strip(t["flow_steps.csv"]),
         "flow_handoffs": strip(t["flow_handoffs.csv"]),
         "expected_types": strip(t["expected_types.csv"]),
+        "capabilities": strip(t["capabilities.csv"]),
+        "realizations": strip(t["realizations.csv"]),
+        "refs": strip(t["refs.csv"]),
         "grc_sectors": [{k: r[k] for k in ("id", "label_uk", "label_en")} for r in t["register_sectors"]
                         if r["id"] in {x for a in t["actors.csv"] for x in many(a["grc_sectors"])}],
     }

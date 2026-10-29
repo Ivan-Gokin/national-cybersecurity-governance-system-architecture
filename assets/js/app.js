@@ -2,12 +2,13 @@
  * Static site, no tracking. Reads data/graph.json once and draws every view from it in the browser.
  * Routes: #/<view>[/<id>][?params]. The representation (house, structure, cards) and the tools that work on it
  * (checks, expected types, search) are separate modules over the same query layer in core.js. */
-import { CFG, D, S, t, fmt, esc, store, loadGraph } from "./core.js";
+import { CFG, D, S, t, fmt, esc, store, loadGraph, setDate } from "./core.js";
 import { ICON, repo } from "./ui.js";
 import * as home from "./home.js";
 import * as views from "./views.js";
 import * as cards from "./cards.js";
 import * as analysis from "./analysis.js";
+import * as capmap from "./capmap.js";
 
 const app = document.getElementById("app");
 const ROUTES = {
@@ -17,12 +18,13 @@ const ROUTES = {
   actor: cards.renderActorCard, act: cards.renderActCard,
   types: analysis.renderTypes, checks: analysis.renderChecks, acts: analysis.renderActs,
   search: analysis.renderSearch, method: analysis.renderMethod,
+  functions: capmap.renderFunctions, cap: capmap.renderCapCard, time: capmap.renderTime,
 };
 // Navigation: viewpoints are ways in (who is asking), views are the projections themselves
 export const VIEW_MENU = [
-  ["menuMap", ["house", "structure", "actors"]],
+  ["menuMap", ["house", "structure", "functions", "actors"]],
   ["menuPowers", ["mandates", "links", "flow"]],
-  ["menuAnalysis", ["types", "checks", "ncaf"]],
+  ["menuAnalysis", ["types", "checks", "ncaf", "time"]],
   ["menuLaw", ["acts"]],
 ];
 export const VIEWPOINTS = ["org", "body", "law", "analysis", "crisis", "partner"];
@@ -38,6 +40,8 @@ function readHash() {
   S.route = ROUTES[route] ? route : "home";
   S.arg = decodeURIComponent(rest.join("/") || "");
   S.planned = S.p.get("planned") !== "0";
+  // a date chosen on the time view stays in force across views until it is cleared
+  if (S.p.has("at")) { const at = /^\d{4}-\d{2}-\d{2}$/.test(S.p.get("at")) ? S.p.get("at") : ""; if (at !== S.at && D.raw) setDate(at); else S.at = at; }
 }
 // change one query parameter of the current view without adding a history entry
 export function setParam(key, value, rerender = true) {
@@ -64,7 +68,7 @@ function themeButton() {
 if (DARK && DARK.addEventListener) DARK.addEventListener("change", themeButton);
 
 // ------------------------------------------------------------------ shell
-const VIEW_OF = { actor: "actors", act: "acts", vp: "" };
+const VIEW_OF = { actor: "actors", act: "acts", vp: "", cap: "functions" };
 function renderShell() {
   document.documentElement.lang = S.lang;
   const cur = VIEW_OF[S.route] !== undefined ? VIEW_OF[S.route] : S.route;
@@ -90,6 +94,13 @@ function renderShell() {
     d.querySelectorAll("a").forEach((l) => l.addEventListener("click", () => (d.open = false)));
   });
   themeButton();
+  const ab = document.getElementById("atbar");
+  if (ab) {
+    ab.hidden = !S.at;
+    ab.innerHTML = S.at ? `${esc(fmt(t("atBanner"), fmtDate(S.at)))} <a href="#" id="at-clear">${esc(t("atClear"))}</a> · <a href="#/time">${esc(t("nav_time"))}</a>` : "";
+    const c = document.getElementById("at-clear");
+    if (c) c.onclick = (e) => { e.preventDefault(); setDate(""); S.p.delete("at"); setParam("at", ""); renderShell(); };
+  }
   const pv = document.getElementById("preview");
   if (pv) { pv.hidden = !CFG.preview; pv.textContent = CFG.preview ? t("previewBanner") : ""; }
   const r = repo();
@@ -100,6 +111,7 @@ function renderShell() {
   const rep = document.getElementById("report");
   if (rep) rep.addEventListener("click", () => { rep.href = `${r}/issues/new?template=report.yml&page=${encodeURIComponent(location.href)}`; });
 }
+export const fmtDate = (d) => (d ? new Date(d + "T00:00:00").toLocaleDateString(S.lang === "uk" ? "uk-UA" : "en-GB", { day: "numeric", month: "long", year: "numeric" }) : "");
 export function setTitle(page) { document.title = page ? `${page} — ${t("siteName")}` : `${t("siteName")}: ${t("siteSub")}`; }
 
 let focusNext = false;
@@ -117,10 +129,12 @@ async function start() {
   const saved = store.get("uca-lang");
   S.lang = saved === "uk" || saved === "en" ? saved : (CFG.defaultLang || "uk");
   readHash();
+  const at0 = S.at; S.at = "";
   try { await loadGraph(); } catch (e) {
     app.innerHTML = `<p class="notice">${esc(t("loadError"))} ${esc(e.message)}</p>`;
     return;
   }
+  if (at0) setDate(at0);
   render();
   window.addEventListener("hashchange", () => { readHash(); focusNext = true; render(); window.scrollTo(0, 0); });
 }

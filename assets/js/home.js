@@ -11,7 +11,9 @@ function chip(id, extra = "") {
   const planned = rolesOf(id).length && rolesOf(id).every((r) => r.status !== "in_force");
   const n = family(root(id)).reduce((s, m) => s + rolesOf(m).length, 0);
   const title = `${L(a, "name")}${isUnit(a) ? ` (${t("partOf")} ${L(D.actor[root(id)], "short")})` : ""}`;
-  return `<a class="hchip${planned ? " is-planned" : ""}${isUnit(a) ? " is-unit" : ""}" data-family="${esc(root(id))}" href="${actorHref(id)}" title="${esc(title)}">${esc(L(a, "short"))}${multiMark(id)}${extra}${!isUnit(a) && n > 3 ? `<span class="hcount" title="${esc(fmt(t("rolesInFamily"), n))}">${n}</span>` : ""}</a>`;
+  // read at a past date, a body with no date of its own and no dated role may not have existed yet: say so
+  const undated = S.at && !a.valid_from && !rolesOf(id).some((r) => r.valid_from);
+  return `<a class="hchip${planned ? " is-planned" : ""}${undated ? " is-undated" : ""}${isUnit(a) ? " is-unit" : ""}" data-family="${esc(root(id))}" href="${actorHref(id)}" title="${esc(title)}${undated ? ` — ${esc(t("undated"))}` : ""}">${esc(L(a, "short"))}${multiMark(id)}${extra}${!isUnit(a) && n > 3 ? `<span class="hcount" title="${esc(fmt(t("rolesInFamily"), n))}">${n}</span>` : ""}</a>`;
 }
 export function house(opts = {}) {
   const inBody = D.actors.filter((a) => a.tier === "body" || a.tier === "coordination");
@@ -100,11 +102,11 @@ export function renderHouse(app) {
 // A viewpoint (ISO/IEC 42010) names who is asking, what they care about, and which views answer their questions.
 const VP = {
   org: { qs: [["vpOrgQ1", "#/actor/orgs"], ["vpOrgQ2", "#/actor/ci-operators"], ["vpOrgQ3", "#/actor/state-bodies"], ["vpOrgQ4", "#/actor/citizens"], ["vpOrgQ5", "#/flow"]], classes: true },
-  body: { qs: [["vpBodyQ1", "#/actors"], ["vpBodyQ2", "#/actor/ssscip"], ["vpBodyQ3", "#/links"], ["vpBodyQ4", "#/checks?c=watchers"], ["vpBodyQ5", "#/structure"]] },
-  law: { qs: [["vpLawQ1", "#/acts"], ["vpLawQ2", "#/mandates"], ["vpLawQ3", "#/checks?c=noBasis"], ["vpLawQ4", "#/checks?c=unverified"]] },
-  analysis: { qs: [["vpAnQ1", "#/types"], ["vpAnQ2", "#/checks?c=sod"], ["vpAnQ3", "#/structure?hl=ssscip"], ["vpAnQ4", "#/ncaf"], ["vpAnQ5", "#/checks"]] },
+  body: { qs: [["vpBodyQ1", "#/actors"], ["vpBodyQ2", "#/actor/ssscip"], ["vpBodyQ6", "#/functions?hl=ssscip"], ["vpBodyQ3", "#/links"], ["vpBodyQ4", "#/checks?c=watchers"], ["vpBodyQ5", "#/structure"]] },
+  law: { qs: [["vpLawQ1", "#/acts"], ["vpLawQ5", "#/time"], ["vpLawQ2", "#/mandates"], ["vpLawQ3", "#/checks?c=noBasis"], ["vpLawQ4", "#/checks?c=unverified"]] },
+  analysis: { qs: [["vpAnQ6", "#/functions"], ["vpAnQ1", "#/types"], ["vpAnQ2", "#/checks?c=sod"], ["vpAnQ3", "#/structure?hl=ssscip"], ["vpAnQ4", "#/ncaf"], ["vpAnQ7", "#/time"], ["vpAnQ5", "#/checks"]] },
   crisis: { qs: [["vpCrQ1", "#/flow"], ["vpCrQ2", "#/checks?c=handoffs"], ["vpCrQ3", "#/types?t=crisis-authority"], ["vpCrQ4", "#/actor/nccc"]] },
-  partner: { qs: [["vpPaQ1", "#/types"], ["vpPaQ2", "#/ncaf"], ["vpPaQ3", "#/mandates"], ["vpPaQ4", "#/actor/tallinn"]] },
+  partner: { qs: [["vpPaQ5", "#/functions?m=matrix"], ["vpPaQ1", "#/types"], ["vpPaQ2", "#/ncaf"], ["vpPaQ3", "#/mandates"], ["vpPaQ4", "#/actor/tallinn"]] },
 };
 export function renderViewpoint(app) {
   const id = VP[S.arg] ? S.arg : "org";

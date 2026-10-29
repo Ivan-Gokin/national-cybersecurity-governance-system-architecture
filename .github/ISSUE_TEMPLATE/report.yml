@@ -1,0 +1,27 @@
+name: Помилка на сайті / Error on the site
+description: Неточність у даних чи тексті / An inaccuracy in the data or text
+labels: [report]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Сторінка / Page
+      description: Адресу підставлено автоматично / Filled in automatically
+  - type: textarea
+    id: what
+    attributes:
+      label: Що не так / What is wrong
+    validations:
+      required: true
+  - type: input
+    id: basis
+    attributes:
+      label: Правова підстава чи джерело / Legal basis or source
+      description: Акт, стаття, пункт або посилання / Act, article, paragraph or link
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Межа відкритості / Openness boundary
+      options:
+        - label: У повідомленні немає об'єктів інфраструктури, систем, адрес, контактів чи прізвищ / The report contains no infrastructure objects, systems, addresses, contacts or personal names
+          required: true

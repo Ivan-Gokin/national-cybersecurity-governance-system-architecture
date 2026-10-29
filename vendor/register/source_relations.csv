@@ -1,0 +1,166 @@
+source_id,relation,related_id,basis_uk,source_url,confidence,verified
+ua-law-1089-ix,ensures_implementation_of,intl-eu-ua-association-agreement,Закон ухвалено з урахуванням Європейського кодексу електронних комунікацій на виконання зобов'язань за Додатком XVII Угоди,https://research.rada.gov.ua/uploads/documents/33300.pdf,medium,no
+ua-law-1089-ix,transposes,eu-dir-2018-1972,"Дослідницька служба ВРУ: закон ""прийнятий з урахуванням положень"" Кодексу, наближення приблизно 70%",https://research.rada.gov.ua/uploads/documents/33300.pdf,medium,no
+ua-law-4670-ix,ensures_implementation_of,intl-eu-ua-association-agreement,Заявлено як наближення до законодавства ЄС у сфері електронних комунікацій,https://news.dtkt.ua/society/community/104874-onovlennia-pravil-u-sferi-e-komunikacii-pidpisano-zakon,medium,no
+ua-law-4336-ix,transposes,eu-dir-2022-2555,"Єврокомісія зарахувала закон як крок 14.2 Ukraine Facility ""узгодження з NIS і NIS2""",https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0365,medium,no
+ua-law-4336-ix,related_to,eu-reg-2024-792,Крок 14.2 Плану України: набрання чинності законами про наближення до NIS/NIS2 (I квартал 2025),https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0365,high,no
+ua-law-2155-viii,applies,eu-reg-2014-910,Визначення електронних підписів узгоджено з eIDAS; Україна включена до схеми довірених списків ЄС,https://ceelegalmatters.com/ukraine/27831,medium,no
+ua-law-2297-vi,ensures_implementation_of,intl-coe-ets-108,"Конвенцію ратифіковано Законом 2438-VI, який набрав чинності разом із Законом 2297-VI",https://www.president.gov.ua/documents/2438vi-11734,medium,no
+ua-bill-8153,applies,eu-reg-2016-679,Законопроєкт спрямовано на наближення до GDPR,https://itd.rada.gov.ua/billinfo/Bills/Card/40707,high,no
+ua-bill-12207,transposes,eu-dir-2022-2555,Законопроєкт про наближення до NIS2,https://itd.rada.gov.ua/billinfo/Bills/Card/45219,high,no
+ua-bill-12207,applies,eu-reg-2019-881,Запровадження європейських схем сертифікації кібербезпеки,https://itd.rada.gov.ua/billinfo/Bills/Card/45219,high,no
+ua-ssscip-843-2025,ensures_implementation_of,intl-ua-nato-security-agreement,Базовий профіль для систем з інформацією NATO RESTRICTED ґрунтується на зобов'язаннях щодо захисту інформації НАТО,https://zakon.rada.gov.ua/laws/show/950_002,medium,no
+eu-reg-impl-2024-2690,based_on,eu-dir-2022-2555,Імплементаційний регламент Комісії до ст. 21 і 23 NIS2,https://eur-lex.europa.eu/eli/reg_impl/2024/2690/oj,high,no
+eu-reg-del-2024-1774,based_on,eu-reg-2022-2554,Регуляторний технічний стандарт до DORA,https://eur-lex.europa.eu/eli/reg_del/2024/1774/oj,high,no
+eu-reg-2025-37,amends,eu-reg-2019-881,Регламент 2025/37 змінює Регламент 2019/881,https://eur-lex.europa.eu/eli/reg/2025/37/oj,high,no
+eu-reg-2026-1744,amends,eu-reg-2024-1689,Регламент 2026/1744 змінює Регламент 2024/1689,https://eur-lex.europa.eu/eli/reg/2026/1744/oj,high,no
+eu-reg-2024-1183,amends,eu-reg-2014-910,Регламент 2024/1183 змінює Регламент 910/2014,https://eur-lex.europa.eu/eli/reg/2024/1183/oj,high,no
+eu-reg-2025-327,amends,eu-reg-2024-2847,Регламент 2025/327 змінює Регламент 2024/2847,https://eur-lex.europa.eu/eli/reg/2025/327/oj,high,no
+eu-reg-2024-2847,repeals,eu-reg-del-2022-30,"Делегованим регламентом 2026/339 вимоги RED скасовуються з 11.12.2027, коли повністю застосовується CRA",https://eur-lex.europa.eu/eli/reg_del/2026/339/oj/eng,high,no
+eu-com-2025-837,amends,eu-reg-2016-679,,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2025-837,amends,eu-dir-2002-58,,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2025-837,amends,eu-dir-2022-2555,,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2025-837,amends,eu-dir-2022-2557,,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2025-837,amends,eu-reg-2023-2854,,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2025-837,repeals,eu-reg-2022-868,Пропонується скасувати DGA і перенести норми до Data Act,https://eur-lex.europa.eu/procedure/EN/2025_360,high,no
+eu-com-2026-11,repeals,eu-reg-2019-881,,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2026/0011(COD),high,no
+eu-com-2026-13,amends,eu-dir-2022-2555,,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2026/0012(COD),high,no
+eu-com-2026-16,repeals,eu-dir-2018-1972,,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2026/0013(COD),high,no
+eu-com-2026-16,amends,eu-dir-2002-58,,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2026/0013(COD),high,no
+eu-com-2023-366,repeals,eu-dir-2015-2366,,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2023/0210(COD),high,no
+eu-com-2025-501,amends,eu-reg-2016-679,Ст. 30(5) GDPR,https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2025/0130(COD),high,no
+ua-law-4336-ix,amends,ua-law-2163-viii,"Розділ I Закону 4336-IX вносить зміни до Закону ""Про основні засади забезпечення кібербезпеки України""",https://iplex.com.ua/doc.php?code=4336-20,high,no
+ua-law-4336-ix,amends,ua-law-80-94-vr,"Закон 4336-IX викладає ст. 8 і змінює ст. 10 Закону ""Про захист інформації в ІКС""",https://iplex.com.ua/doc.php?code=4336-20,high,no
+ua-law-4336-ix,amends,ua-law-3475-iv,Закон 4336-IX доповнює ст. 14 Закону про Держспецзв'язку пунктами 96-115,https://iplex.com.ua/doc.php?code=4336-20,high,no
+ua-pres-37-2022,ensures_implementation_of,ua-pres-447-2021,План реалізації Стратегії кібербезпеки,https://zakon.rada.gov.ua/laws/show/37/2022,medium,no
+ua-cmu-518-2019,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 5 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=518-2019-%D0%BF,high,no
+ua-cmu-943-2020,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 4 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=943-2020-%D0%BF,high,no
+ua-cmu-1109-2020,based_on,ua-law-1882-ix,"Відповідно до ст. 8, 9, 10 Закону ""Про критичну інфраструктуру"" (чинна редакція)",https://iplex.com.ua/doc.php?code=1109-2020-%D0%BF,high,no
+ua-cmu-1176-2020,based_on,ua-law-2469-viii,"Відповідно до п. 4 ч. 3 ст. 27 Закону ""Про національну безпеку України""",https://iplex.com.ua/doc.php?code=1176-2020-%D0%BF,high,no
+ua-cmu-1426-2021,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 8 Закону 2163-VIII: п. 15 називає впровадження організаційно-технічної моделі кіберзахисту одним зі способів забезпечення функціонування національної системи кібербезпеки,https://iplex.com.ua/doc.php?code=1426-2021-%D0%BF,high,no
+ua-cmu-415-2023,based_on,ua-law-1882-ix,"Відповідно до ч. 5 ст. 11 Закону ""Про критичну інфраструктуру""",https://iplex.com.ua/doc.php?code=415-2023-%D0%BF,high,no
+ua-cmu-299-2023,based_on,ua-pres-37-2022,Відповідно до п. 37 Плану реалізації Стратегії кібербезпеки,https://iplex.com.ua/doc.php?code=299-2023-%D0%BF,high,no
+ua-cmu-373-2006,based_on,ua-law-80-94-vr,"Відповідно до ст. 10 Закону ""Про захист інформації в ІКС""",https://iplex.com.ua/doc.php?code=373-2006-%D0%BF,high,no
+ua-cmu-835-2015,based_on,ua-law-2939-vi,"Відповідно до ст. 10-1 Закону ""Про доступ до публічної інформації""",https://iplex.com.ua/doc.php?code=835-2015-%D0%BF,high,no
+ua-cmu-154-2025,based_on,ua-law-2075-ix,"Відповідно до ст. 8, 10, 12 Закону ""Про хмарні послуги""",https://iplex.com.ua/doc.php?code=154-2025-%D0%BF,high,no
+ua-cmu-712-2025,based_on,ua-law-80-94-vr,"Відповідно до ст. 8 і 10 Закону ""Про захист інформації в ІКС""",https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,high,no
+ua-cmu-1281-2025,based_on,ua-law-2163-viii,Відповідно до п. 27 ч. 3 ст. 8 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1281-2025-%D0%BF,high,no
+ua-cmu-1335-2025,based_on,ua-law-2163-viii,Відповідно до ч. 4 ст. 4 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1335-2025-%D0%BF,high,no
+ua-cmu-1424-2025,based_on,ua-law-3475-iv,Відповідно до п. 102 ч. 1 ст. 14 Закону про Держспецзв'язку,https://iplex.com.ua/doc.php?code=1424-2025-%D0%BF,high,no
+ua-cmu-1580-2025,based_on,ua-law-2163-viii,Відповідно до ч. 7 ст. 8 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1580-2025-%D0%BF,high,no
+ua-cmu-1799-2025,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 5 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1799-2025-%D0%BF,high,no
+ua-cmu-1668-2025,based_on,ua-law-2163-viii,Відповідно до ч. 4 ст. 15 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1668-2025-%D0%BF,high,no
+ua-cmu-1471-2025,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 5 і 9 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1471-2025-%D0%BF,high,no
+ua-cmu-1516-2025,based_on,ua-law-2163-viii,Відповідно до ст. 5-1 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1516-2025-%D0%BF,high,no
+ua-cmu-1533-2025,based_on,ua-law-2163-viii,Відповідно до ч. 3 ст. 5 і ч. 7 ст. 9-1 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=1533-2025-%D0%BF,high,no
+ua-cmu-75-2025,based_on,ua-law-1089-ix,"Відповідно до п. 15 ч. 1 ст. 5 і ст. 32 Закону ""Про електронні комунікації""",https://iplex.com.ua/doc.php?code=75-2025-%D0%BF,high,no
+ua-cmu-764-2024,based_on,ua-law-2155-viii,"Відповідно до статей Закону ""Про електронну ідентифікацію та електронні довірчі послуги""",https://iplex.com.ua/doc.php?code=764-2024-%D0%BF,high,no
+ua-cmu-205-2025,based_on,ua-law-74-98-vr,"Ґрунтується на Законі ""Про Національну програму інформатизації""",https://iplex.com.ua/doc.php?code=205-2025-%D0%BF,medium,no
+ua-cmu-119-2024,based_on,ua-law-74-98-vr,"Ґрунтується на Законі ""Про Національну програму інформатизації""",https://iplex.com.ua/doc.php?code=119-2024-%D0%BF,medium,no
+ua-cmu-447-2025,based_on,ua-law-4336-ix,Пакет змін до постанов уряду на виконання Закону 4336-IX,https://research.rada.gov.ua/uploads/documents/33542.pdf,medium,no
+ua-cmu-1470-2025,based_on,ua-law-4336-ix,nv.ua: серед підзаконних актів Закону 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-1531-2025,based_on,ua-law-4336-ix,nv.ua: серед підзаконних актів Закону 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-1740-2025,based_on,ua-law-4336-ix,nv.ua: серед підзаконних актів Закону 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-712-2025,based_on,ua-law-4336-ix,Преамбула посилається на ст. 8 і ч. 3 ст. 10 Закону про ІКС у редакції Закону 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1281-2025,based_on,ua-law-4336-ix,П. 27 ч. 3 ст. 8 Закону 2163-VIII додано Законом 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1335-2025,based_on,ua-law-4336-ix,Ч. 4 ст. 4 Закону 2163-VIII додано Законом 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1424-2025,based_on,ua-law-4336-ix,П. 102 ч. 1 ст. 14 Закону про Держспецзв'язку додано Законом 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1580-2025,based_on,ua-law-4336-ix,Ч. 7 ст. 8 Закону 2163-VIII додано Законом 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1799-2025,based_on,ua-law-4336-ix,Ч. 3 ст. 5 Закону 2163-VIII в редакції Закону 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1668-2025,based_on,ua-law-4336-ix,nv.ua: серед підзаконних актів Закону 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-1471-2025,based_on,ua-law-4336-ix,Ч. 3 ст. 5 і ст. 9 Закону 2163-VIII в редакції Закону 4336-IX,https://iplex.com.ua/doc.php?code=4336-20,medium,no
+ua-cmu-1516-2025,based_on,ua-law-4336-ix,Ст. 5-1 додано Законом 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-1533-2025,based_on,ua-law-4336-ix,Ст. 9-1 додано Законом 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-ssscip-798-2025,based_on,ua-law-4336-ix,nv.ua: серед підзаконних актів Закону 4336-IX,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-ssscip-434-2025,based_on,ua-law-4336-ix,"Преамбула: норми, додані Законом 4336-IX",https://iplex.com.ua/doc.php?code=z1140-25,medium,no
+ua-ssscip-179-2026,based_on,ua-law-4336-ix,"Преамбула: норми, додані Законом 4336-IX",https://iplex.com.ua/doc.php?code=z0473-26,medium,no
+ua-ssscip-410-2026,based_on,ua-law-4336-ix,"Преамбула: норми, додані Законом 4336-IX",https://iplex.com.ua/doc.php?code=z0898-26,medium,no
+ua-cmu-1533-2025,repeals,ua-cmu-299-2023,"Постанову № 299 визнано такою, що втратила чинність",https://iplex.com.ua/doc.php?code=1533-2025-%D0%BF,high,no
+ua-cmu-1580-2025,amends,ua-cmu-497-2023,"Вносить зміни до Порядку, затвердженого постановою № 497",https://iplex.com.ua/doc.php?code=1580-2025-%D0%BF,high,no
+ua-cmu-205-2025,repeals,ua-cmu-869-2009,Постанова № 869 втратила чинність на підставі постанови № 205,https://iplex.com.ua/doc.php?code=869-2009-%D0%BF,high,no
+ua-cmu-205-2025,repeals,ua-cmu-121-1998,Постанова № 121 втратила чинність на підставі постанови № 205,https://iplex.com.ua/doc.php?code=121-98-%D0%BF,high,no
+ua-cmu-1470-2025,amends,ua-cmu-518-2019,Нова редакція Загальних вимог до кіберзахисту ОКІ,https://zakon.rada.gov.ua/laws/show/1470-2025-%D0%BF,high,no
+ua-cmu-1531-2025,amends,ua-cmu-373-2006,Нова редакція Мінімальних вимог (постанова № 373),https://zakon.rada.gov.ua/laws/show/1531-2025-%D0%BF,high,no
+ua-cmu-1740-2025,amends,ua-cmu-943-2020,Зміни до постанови № 943,https://nv.ua/ukr/ukraine/events/zakon-4336-ix-klyuchovi-normativi-ta-pidzakonni-akti-dlya-kiberbezpeki-ukrajini-50624451.html,medium,no
+ua-cmu-1799-2025,repeals,ua-cmu-257-2023,Постанова № 257 втратила чинність у зв'язку з постановою № 1799,https://zakon.rada.gov.ua/laws/show/257-2023-%D0%BF,high,no
+ua-cmu-712-2025,repeals,ua-cmu-627-2024,"Постанову № 627 визнано такою, що втратила чинність",https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,high,no
+ua-ssscip-23-2021,based_on,ua-law-2163-viii,З метою виконання ст. 6 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=v0023519-21,high,no
+ua-ssscip-23-2021,based_on,ua-cmu-1109-2020,"П. 5 Методики категоризації, постанова № 1109",https://iplex.com.ua/doc.php?code=v0023519-21,high,no
+ua-ssscip-550-2021,based_on,ua-cmu-1176-2020,"Пп. 10 і 11 Порядку огляду стану кіберзахисту, постанова № 1176",https://iplex.com.ua/doc.php?code=z1264-21,high,no
+ua-ssscip-284-2022,based_on,ua-cmu-1295-2020,"П. 12 Порядку функціонування системи виявлення вразливостей, постанова № 1295",https://iplex.com.ua/doc.php?code=z0758-22,high,no
+ua-ssscip-284-2022,based_on,ua-law-2163-viii,Відповідно до Закону 2163-VIII,https://iplex.com.ua/doc.php?code=z0758-22,high,no
+ua-ssscip-570-2023,based_on,ua-cmu-299-2023,П. 3 постанови № 299: затвердити методичні рекомендації щодо реагування,https://iplex.com.ua/doc.php?code=299-2023-%D0%BF,high,no
+ua-ssscip-599-2023,based_on,ua-cmu-497-2023,П. 5 Порядку № 497: примірна публічна пропозиція,https://iplex.com.ua/doc.php?code=497-2023-%D0%BF,medium,no
+ua-ssscip-141-2026,based_on,ua-cmu-497-2023,"Примірна публічна пропозиція, передбачена Порядком № 497 у редакції постанови № 1580",https://iplex.com.ua/doc.php?code=497-2023-%D0%BF,medium,no
+ua-ssscip-228-2024,based_on,ua-cmu-257-2023,П. 2 постанови № 257,https://zakon.rada.gov.ua/laws/show/257-2023-%D0%BF,medium,no
+ua-ssscip-228-2024,based_on,ua-law-2163-viii,П. 1 ч. 2 ст. 8 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=z0880-24,high,no
+ua-ssscip-228-2024,based_on,ua-law-3475-iv,П. 90 ч. 1 ст. 14 Закону про Держспецзв'язку,https://iplex.com.ua/doc.php?code=z0880-24,high,no
+ua-ssscip-75-2026,based_on,ua-cmu-518-2019,Мінрозвитку: на виконання постанов № 518 і № 373 (у редакції № 1470 і № 1531) затверджено наказ № 75,https://mininfra.gov.ua/storage/app/sites/1/uploaded-files/roziasnennia-05-05-3643-2026-vn.pdf,high,no
+ua-ssscip-75-2026,based_on,ua-cmu-373-2006,Те саме роз'яснення Мінрозвитку,https://mininfra.gov.ua/storage/app/sites/1/uploaded-files/roziasnennia-05-05-3643-2026-vn.pdf,high,no
+ua-ssscip-75-2026,repeals,ua-ssscip-601-2021,З набранням чинності наказом № 75 наказ № 601 втратив чинність,https://mininfra.gov.ua/storage/app/sites/1/uploaded-files/roziasnennia-05-05-3643-2026-vn.pdf,high,no
+ua-ssscip-75-2026,repeals,ua-ssscip-54-2025,З набранням чинності наказом № 75 наказ № 54 втратив чинність,https://mininfra.gov.ua/storage/app/sites/1/uploaded-files/roziasnennia-05-05-3643-2026-vn.pdf,high,no
+ua-ssscip-75-2026,based_on,ua-cmu-1426-2021,П. 5 Положення про організаційно-технічну модель кіберзахисту (у редакції 2024 року) вимагає впровадження базових заходів з кіберзахисту; чинні базові заходи затверджено наказом № 75. Преамбула наказу посилається на постанови № 518 і № 373,https://www.kmu.gov.ua/news/natsionalna-systema-kiberbezpeky-funktsionuvatyme-efektyvnishe,medium,no
+ua-ssscip-141-2026,repeals,ua-ssscip-599-2023,"Коментар реєстру: наказ № 599 втратив чинність, див. наказ № 141",,medium,no
+ua-ssscip-143-2026,repeals,ua-ssscip-570-2023,Наказ № 570 втратив чинність; реагування тепер деталізує наказ № 143 (огляд автора проєкту),https://www.linkedin.com/pulse/%D0%BC%D0%BE%D0%B4%D0%B5%D1%80%D0%BD%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%BA%D1%81%D0%B7%D1%96-%D1%87%D0%B8-%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%B8-nist-ivan-gokin-beh7f,medium,no
+ua-ssscip-143-2026,repeals,ua-nccc-21-2023,"Коментар реєстру: протокол TLP втратив чинність, див. наказ № 143",,medium,no
+ua-ssscip-143-2026,based_on,ua-cmu-1533-2025,Національний план реагування: методичні рекомендації і правила TLP визначає Адміністрація Держспецзв'язку,https://iplex.com.ua/doc.php?code=1533-2025-%D0%BF,medium,no
+ua-ssscip-434-2025,based_on,ua-cmu-712-2025,"Порядок авторизації з безпеки, постанова № 712",https://iplex.com.ua/doc.php?code=z1140-25,high,no
+ua-ssscip-434-2025,based_on,ua-law-80-94-vr,"Ч. 3 ст. 10 Закону ""Про захист інформації в ІКС""",https://iplex.com.ua/doc.php?code=z1140-25,high,no
+ua-ssscip-438-2025,based_on,ua-cmu-712-2025,"П. 4 Порядку авторизації з безпеки, постанова № 712",https://iplex.com.ua/doc.php?code=z1125-25,high,no
+ua-ssscip-836-2025,based_on,ua-cmu-712-2025,"П. 3 Порядку посилається на Порядок авторизації, постанова № 712",https://iplex.com.ua/doc.php?code=z1978-25,medium,no
+ua-ssscip-847-2025,based_on,ua-cmu-712-2025,"П. 14 Порядку авторизації з безпеки, постанова № 712",https://iplex.com.ua/doc.php?code=z0008-26,high,no
+ua-ssscip-409-2025,based_on,ua-cmu-712-2025,Постанова № 712: базові профілі затверджує Адміністрація Держспецзв'язку,https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,medium,no
+ua-ssscip-419-2025,based_on,ua-cmu-712-2025,Постанова № 712: базові профілі затверджує Адміністрація Держспецзв'язку,https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,medium,no
+ua-ssscip-843-2025,based_on,ua-cmu-712-2025,Постанова № 712: базові профілі затверджує Адміністрація Держспецзв'язку,https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,medium,no
+ua-ssscip-811-2025,based_on,ua-cmu-712-2025,Постанова № 712: цільовий профіль з урахуванням рекомендацій Адміністрації,https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,medium,no
+ua-ssscip-810-2025,based_on,ua-cmu-712-2025,"Порядок авторизації, п. 4: оцінювання цільового профілю за рекомендаціями Адміністрації",https://iplex.com.ua/doc.php?code=712-2025-%D0%BF,medium,no
+ua-ssscip-661-2025,based_on,ua-cmu-1281-2025,"Порядок (постанова № 1281), п. 4: методичні рекомендації затверджує Адміністрація Держспецзв'язку",https://iplex.com.ua/doc.php?code=1281-2025-%D0%BF,medium,no
+ua-ssscip-44-2026,based_on,ua-cmu-943-2020,"Постанова № 943, п. 2: Адміністрація визначає форму подання відомостей до реєстру ОКІІ",https://iplex.com.ua/doc.php?code=943-2020-%D0%BF,medium,no
+ua-ssscip-179-2026,based_on,ua-law-2163-viii,Ст. 9 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=z0473-26,high,no
+ua-ssscip-402-2026,based_on,ua-cmu-518-2019,П. 6 Загальних вимог з кіберзахисту ОКІ (у редакції постанови № 1470),https://iplex.com.ua/doc.php?code=z0880-26,high,no
+ua-ssscip-402-2026,based_on,ua-cmu-373-2006,П. 28 Мінімальних вимог (у редакції постанови № 1531),https://iplex.com.ua/doc.php?code=z0880-26,high,no
+ua-ssscip-425-2026,based_on,ua-cmu-1471-2025,"П. 4 Порядку взаємодії суб'єктів національної системи реагування, постанова № 1471",https://iplex.com.ua/doc.php?code=z0954-26,high,no
+ua-ssscip-410-2026,based_on,ua-law-2163-viii,Ч. 2 ст. 9-1 Закону 2163-VIII,https://iplex.com.ua/doc.php?code=z0898-26,high,no
+ua-ssscip-410-2026,based_on,ua-cmu-1533-2025,"П. 15 Національного плану реагування, постанова № 1533",https://iplex.com.ua/doc.php?code=z0898-26,high,no
+ua-ssscip-534-2026,based_on,ua-cmu-1799-2025,"П. 3 Порядку оцінювання стану кіберзахисту, постанова № 1799",https://iplex.com.ua/doc.php?code=z1134-26,high,no
+ua-ssscip-285-2026,based_on,ua-cmu-1799-2025,КМУ: наказ № 285 деталізує норми постанови № 1799,https://www.kmu.gov.ua/news/derzhspetszviazku-vprovadzhuie-iedyni-pidkhody-do-otsiniuvannia-stanu-kiberzakhystu,medium,no
+ua-ssscip-604-2026,based_on,ua-cmu-1668-2025,"Методика перевірок на виконання Порядку державного контролю, постанова № 1668",https://buhplatforma.com.ua/news/127646-perevirky-u-sferi-kiberzakhystu-provodytymut-za-novoiu-metodykoiu,medium,no
+ua-ssscip-660-2014,based_on,ua-law-3475-iv,П. 41 ч. 1 ст. 14 Закону про Держспецзв'язку,https://iplex.com.ua/doc.php?code=z0090-15,high,no
+ua-ssscip-20-2016,based_on,ua-law-3475-iv,П. 41 ч. 1 ст. 14 Закону про Держспецзв'язку,https://iplex.com.ua/doc.php?code=z0196-16,high,no
+ua-ssscip-45-2007,based_on,ua-law-80-94-vr,"Закон ""Про захист інформації в ІКС""",https://iplex.com.ua/doc.php?code=z0320-07,high,no
+ua-ssscip-45-2007,based_on,ua-cmu-1772-2002,Постанова № 1772,https://iplex.com.ua/doc.php?code=z0320-07,high,no
+ua-ssscip-72-2007,based_on,ua-cmu-688-2005,Постанова № 688,https://iplex.com.ua/doc.php?code=z0500-07,high,no
+ua-ssscip-94-2008,based_on,ua-cmu-1772-2002,Постанова № 1772,https://iplex.com.ua/doc.php?code=z0603-08,high,no
+ua-ssscip-93-2007,based_on,ua-law-3475-iv,Ст. 17 Закону про Держспецзв'язку,https://iplex.com.ua/doc.php?code=z0820-07,high,no
+ua-sbu-383-2020,based_on,ua-cmu-939-2013,"Порядок забезпечення режиму секретності, постанова № 939",https://iplex.com.ua/doc.php?code=z0052-21,high,no
+ua-sbu-383-2020,based_on,ua-law-3855-xii,"Ст. 10-12 Закону ""Про державну таємницю""",https://iplex.com.ua/doc.php?code=z0052-21,medium,no
+ua-nbu-95-2017,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-nbu-64-2018,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-nbu-64-2018,based_on,ua-law-2121-iii,"Ст. 44, 66 Закону ""Про банки і банківську діяльність""",,medium,no
+ua-nbu-43-2021,based_on,ua-law-2163-viii,"Ст. 6, 8 Закону 2163-VIII",https://iplex.com.ua/doc.php?code=v0043500-21,high,no
+ua-nbu-43-2021,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-nbu-4-2021,based_on,ua-law-2163-viii,Преамбула: Закон 2163-VIII,https://iplex.com.ua/doc.php?code=v0004500-21,high,no
+ua-nbu-4-2021,based_on,ua-law-2155-viii,"Преамбула: Закон ""Про електронні довірчі послуги""",https://iplex.com.ua/doc.php?code=v0004500-21,high,no
+ua-nbu-4-2021,based_on,ua-law-2121-iii,"Преамбула: Закон ""Про банки і банківську діяльність""",https://iplex.com.ua/doc.php?code=v0004500-21,high,no
+ua-nbu-178-2022,based_on,ua-law-2163-viii,Преамбула: Закон 2163-VIII,https://iplex.com.ua/doc.php?code=v0178500-22,high,no
+ua-nbu-88-2019,based_on,ua-law-2121-iii,"Ст. 39, 44, 66 Закону ""Про банки і банківську діяльність""",,medium,no
+ua-nbu-99-2025,based_on,ua-law-2075-ix,"Ст. 4 Закону ""Про хмарні послуги""",https://iplex.com.ua/doc.php?code=v0099500-25,high,no
+ua-nbu-67-2024,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-nbu-24-2025,amends,ua-nbu-4-2021,Зміни до Положення про контроль за дотриманням банками вимог з інформаційної безпеки,https://bank.gov.ua/admin_uploads/law/25022025_24.pdf,high,no
+ua-nbu-24-2025,amends,ua-nbu-178-2022,Зміни до Положення про організацію кіберзахисту,https://bank.gov.ua/admin_uploads/law/25022025_24.pdf,high,no
+ua-nbu-69-2025,amends,ua-nbu-178-2022,Змінює постанову № 178,https://lexinform.com.ua/zakonodavstvo/6-misyatsiv-dlya-kategorizatsiyi-ob-yektiv-krytychnoyi-finansovoyi-infrastruktury/,medium,no
+ua-nbu-69-2025,based_on,ua-law-1882-ix,"Положення про КІ фінансового сектору ґрунтується на Законі ""Про критичну інфраструктуру""",,medium,no
+ua-nbu-70-2026,amends,ua-nbu-64-2018,Постанова № 70 змінює Положення про організацію системи управління ризиками,https://interfax.com.ua/news/economic/1181553.html,medium,no
+ua-nbu-143-2025,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-nbu-66-2026,based_on,ua-law-679-xiv,"Закон ""Про Національний банк України""",,medium,no
+ua-bill-12174,amends,ua-law-2155-viii,,https://itd.rada.gov.ua/billinfo/Bills/Card/45132,high,no
+ua-bill-8153,repeals,ua-law-2297-vi,Новий закон замість Закону 2297-VI,https://itd.rada.gov.ua/billinfo/Bills/Card/40707,high,no
+ua-bill-16123,amends,ua-law-2075-ix,,https://itd.rada.gov.ua/billInfo/Bills/Card/70896,high,no
+ua-bill-15344-1,amends,ua-law-2075-ix,,https://itd.rada.gov.ua/billinfo/Bills/Card/70302,medium,no
+ua-bill-8238,amends,ua-law-1089-ix,,https://itd.rada.gov.ua/billinfo/Bills/Card/40893,high,no
+ua-bill-12207,amends,ua-law-2163-viii,,https://itd.rada.gov.ua/billinfo/Bills/Card/45219,high,no
+nato-ac-35-d-2000-rev8,repeals,nato-ac-35-d-2000-rev7,Нова редакція директиви НАТО замінює попередню,,medium,no
+nato-ac-35-d-2001-rev3,repeals,nato-ac-35-d-2001-rev2,Нова редакція директиви НАТО замінює попередню,,medium,no
+nato-ac-35-d-2002-rev5,repeals,nato-ac-35-d-2002-rev4,Нова редакція директиви НАТО замінює попередню,,medium,no
+ua-pres-242-2016,based_on,ua-law-183-98-vr,НКЦК утворено як робочий орган РНБО відповідно до закону про РНБО,https://zakon.rada.gov.ua/laws/show/242/2016#Text,medium,no
+ua-cmu-631r-2026,ensures_implementation_of,ua-pres-447-2021,План заходів на 2026 рік з реалізації Стратегії кібербезпеки,https://zakon.rada.gov.ua/laws/show/631-2026-%D1%80#Text,medium,no

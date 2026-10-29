@@ -1,0 +1,21 @@
+id,sort,label_uk,label_en,issuer_uk,issuer_en
+international_agreement,1,Міжнародний договір,International agreement,,
+law,2,Закон України,Law of Ukraine,Верховна Рада України,Verkhovna Rada of Ukraine
+presidential_decree,3,Указ Президента,Presidential Decree,Президент України,President of Ukraine
+ua_bill,4,Законопроєкт,Draft law,Верховна Рада України,Verkhovna Rada of Ukraine
+cmu_resolution,5,Постанова КМУ,CMU Resolution,Кабінет Міністрів України,Cabinet of Ministers of Ukraine
+cmu_order,6,Розпорядження КМУ,CMU Order,Кабінет Міністрів України,Cabinet of Ministers of Ukraine
+ssscip_order,7,Наказ Держспецзв’язку,SSSCIP Order,Адміністрація Держспецзв’язку,State Service of Special Communications and Information Protection
+nbu_resolution,8,Постанова НБУ,NBU Resolution,Національний банк України,National Bank of Ukraine
+sbu_order,9,Наказ СБУ,SBU Order,Служба безпеки України,Security Service of Ukraine
+nccc_decision,10,Рішення НКЦК,NCCC Decision,Національний координаційний центр кібербезпеки при РНБО,National Cybersecurity Coordination Center (NSDC)
+moj_order,11,Наказ Мін'юсту,Ministry of Justice order,Міністерство юстиції України,Ministry of Justice of Ukraine
+other_order,12,Наказ іншого органу,Order of another central body,,
+guidance,13,Методичний документ,Guidance,,
+nd_tzi,14,НД ТЗІ,ND TZI (TZI normative document),Адміністрація Держспецзв’язку,SSSCIP
+dstu,15,ДСТУ,DSTU (national standard),Національний орган стандартизації,National standards body
+vst,16,ВСТ,VST (military standard),Міністерство оборони України,Ministry of Defence of Ukraine
+nato_policy,17,Політика / директива НАТО,NATO policy / directive,НАТО,NATO
+eu_act,18,Акт ЄС,EU act,Європейський Союз,European Union
+eu_proposal,19,Проєкт акта ЄС,EU proposal,Європейська комісія,European Commission
+other,20,Інше,Other,,

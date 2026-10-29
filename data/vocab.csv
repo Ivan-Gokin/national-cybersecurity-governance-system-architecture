@@ -1,0 +1,78 @@
+vocab,id,label_uk,label_en,description_uk,description_en
+level,national,Національний,National,,
+level,sectoral,Галузевий,Sectoral,,
+level,regional,Регіональний,Regional,"Області й громади. Рівень передбачено законом, але суб'єктів у ньому майже немає.","Oblasts and communities. The tier exists in law, but it has almost no actors."
+level,international,Міжнародний,International,,
+actor_type,state_body,Орган влади,State body,,
+actor_type,unit,Підрозділ,Unit,,
+actor_type,csirt,Команда реагування,CSIRT,,
+actor_type,platform,Майданчик (кооперація),Platform (collaboration),"Об'єднує учасників, але власних повноважень не має.",Brings participants together but holds no powers of its own.
+actor_type,commissioner,Уповноважений,Commissioner,,
+actor_type,class,Клас суб'єктів,Class of entities,"Не один орган, а група однакових за статусом: власники ДІР, оператори КІ.","Not one body but a group with the same status: owners of state information resources, CI operators."
+actor_type,international,Міжнародний партнер,International partner,,
+tier,leadership,Політика і стратегія,Policy and strategy,"Дах «будинку»: ті, хто формує політику.",The roof of the house: those who set policy.
+tier,coordination,Координація між мандатами,Cross-mandate coordination,"Балка під дахом: майданчик, що зводить мандати разом.",The beam under the roof: the platform that brings mandates together.
+tier,body,Органи і підрозділи,Bodies and units,"Колони «будинку»: органи, що діють у мандатах.",The columns of the house: bodies acting under mandates.
+tier,entity,"Ті, хто виконує вимоги",Those who meet requirements,Фундамент: класи організацій і громадяни.,The foundation: classes of organisations and citizens.
+tier,international,Міжнародний вимір,International dimension,Партнери за межами країни.,Partners outside the country.
+category,policy,Політика і стратегія,Policy and strategy,,
+category,operations,Операційна кібербезпека,Operational cybersecurity,,
+category,standards,Стандарти і сертифікація,Standards and certification,,
+category,exchange,Обмін і кооперація,Exchange and cooperation,,
+category,research,Дослідження і фінансування,Research and funding,,
+category,education,Освіта і кадри,Education and skills,,
+category,data_protection,Захист персональних даних,Data protection,,
+role,policy,Формує політику,Sets policy,,
+role,regulator,Регулятор,Regulator,,
+role,standards,Встановлює вимоги,Sets requirements,,
+role,info_protection,Криптографічний і технічний захист інформації,Cryptographic and technical information protection,Встановлює і контролює режим КЗІ та ТЗІ.,Sets and supervises the cryptographic and technical protection regime.
+role,assessment,Оцінює відповідність,Assesses conformity,,
+role,oversight,Здійснює контроль,Supervises,,
+role,national_csirt,Національна команда реагування,National CSIRT,,
+role,sectoral_csirt,Галузева команда реагування,Sectoral CSIRT,,
+role,coordinator,Координує,Coordinates,,
+role,investigator,Розслідує,Investigates,,
+role,prosecutor,Обвинувачує,Prosecutes,,
+role,counterintelligence,Контррозвідка,Counter-intelligence,,
+role,intelligence,Розвідка,Intelligence,,
+role,military_ops,Військові кібероперації,Military cyber operations,,
+role,active_protection,Активна протидія,Active cyber protection,,
+role,diplomacy,Міжнародна співпраця,International cooperation,,
+role,education,Освіта,Education,,
+role,research,Наука,Research,,
+role,awareness,Обізнаність,Awareness,,
+role,digital_identity,Цифрова ідентичність,Digital identity,,
+role,data_protection,Захист персональних даних,Data protection,,
+role,crisis,Кризове реагування,Crisis response,,
+role,service_provider,Надає послуги,Provides services,"Сам надає державі чи організаціям послуги: зв'язок, кіберзахист.","Itself provides services to the state or organisations: communications, cyber protection."
+role,entity,Суб'єкт вимог,Regulated entity,"Виконує вимоги, а не встановлює їх.",Meets requirements rather than setting them.
+link_type,subordination,Підпорядкування,Subordination,Хто кому підпорядкований або підзвітний за актом.,Who reports to whom under the act.
+link_type,membership,Представництво,Membership,Орган представлений у майданчику (НКЦК тощо).,The body sits on a platform (the NCCC and the like).
+link_type,oversight,Нагляд і контроль,Oversight,Хто перевіряє виконання вимог іншим.,Who checks whether another meets requirements.
+link_type,reporting,Звітність,Reporting,"Хто кому звітує: про виконання плану, про інциденти.","Who reports to whom: on plan execution, on incidents."
+link_type,approval,Погодження,Approval,Рішення одного потребує згоди іншого.,One's decision needs another's consent.
+link_type,info_exchange,Обмін інформацією,Information exchange,,
+link_type,support,Донорська підтримка,Donor support,,
+link_type,help,Допомога,Help,До кого можна звернутися по допомогу.,Whom one can turn to for help.
+link_type,sanction,Санкція,Sanction,Хто може накласти санкцію і за що.,"Who can impose a sanction, and for what."
+link_type,guidance,Вимоги й попередження,Requirements and alerts,Хто надсилає обов'язкові вимоги чи попередження про загрози.,Who sends binding requirements or threat alerts.
+regime,all,Завжди,Always,,
+regime,martial,Воєнний стан,Martial law,,
+regime,crisis,Кризова ситуація,Crisis,Режим за Національним планом реагування.,The mode under the National Response Plan.
+status,in_force,Чинне,In force,,
+status,draft,Проєкт,Draft,,
+status,planned,"Передбачено, не створено","Provided for, not set up",,
+status,repealed,Втратило чинність,Repealed,,
+confidence,high,Звірено з текстом акта,Checked against the act,Рядок звірено з чинною редакцією акта.,Checked against the current text of the act.
+confidence,medium,Зі вторинного джерела,From a secondary source,"З офіційного повідомлення, звіту CCDCOE чи фахових медіа; текст акта не звірено.","From an official release, the CCDCOE report or trade media; not checked against the act."
+confidence,low,Висновок укладача,Compiler's inference,Логічний висновок з інших рядків; потребує підтвердження.,Inferred from other rows; needs confirmation.
+stage,detect,Виявлення,Detection,,
+stage,respond,Реагування,Response,,
+stage,attribute,Атрибуція,Attribution,,
+stage,prosecute,Переслідування,Prosecution,,
+stage,neutralise,Нейтралізація,Neutralisation,,
+coverage,present,Є,Present,Тип органу існує і має правову підставу.,The body type exists and has a legal basis.
+coverage,partial,Частково,Partly,"Функцію виконує орган, для якого вона не основна, або лише в одному секторі.","A body for which it is not the main function performs it, or only in one sector."
+coverage,planned,Передбачено,Provided for,"Передбачено актом чи проєктом, але ще не створено.","Provided for by an act or bill, not yet set up."
+coverage,absent,Немає,Absent,Такого органу немає.,No such body.
+coverage,unknown,Невідомо,Unknown,Даних недостатньо; потрібна перевірка.,Not enough data; needs checking.

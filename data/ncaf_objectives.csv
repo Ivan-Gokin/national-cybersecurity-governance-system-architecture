@@ -1,0 +1,21 @@
+id,cluster,name_uk,name_en,mandates,subjects,plan_2026,notes_uk,notes_en
+1,1,"Кіберстійкість і гігієна приватного сектору, зокрема МСП","Private-sector cyber resilience and hygiene, incl. SMEs",M4;OUT,ssscip;mintsyfry;nbu,unknown,,
+2,1,Обізнаність і кібергігієна,Awareness and cyber hygiene,OUT,mintsyfry;ssscip;npu,unknown,,
+3,1,Кадровий розрив,Skills gap,OUT,mon;mintsyfry,unknown,,
+4,1,Дослідження та інновації,Research and innovation,OUT,mon;nasu,unknown,,
+5,1,Готовність і реагування на інциденти,Incident preparedness and response,M4,cert-ua;sectoral-csirts;csirt-nbu;mod-csirt,unknown,,
+6,2,Протидія кіберзлочинності,Countering cybercrime,M2;M3,cyberpolice;sbu;ogp,unknown,"Одна функція, два мандати: кримінальне переслідування (НПУ) і державна безпека (СБУ); стаття 8 описує їх однаково.","One function, two mandates: criminal justice (police) and state security (SBU); art. 8 describes both alike."
+7,2,Міжнародна співпраця,International cooperation,M5,mfa;mintsyfry;ssscip;nccc,unknown,,
+8,2,Довірений обмін інформацією,Trusted information sharing,M4;M3,nccc;ssscip;sbu,unknown,,
+9,2,Взаємна допомога між державами,Mutual assistance between states,M5,,na,Механізм ст. 37 NIS2 між державами-членами; для держави-кандидата аналога немає.,A NIS2 art. 37 mechanism between member states; no analogue for a candidate state.
+10,3,Кризовий менеджмент,Crisis management,M4,nccc;ssscip,unknown,,
+11,3,Цифрова ідентичність і довіра до держпослуг,Digital identity and trust in public services,OUT,mintsyfry;ssscip,unknown,,
+12,3,Національна оцінка ризиків,National risk assessment,M4,nccc;ssscip,unknown,,
+13,3,Національне кіберврядування,National cybersecurity governance,XC,nccc;cmu;ssscip,unknown,"Рада рівних без арбітражної процедури: хто вирішує спір між мандатами, не визначено.",A council of peers with no arbitration procedure: who settles inter-mandate disputes is not set.
+14,3,Заходи управління ризиками для суб'єктів,Risk-management measures for entities,M4,ssscip,unknown,,
+15,3,Звітування про інциденти,Incident reporting,M4,cert-ua;nbu,unknown,,
+16,4,Баланс безпеки і приватності,Balancing security and privacy,OUT,ombudsman,unknown,Єдина ціль без профільного власника.,The only objective without a dedicated owner.
+17,4,Безпека ланцюга постачання,Supply-chain security,M4,ssscip;mintsyfry,unknown,,
+18,4,Захист критичних секторів,Protection of critical sectors,M4,ssscip;nbu,unknown,,
+19,4,Координоване розкриття вразливостей,Coordinated vulnerability disclosure,M4;M2,ssscip;cyberpolice,unknown,,
+20,4,Активний кіберзахист,Active cyber protection,M4;M1;M3,ssscip-acp;sbu;cyber-forces,unknown,"Та сама дія — захист у M4, контррозвідка в M3, операція в M1; межу проведено лише для M1 (законопроєкт № 12349).","The same act is protection in M4, counter-intelligence in M3, an operation in M1; only the M1 boundary is drawn (Draft Law No. 12349)."

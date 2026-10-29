@@ -1,0 +1,55 @@
+name: Суб'єкт або роль / Actor or role
+description: Додати, змінити чи виправити суб'єкта, його роль або мандат / Add, change or correct an actor, its role or mandate
+labels: [actors]
+body:
+  - type: input
+    id: actor
+    attributes:
+      label: Суб'єкт / Actor
+      description: Ідентифікатор із карти (наприклад, ssscip) або назва нового органу / The map's id (e.g. ssscip) or a new body's name
+    validations:
+      required: true
+  - type: dropdown
+    id: change
+    attributes:
+      label: Що змінити / Change
+      options:
+        - Новий суб'єкт / New actor
+        - Нова роль / New role
+        - Інший мандат / Different mandate
+        - Інша правова підстава / Different legal basis
+        - Роль втратила чинність / Role no longer in force
+        - Інше / Other
+    validations:
+      required: true
+  - type: dropdown
+    id: mandate
+    attributes:
+      label: Мандат / Mandate
+      options:
+        - M1 Військові кібероперації / Military cyber operations
+        - M2 Протидія кіберзлочинності / Counter-cybercrime
+        - M3 Розвідка і контррозвідка / Intelligence and counter-intelligence
+        - M4 Захист КІ і кризовий менеджмент / CI protection and crisis management
+        - M5 Кібердипломатія / Cyber diplomacy
+        - Координація між мандатами / Cross-mandate coordination
+        - Поза мандатами / Outside mandates
+        - Не знаю / Not sure
+  - type: input
+    id: basis
+    attributes:
+      label: Правова підстава / Legal basis
+      description: Акт і стаття чи пункт; посилання на zakon.rada.gov.ua / Act and article or paragraph; link to zakon.rada.gov.ua
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Обґрунтування / Rationale
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Межа відкритості / Openness boundary
+      options:
+        - label: Лише органи й посади з відкритих актів; без об'єктів інфраструктури, систем, адрес і прізвищ / Only bodies and positions from open acts; no infrastructure, systems, addresses or names
+          required: true

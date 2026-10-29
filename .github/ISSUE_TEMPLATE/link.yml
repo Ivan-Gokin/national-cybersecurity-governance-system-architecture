@@ -1,0 +1,49 @@
+name: Зв'язок / Link
+description: Додати чи виправити зв'язок між двома суб'єктами / Add or correct a link between two actors
+labels: [links]
+body:
+  - type: input
+    id: from
+    attributes:
+      label: Від / From
+      placeholder: cert-ua
+    validations:
+      required: true
+  - type: input
+    id: to
+    attributes:
+      label: До / To
+      placeholder: ssscip
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Тип / Type
+      options:
+        - Підпорядкування / Subordination
+        - Представництво / Membership
+        - Нагляд і контроль / Oversight
+        - Звітність / Reporting
+        - Погодження / Approval
+        - Обмін інформацією / Information exchange
+        - Донорська підтримка / Donor support
+    validations:
+      required: true
+  - type: input
+    id: basis
+    attributes:
+      label: Правова підстава / Legal basis
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Обґрунтування / Rationale
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Межа відкритості / Openness boundary
+      options:
+        - label: Лише органи й посади з відкритих актів / Only bodies and positions from open acts
+          required: true

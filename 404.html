@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кіберархітектура України</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --paper: #edf1f4; --ink: #121c2b; --muted: #4a5868; --seal: #1f5c8f; }
+  @media (prefers-color-scheme: dark) { :root { --paper: #0c0f22; --ink: #e4ecf5; --muted: #a9a4c8; --seal: #7cc4f0; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 640px; margin: 15vh auto; padding: 0 16px; }
+  a { color: var(--seal); }
+  p { color: var(--muted); }
+</style>
+<script>
+  // GitHub Pages serves this file for any path that has no file of its own; send the reader to the site's home.
+  (function () {
+    var path = location.pathname;
+    window.__home = /\.github\.io$/.test(location.hostname) ? "/" + (path.split("/")[1] || "") + "/" : "/";
+  })();
+</script>
+</head>
+<body>
+<main>
+  <h1>Сторінку не знайдено / Page not found</h1>
+  <p><a id="home" href="./">На головну / Home</a></p>
+</main>
+<script>document.getElementById("home").href = window.__home || "./";</script>
+</body>
+</html>

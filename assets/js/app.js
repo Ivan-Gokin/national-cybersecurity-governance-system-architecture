@@ -2,13 +2,14 @@
  * Static site, no tracking. Reads data/graph.json once and draws every view from it in the browser.
  * Routes: #/<view>[/<id>][?params]. The representation (house, structure, cards) and the tools that work on it
  * (checks, expected types, search) are separate modules over the same query layer in core.js. */
-import { CFG, D, S, t, fmt, esc, store, loadGraph, setDate } from "./core.js";
+import { CFG, D, S, t, fmt, esc, store, loadGraph, setDate, derive } from "./core.js";
 import { ICON, repo } from "./ui.js";
 import * as home from "./home.js";
 import * as views from "./views.js";
 import * as cards from "./cards.js";
 import * as analysis from "./analysis.js";
 import * as capmap from "./capmap.js";
+import * as model from "./model.js";
 
 const app = document.getElementById("app");
 const ROUTES = {
@@ -19,6 +20,7 @@ const ROUTES = {
   types: analysis.renderTypes, checks: analysis.renderChecks, acts: analysis.renderActs,
   search: analysis.renderSearch, method: analysis.renderMethod,
   functions: capmap.renderFunctions, cap: capmap.renderCapCard, time: capmap.renderTime,
+  frameworks: model.renderFrameworks, model: model.renderModel,
 };
 // Navigation: viewpoints are ways in (who is asking), views are the projections themselves
 export const VIEW_MENU = [
@@ -26,6 +28,7 @@ export const VIEW_MENU = [
   ["menuPowers", ["mandates", "links", "flow"]],
   ["menuAnalysis", ["types", "checks", "ncaf", "time"]],
   ["menuLaw", ["acts"]],
+  ["menuModel", ["frameworks", "model"]],
 ];
 export const VIEWPOINTS = ["org", "body", "law", "analysis", "crisis", "partner"];
 
@@ -116,6 +119,7 @@ export function setTitle(page) { document.title = page ? `${page} — ${t("siteN
 
 let focusNext = false;
 function renderView() {
+  derive(); // derived facts follow the "drafts" switch and the date
   ROUTES[S.route](app);
   if (focusNext) {
     focusNext = false;

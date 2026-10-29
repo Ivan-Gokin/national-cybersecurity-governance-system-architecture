@@ -1,13 +1,13 @@
-id,stage,actor,activity_uk,activity_en,absent
-f1,detect,cert-ua,"Моніторинг, індикатори компрометації","Monitoring, indicators of compromise",
-f2,respond,cert-ua,Реагування на інцидент,Incident response,
-f3,attribute,cert-ua,Технічна атрибуція,Technical attribution,
-f4,neutralise,ssscip-acp,Активна протидія,Active countering,
-f5,prosecute,cyberpolice,Кримінальне розслідування,Criminal investigation,
-f6,attribute,sbu,Контррозвідувальна атрибуція,Counter-intelligence attribution,
-f7,prosecute,sbu,Справа про державну безпеку,State-security case,
-f8,neutralise,sbu,Контррозвідувальний захід,Counter-intelligence measure,
-f9,attribute,hur,Розвідка,Intelligence,
-f10,neutralise,cyber-forces,Військова операція,Military operation,
-f11,respond,nccc,Спільна картина загроз,Common threat picture,
-f12,neutralise,nccc,Арбітраж: процедури немає,Arbitration: no procedure,yes
+id,stage,actor,capability,activity_uk,activity_en,absent
+f1,detect,cert-ua,sa.monitoring,"Моніторинг, індикатори компрометації","Monitoring, indicators of compromise",
+f2,respond,cert-ua,ir.response,Реагування на інцидент,Incident response,
+f3,attribute,cert-ua,le.attribution,Технічна атрибуція,Technical attribution,
+f4,neutralise,ssscip-acp,ir.active,Активна протидія,Active countering,
+f5,prosecute,cyberpolice,le.investigation,Кримінальне розслідування,Criminal investigation,
+f6,attribute,sbu,le.attribution,Контррозвідувальна атрибуція,Counter-intelligence attribution,
+f7,prosecute,sbu,le.investigation,Справа про державну безпеку,State-security case,
+f8,neutralise,sbu,le.counterintel,Контррозвідувальний захід,Counter-intelligence measure,
+f9,attribute,hur,le.attribution,Розвідка,Intelligence,
+f10,neutralise,cyber-forces,def.cyberdefence,Військова операція,Military operation,
+f11,respond,nccc,sa.sharing,Спільна картина загроз,Common threat picture,
+f12,neutralise,nccc,coord.national,Арбітраж: процедури немає,Arbitration: no procedure,yes

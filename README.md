@@ -12,14 +12,14 @@
 
 Три шари тримаються окремо:
 
-1. **Представлення** — `data/*.csv`: суб'єкти (`actors`), ролі (`roles`), зв'язки (`links`), мандати, цілі NCAF 2.0, шлях інциденту, каталог типових органів (`expected_types`), карта функцій за ОТМ (`capabilities`, `realizations`), вторинні джерела (`refs`), довідники (`vocab.csv`). Суб'єкти, ролі й зв'язки мають дати (`valid_from`, `valid_to`), тож карту можна читати станом на будь-яку дату. Актів окремо немає: роль і зв'язок посилаються на ідентифікатор із реєстру [GRC-фундаменту](https://github.com/Ivan-Gokin/grc-foundation-ua) (`ua-law-2163-viii`).
+1. **Представлення** — `data/*.csv`: суб'єкти (`actors`), ролі (`roles`), зв'язки (`links`), мандати, шлях інциденту, каталог типових органів (`expected_types`), карта функцій (`capabilities`, `realizations`), визнані рамки (`frameworks`, `framework_items`: NCAF 2.0 як хребет, мандати Клімбурґа, NIST CSF 2.0, ОТМ), вторинні джерела (`refs`), довідники (`vocab.csv`). Схему всіх таблиць визначено один раз у `scripts/mapdata.py`: з неї перевіряються дані, збирається сайт і будується сторінка «Модель даних». Суб'єкти, ролі й зв'язки мають дати (`valid_from`, `valid_to`), тож карту можна читати станом на будь-яку дату. Актів окремо немає: роль і зв'язок посилаються на ідентифікатор із реєстру [GRC-фундаменту](https://github.com/Ivan-Gokin/grc-foundation-ua) (`ua-law-2163-viii`).
 2. **Інструменти** — `scripts/` (перевірка, збирання) і `assets/js/core.js` (шар запитів і автоматичні перевірки: розподіл обов'язків, концентрація функцій, прогалини).
 3. **Застосування** — сайт: будинок системи (рівень 0), вигляди (рівень 1, зокрема карта функцій і шкала часу), картки органу, класу організацій, функції й акта (рівень 2), погляди як входи.
 
 Інше:
 
 - `vendor/register/` — закріплена копія реєстру актів GRC-фундаменту і `lock.json` з комітом. Оновлення: `python3 scripts/sync_register.py --ref main`; зміна версії видна в diff.
-- `assets/js/` — ES-модулі без залежностей: `core.js` (дані, запити, перевірки), `ui.js`, `home.js` (будинок, погляди), `views.js`, `cards.js`, `capmap.js` (функції, час), `analysis.js`, рядки — `i18n.js`; тексти сторінок — `content/*.md`.
+- `assets/js/` — ES-модулі без залежностей: `core.js` (дані, запити, перевірки), `ui.js`, `home.js` (будинок, погляди), `views.js`, `cards.js`, `capmap.js` (функції, час), `model.js` (рамки, модель даних), `analysis.js`, рядки — `i18n.js`; тексти сторінок — `content/*.md`.
 - `assets/css/site.css`, `fonts.css`, `assets/fonts/` — дизайн-система «Іван Гокін» v2 без змін, як у GRC-фундаменті; власні компоненти — `assets/css/map.css`.
 
 ### Супровід
@@ -46,7 +46,7 @@ An open representation of Ukraine's national cybersecurity system: bodies and th
 
 Three layers are kept apart:
 
-1. **Representation** — `data/*.csv`: actors, roles, links, mandates, NCAF 2.0 objectives, the incident path, the catalogue of expected institution types, the capability map after the OTM, secondary sources, vocabularies. Actors, roles and links carry dates, so the map can be read as of any date. There is no list of acts of its own: roles and links cite identifiers from the [GRC foundation](https://github.com/Ivan-Gokin/grc-foundation-ua) register.
+1. **Representation** — `data/*.csv`: actors, roles, links, mandates, NCAF 2.0 objectives, the incident path, the catalogue of expected institution types, the capability map, the reference frameworks (NCAF 2.0 as the spine, Klimburg's mandates, NIST CSF 2.0, the OTM), secondary sources, vocabularies. The schema of every table is defined once in `scripts/mapdata.py`, which checks the data, builds the site and draws the Data model page. Actors, roles and links carry dates, so the map can be read as of any date. There is no list of acts of its own: roles and links cite identifiers from the [GRC foundation](https://github.com/Ivan-Gokin/grc-foundation-ua) register.
 2. **Tools** — `scripts/` (validation, build) and `assets/js/core.js` (the query layer and automated checks: segregation of duties, concentration of functions, gaps).
 3. **Applications** — the site: the house of the system (level 0), views (level 1, including the capability map and the timeline), cards for a body, a class of organisations, a function and an act (level 2), with viewpoints as ways in.
 

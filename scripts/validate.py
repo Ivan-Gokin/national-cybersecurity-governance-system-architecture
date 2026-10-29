@@ -25,11 +25,13 @@ def main():
     if "--stats" in sys.argv and not errors:
         lock = t["lock"]
         print(f"\nregister {lock.get('repo')}@{lock.get('commit', '')[:7]}, data version {lock.get('data_version')}")
-        print(f"{len(t['actors.csv'])} actors, {len(t['roles.csv'])} roles, {len(t['links.csv'])} links, "
-              f"{len({r['act'] for r in t['roles.csv'] + t['links.csv'] if r['act']})} acts cited, {len(t['ncaf_objectives.csv'])} NCAF objectives")
-        print("roles by mandate:", dict(sorted(Counter(r["mandate"] for r in t["roles.csv"]).items())))
-        print("links by type:", dict(sorted(Counter(r["type"] for r in t["links.csv"]).items())))
-        print("confidence:", dict(Counter(r["confidence"] for n in ("actors.csv", "roles.csv", "links.csv") for r in t[n])))
+        print(f"{len(t['actor'])} actors, {len(t['role'])} roles, {len(t['link'])} links, {len(t['capability'])} functions, "
+              f"{len(t['realization'])} performances, {len(mapdata.cited(t))} acts cited")
+        print("frameworks:", dict(Counter(r["framework"] for r in t["item"])))
+        print("functions by spine framework:", dict(Counter(r["spine"].split(":")[0] for r in t["capability"])))
+        print("roles by mandate:", dict(sorted(Counter(r["mandate"] for r in t["role"]).items())))
+        print("links by type:", dict(sorted(Counter(r["type"] for r in t["link"]).items())))
+        print("confidence:", dict(Counter(r["confidence"] for n in ("actor", "role", "link", "realization") for r in t[n])))
     print(f"\n{len(errors)} error(s), {len(warnings)} warning(s)")
     sys.exit(1 if errors else 0)
 

@@ -1,6 +1,6 @@
-id,from,to,ncaf,rule_act,notes_uk,notes_en
-h1,f3,f5,6,,Після атрибуції: кримінал чи державна безпека? Правила передачі немає.,After attribution: crime or state security? No handover rule.
-h2,f3,f7,6,,,
-h3,f4,f8,20,,Від захисту до контррозвідувального заходу: межу не визначено.,From protection to a counter-intelligence measure: boundary not set.
-h4,f8,f10,20,ua-bill-12349,До військової операції: межу проводить законопроєкт про Кіберсили.,To a military operation: the Cyber Forces bill draws this boundary.
-h5,f8,f12,13,,"Спір між доріжками ескалюється в НКЦК, але арбітражної процедури немає.","A dispute between lanes goes to the NCCC, which has no arbitration procedure."
+id,from,to,objective,rule_act,notes_uk,notes_en
+h1,f3,f5,ncaf2:6,ua-cmu-1471-2025,"Порядок взаємодії CERT-UA з правоохоронними і контррозвідувальними органами є (2025); чи визначає він вибір між кримінальним і безпековим треком, треба звірити.",A procedure for CERT-UA's interaction with law-enforcement and counter-intelligence bodies exists (2025); whether it settles the choice between the criminal and the security track still has to be checked.
+h2,f3,f7,ncaf2:6,ua-cmu-1471-2025,,
+h3,f4,f8,ncaf2:20,,Від захисту до контррозвідувального заходу: межу не визначено.,From protection to a counter-intelligence measure: boundary not set.
+h4,f8,f10,ncaf2:20,ua-bill-12349,До військової операції: межу проводить законопроєкт про Кіберсили.,To a military operation: the Cyber Forces bill draws this boundary.
+h5,f8,f12,ncaf2:13,,"Спір між доріжками ескалюється в НКЦК, але арбітражної процедури немає.","A dispute between lanes goes to the NCCC, which has no arbitration procedure."

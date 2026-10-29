@@ -115,15 +115,17 @@ export function renderMandates(app) {
 export const boundary = (o) => many(o.mandates).filter((m) => m !== "OUT").length > 1 || many(o.mandates).includes("XC");
 export function renderNcaf(app) {
   setTitle(t("nav_ncaf"));
-  const plan = (o) => `<span class="badge plan-${esc(o.plan_2026)}">${esc(t("plan_" + o.plan_2026))}</span>`;
+  const sel = S.p.get("o") || "";
+  const fns = (o) => (D.capsBySpine[o.item] || []).map((c) => `<a href="#/cap/${esc(c.id)}">${esc(L(c, "name"))}</a>`).join(" · ");
   const types = (o) => D.types.filter((x) => many(x.ncaf).includes(o.id));
-  const tile = (o) => `<li class="obj${boundary(o) ? " obj-boundary" : ""}${!o.subjects ? " obj-empty" : ""}" id="obj-${esc(o.id)}">
+  const tile = (o) => `<li class="obj${boundary(o) ? " obj-boundary" : ""}${!o.subjects ? " obj-empty" : ""}${o.id === sel ? " is-focus" : ""}" id="obj-${esc(o.id)}">
       <p class="obj-top"><span class="obj-num">${esc(o.id)}</span>${many(o.mandates).map(mBadge).join(" ")}</p>
       <h3>${esc(L(o, "name"))}</h3>
-      <p class="obj-subj">${many(o.subjects).map((id) => actorLink(id)).join(", ") || `<span class="muted">${esc(t("noSubject"))}</span>`}</p>
+      <p class="obj-subj">${many(o.subjects).map((id) => actorLink(id)).join(", ") || `<span class="muted">${esc(t(o.functions ? "noSubject" : "noFunction"))}</span>`}</p>
+      ${o.functions ? `<p class="obj-fns"><span class="cap-k">${esc(t("objFunctions"))}</span>${fns(o)}</p>` : ""}
       ${types(o).filter((x) => x.coverage === "absent").map((x) => `<p class="obj-absent"><a href="#/types?t=${esc(x.id)}">${esc(fmt(t("objAbsent"), L(x, "name")))}</a></p>`).join("")}
       ${L(o, "notes") ? `<p class="obj-note">${esc(L(o, "notes"))}</p>` : ""}
-      <p class="obj-foot">${boundary(o) ? `<span class="badge b-boundary">${esc(t("boundary"))}</span>` : ""}${plan(o)}</p></li>`;
+      <p class="obj-foot">${boundary(o) ? `<span class="badge b-boundary">${esc(t("boundary"))}</span>` : ""}</p></li>`;
   const cols = D.clusters.map((c) => `<section class="cluster"><h2><span class="kicker">${esc(t("cluster"))} ${esc(c.id)}</span>${esc(L(c, "name"))}</h2>
     <ol class="objs">${D.objectives.filter((o) => o.cluster === c.id).map(tile).join("")}</ol></section>`).join("");
   const rows = D.mandates.map((m) => {
@@ -141,6 +143,7 @@ export function renderNcaf(app) {
     <div class="table-wrap"><table class="overlap"><thead><tr><th>${esc(t("colMandate"))}</th>${D.clusters.map((c) => `<th>${esc(t("cluster"))} ${esc(c.id)}<span class="block small">${esc(L(c, "name"))}</span></th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>
     <p class="hint">${esc(t("overlapHint"))}</p>
   </article>`;
+  if (sel) { const el = document.getElementById(`obj-${sel}`); if (el) el.scrollIntoView({ block: "center" }); }
   app.querySelectorAll('a[href^="#obj-"]').forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); const el = document.getElementById(a.getAttribute("href").slice(1)); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" }); }));
 }
 
@@ -191,7 +194,7 @@ export function renderFlow(app) {
     const ruled = !!h.rule_act;
     return `<li class="handoff${ruled ? " ruled" : ""}"><span class="h-num">${i + 1}</span><div>
       <p><b>${actorLink(D.step[h.from].actor)}</b> (${esc(L(D.step[h.from], "activity"))}) → <b>${actorLink(D.step[h.to].actor)}</b> (${esc(L(D.step[h.to], "activity"))})</p>
-      <p class="small">${h.ncaf ? `<a class="badge" href="#/ncaf">${esc(t("ncafObj"))} ${esc(h.ncaf)}</a> ` : ""}${ruled ? `${esc(t("ruleBy"))} ${actRef(h.rule_act)}` : gap(t("noRule"))}</p>
+      <p class="small">${h.ncaf ? `<a class="badge" href="#/ncaf?o=${esc(h.ncaf)}">${esc(t("ncafObj"))} ${esc(h.ncaf)}</a> ` : ""}${ruled ? `${esc(t("ruleBy"))} ${actRef(h.rule_act)}` : gap(t("noRule"))}</p>
       ${L(h, "notes") ? `<p class="muted small">${esc(L(h, "notes"))}</p>` : ""}</div></li>`;
   }).join("");
   app.innerHTML = `<article class="wide">

@@ -12,7 +12,7 @@ A mandate reduces neither to hierarchy nor to function. Two bodies can share a f
 
 ## Metamodel
 
-The map is a graph of eleven entities. Every view on the site is a projection of the same graph for one question; the checks and the catalogue of expected institution types are tools on top of it that add nothing to the data.
+The map is a graph of fourteen entities (see the Data model page). Every view on the site is a projection of the same graph for one question; the checks and the catalogue of expected institution types are tools on top of it that add nothing to the data.
 
 | Entity | File | What it is |
 | --- | --- | --- |
@@ -20,11 +20,11 @@ The map is a graph of eleven entities. Every view on the site is a projection of
 | Role | `roles.csv` | What the actor does in the system; carries a mandate, legal basis, regime and status |
 | Mandate | `mandates.csv` | Klimburg's five mandates plus two service columns: cross-mandate coordination and outside mandates |
 | Legal act | GRC foundation register | The act that grants a role or sets a link. There is no table of its own: the build takes title, status and links from a pinned copy of the register |
-| Function | `capabilities.csv`, `realizations.csv` | The tree of the system's functions after the OTM, and who performs each through which role |
+| Framework | `frameworks.csv`, `framework_items.csv` | NCAF 2.0 (the spine), Klimburg's mandates, NIST CSF 2.0, the OTM and their items |
+| Function | `capabilities.csv`, `realizations.csv` | What the system must be able to do (one NCAF objective each), and who performs each through which role and under which act |
 | Secondary source | `refs.csv` | Explainers and reports the map relies on |
 | Expected institution type | `expected_types.csv` | A type of body a national system is expected to have (NIS2, NCAF 2.0, EU practice), and whether Ukraine has one |
 | Link | `links.csv` | A typed relation between two actors with a legal basis |
-| NCAF 2.0 objective | `ncaf_objectives.csv` | The objective's mandate and its primary subjects in Ukraine |
 | Step and handover | `flow_steps.csv`, `flow_handoffs.csv` | The incident-flow view: who does what at which stage, and where a case passes between mandates |
 | Vocabularies | `vocab.csv` | Levels, actor types, roles, link types, regimes, statuses, confidence levels |
 
@@ -48,19 +48,23 @@ A platform (such as the NCCC) is modelled apart from a body on purpose: it bring
 
 An actor gets two mandates when acts give it tasks under two different legal regimes. Article 8 of Law No. 2163-VIII does not distinguish mandates by itself, so each role is traced to a specific law.
 
-**An NCAF 2.0 objective** has a mandate (one or more) and primary subjects — those whose act describes the objective's activity most specifically. An objective under two mandates, or under cross-mandate coordination, is marked as a "mandate boundary": that is where disputes over powers arise. The map does not assess NCAF maturity levels: ENISA's method uses 871 indicators and an inter-agency group with internal evidence.
-
-**Action-plan coverage** (column `plan_2026`) records whether the 2026 plan has at least one task with a named executor. Not yet coded in the prototype.
+**An NCAF 2.0 objective** is not coded separately: its primary subjects are those leading its functions, and its mandates are the mandates of the roles through which those functions are performed. An objective under two mandates, or under cross-mandate coordination, is marked as a "mandate boundary": that is where disputes over powers arise. The map does not assess NCAF maturity levels: ENISA's method uses 871 indicators and an inter-agency group with internal evidence.
 
 **A link** without a type is not accepted. Types: subordination, membership, oversight, reporting, approval, information exchange, donor support, help, sanction, requirements and warnings. The last three serve the personal card: a link from a class of organisations (public bodies, CI operators, other organisations, citizens) to a body reads as "whom I report to", "where I turn", "who supervises me". An empty section of the card is a gap in the system.
 
+## Recognised frameworks first
+
+The map rests on recognised frameworks first and does not invent its own classification. The spine is ENISA NCAF 2.0: cluster, objective, function. Every function (`capabilities.csv`) belongs to exactly one NCAF objective (the `spine` column). The NCAF inherits NIS2's exclusion of defence and national security, so the functions it cannot see (cyber defence, intelligence, counter-intelligence, attribution, special communications) sit under Klimburg's mandates. The other frameworks are crosswalks (the `also` column): NIST CSF 2.0 shows how a function is written at the level of an organisation (SSSCIP's 2026 methodological recommendations use the same framework), and the organisational and technical model of cyber protection (Resolution No. 1426) shows how it is written in the Ukrainian act. Frameworks and their items are kept in `frameworks.csv` and `framework_items.csv`; Klimburg's mandates once, in `mandates.csv`.
+
+The OTM is taken into account, but not as a frame: its provisions are numbered by the points of the Regulation and SSSCIP's commentary, and the Frameworks page shows what in the OTM has no counterpart on the map and which NCAF objectives have none in the OTM. SSSCIP's explainer may lag behind the current edition, so every reference still has to be checked.
+
 ## The capability map
 
-The functional view is a tree of nine groups and 39 functions (`capabilities.csv`). It is built on the organisational and technical model of cyber protection (Cabinet Resolution No. 1426): its directions, the functions of the governing infrastructure, the functions of the cyber forces, the CERT functions and the five cyber-protection actions. Each function cites these provisions, the ENISA NCAF 2.0 objectives and a NIST CSF 2.0 function — the framework SSSCIP's 2026 methodological recommendations also use. Functions the model does not name directly (attribution, supply-chain security, personal data protection) come from the NCAF or other states' practice, and the function's card says so.
+Who performs a function is recorded in `realizations.csv`: the actor, its part ("leads" or "contributes"), the role and the act. The role is the authority the actor acts with (its power and mandate); the act is the instrument that actually governs the function (a procedure, a methodology, a regulation). Taking part with neither a role nor an act shows up as a gap.
 
-Who performs a function is recorded in `realizations.csv`: the actor, its part ("leads" or "contributes") and the role that gives the legal basis. A function has no legal basis of its own; it rests on a role. This keeps the mandate (under which authority) and the function (what is done) as separate dimensions, and taking part without a role shows up as a gap.
+## Keeping the model whole
 
-The model's provisions are cited from the 2021 text. SSSCIP's explainer is useful for the structure but may lag behind the current edition, so every reference still has to be checked against the act.
+Each fact is stored in one place. Whatever can be derived is not coded twice: who is responsible for an NCAF objective and which mandates it lies in follow from who performs its functions and through which roles; an expected body's NCAF objective follows from its function. The schema of every table is defined once (`scripts/mapdata.py`): it checks the references, builds the site and draws the Data model page. The checks also make sure different views do not tell the same fact two ways: an expected body is present only if the named body performs its function, and an actor on the incident path must perform the function of its step.
 
 ## Time
 

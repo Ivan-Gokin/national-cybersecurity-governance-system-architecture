@@ -17,7 +17,7 @@ export function renderTypes(app) {
   const counts = Object.fromEntries(covOrder.map((c) => [c, D.types.filter((x) => x.coverage === c).length]));
   const list = D.types.filter((x) => !cov || x.coverage === cov).sort((a, b) => covOrder.indexOf(a.coverage) - covOrder.indexOf(b.coverage));
   const tile = (x) => `<li class="card type-card cov-edge-${esc(x.coverage)}" id="type-${esc(x.id)}">
-    <p class="obj-top">${covBadge(x.coverage)}${many(x.ncaf).map((n) => `<a class="badge" href="#/ncaf" title="${esc(D.objective[n] ? L(D.objective[n], "name") : "")}">NCAF ${esc(n)}</a>`).join(" ")}</p>
+    <p class="obj-top">${covBadge(x.coverage)}${x.capability && D.cap[x.capability] ? `<a class="badge" href="#/cap/${esc(x.capability)}">${esc(L(D.cap[x.capability], "name"))}</a> ` : ""}${many(x.ncaf).map((n) => `<a class="badge" href="#/ncaf?o=${esc(n)}" title="${esc(D.objective[n] ? L(D.objective[n], "name") : "")}">NCAF ${esc(n)}</a>`).join(" ")}</p>
     <h3>${esc(L(x, "name"))}</h3>
     <p class="small"><b>${esc(t("typeBasis"))}:</b> ${esc(L(x, "basis"))}</p>
     <p>${many(x.actors).length ? `${esc(t("typeWho"))}: ${many(x.actors).map((id) => actorLink(id)).join(", ")}` : gap(x.coverage === "unknown" ? t("typeUnknown") : t("typeNobody"))}</p>
@@ -40,7 +40,7 @@ function itemHtml(i) {
   if (i.to) parts.push(`→ ${actorLink(i.to)}`);
   if (i.cap) parts.push(`${i.actor ? "· " : ""}<a href="#/cap/${esc(i.cap)}">${esc(i.text)}</a>`);
   else if (i.type) parts.push(`<a href="#/types?t=${esc(i.type)}">${esc(i.text)}</a> ${covBadge(i.coverage)}`);
-  else if (i.objective) parts.push(`<a href="#/ncaf">${esc(i.objective)}</a> ${esc(i.text)}`);
+  else if (i.objective) parts.push(`<a href="#/ncaf?o=${esc(i.objective)}">${esc(i.objective)}</a> ${esc(i.text)}`);
   else if (i.act) parts.push(actRef(i.act));
   else if (i.text) parts.push(`<span class="${i.actor ? "muted" : ""}">${i.actor ? "· " : ""}${esc(i.text)}</span>`);
   return `<li>${parts.join(" ")}</li>`;
@@ -103,7 +103,7 @@ export function renderSearch(app) {
     ${res ? block("actors", res.actors, (a) => `<li>${actorLink(a.id, "ent")} <span class="small muted">${esc(L(a, "name"))}</span></li>`)
       + block("types", res.types, (x) => `<li><a href="#/types?t=${esc(x.id)}">${esc(L(x, "name"))}</a> ${covBadge(x.coverage)}</li>`)
       + block("acts", res.acts, (a) => `<li>${actRef(a.id)} <span class="small muted">${esc(L(a, "title"))}</span></li>`)
-      + block("objectives", res.objectives, (o) => `<li><a href="#/ncaf">${esc(o.id)}</a> ${esc(L(o, "name"))}</li>`) : ""}
+      + block("objectives", res.objectives, (o) => `<li><a href="#/ncaf?o=${esc(o.id)}">${esc(o.id)}</a> ${esc(L(o, "name"))}</li>`) : ""}
     ${q && !total ? `<p class="empty">${esc(t("nothing"))}</p>` : ""}
   </article>`;
   on("sform", "submit", (e) => { e.preventDefault(); setParam("q", document.getElementById("sq").value.trim()); });
@@ -113,8 +113,9 @@ export function renderSearch(app) {
 export async function renderMethod(app) {
   setTitle(t("nav_method"));
   const r = repo();
-  const files = [["actors.csv", D.raw.actors], ["roles.csv", D.raw.roles], ["links.csv", D.raw.links], ["expected_types.csv", D.types], ["capabilities.csv", D.caps], ["realizations.csv", D.raw.realizations], ["refs.csv", Object.values(D.refs)], ["mandates.csv", D.mandates],
-    ["ncaf_objectives.csv", D.objectives], ["ncaf_clusters.csv", D.clusters], ["flow_steps.csv", D.steps], ["flow_handoffs.csv", D.handoffs]];
+  const files = [["actors.csv", D.raw.actors], ["roles.csv", D.raw.roles], ["links.csv", D.raw.links], ["capabilities.csv", D.caps], ["realizations.csv", D.raw.realizations], ["expected_types.csv", D.types],
+    ["flow_steps.csv", D.steps], ["flow_handoffs.csv", D.handoffs], ["frameworks.csv", D.frameworks], ["framework_items.csv", D.items.filter((i) => i.framework !== "klimburg")],
+    ["mandates.csv", D.mandates], ["refs.csv", Object.values(D.refs)]];
   const vocabTable = (kind) => `<div class="table-wrap"><table class="vocab"><tbody>${order(kind).map((id) => `<tr><th scope="row"><code>${esc(id)}</code></th><td>${esc(vl(kind, id))}</td><td class="small muted">${esc(vd(kind, id))}</td></tr>`).join("")}</tbody></table></div>`;
   const conf = {};
   [D.actors, D.roles, D.links].forEach((rows) => rows.forEach((x) => (conf[x.confidence] = (conf[x.confidence] || 0) + 1)));
@@ -132,7 +133,7 @@ export async function renderMethod(app) {
     <h3>${esc(t("vocabLinks"))}</h3>${vocabTable("link_type")}
     <h3>${esc(t("vocabRoles"))}</h3>${vocabTable("role")}
     <h3>${esc(t("vocabCoverage"))}</h3>${vocabTable("coverage")}
-    <h3>${esc(t("vocabOtm"))}</h3>${vocabTable("otm")}
+
     <h3>${esc(t("vocabConf"))}</h3>${vocabTable("confidence")}
     ${r ? `<h2>${esc(t("contributeTitle"))}</h2><p>${esc(t("contributeLead"))}</p>
       <p class="home-cta"><a class="btn" href="${esc(r)}/issues/new?template=actor.yml" target="_blank" rel="noopener">${esc(t("issueActor"))}</a><a class="btn" href="${esc(r)}/issues/new?template=link.yml" target="_blank" rel="noopener">${esc(t("issueLink"))}</a><a class="btn" href="${esc(r)}" target="_blank" rel="noopener">GitHub</a></p>` : ""}

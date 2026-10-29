@@ -70,11 +70,25 @@ export async function loadGraph() {
   D.order = Object.fromEntries(g.actors.map((a, i) => [a.id, i]));
   D.anyActor = by(g.actors); // every actor, whatever date the map is read at
   D.acts = g.acts; D.act = by(g.acts); D.actRelations = g.act_relations;
-  D.clusters = g.ncaf_clusters; D.objectives = g.ncaf_objectives.sort((a, b) => +a.id - +b.id); D.objective = by(g.ncaf_objectives);
-  D.steps = g.flow_steps; D.step = by(g.flow_steps); D.handoffs = g.flow_handoffs;
+  D.schema = g.schema; D.derived = g.derived; D.views = g.views;
+  // reference frameworks: NCAF 2.0 is the spine; its clusters and objectives keep the short ids the views use ("5")
+  D.frameworks = g.frameworks; D.fw = by(g.frameworks);
+  D.items = g.framework_items; D.item = by(g.framework_items); D.itemsBy = group(g.framework_items, "framework");
+  const ord = (a, b) => (parseFloat(a.order) || 0) - (parseFloat(b.order) || 0);
+  D.clusters = (D.itemsBy.ncaf2 || []).filter((i) => !i.parent).sort(ord).map((i) => ({ ...i, id: i.code.replace(/^C/, ""), item: i.id }));
+  D.objectives = (D.itemsBy.ncaf2 || []).filter((i) => i.parent).sort(ord)
+    .map((i) => ({ ...i, id: i.code, item: i.id, cluster: D.item[i.parent].code.replace(/^C/, ""), subjects: "", mandates: "" }));
+  D.objective = by(D.objectives);
+  D.caps = g.capabilities || []; D.cap = by(D.caps);
+  D.caps.forEach((c) => {
+    c.objective = c.spine.startsWith("ncaf2:") ? c.spine.slice(6) : "";
+    c.csf = (many(c.also).find((x) => x.startsWith("csf2:")) || "").slice(5);
+  });
+  D.capsBySpine = group(D.caps, "spine");
+  D.steps = g.flow_steps; D.step = by(g.flow_steps);
+  D.handoffs = g.flow_handoffs; D.handoffs.forEach((h) => (h.ncaf = h.objective ? h.objective.split(":")[1] : ""));
   D.types = g.expected_types; D.grcSectors = by(g.grc_sectors || []);
-  D.caps = g.capabilities || []; D.cap = by(D.caps); D.capKids = group(D.caps.filter((c) => c.parent), "parent");
-  D.capTop = D.caps.filter((c) => !c.parent);
+  D.types.forEach((x) => (x.ncaf = x.capability && D.cap[x.capability] ? D.cap[x.capability].objective : ""));
   D.refs = by(g.refs || []);
   index();
 }
@@ -101,6 +115,18 @@ function index() {
   D.links = links; D.linksOut = group(links, "from"); D.linksIn = group(links, "to"); D.linksByAct = group(links.filter((k) => k.act), "act");
   D.real = D.raw.realizations.filter((x) => ok.has(x.actor) && (!x.role || roleIds.has(x.role)));
   D.realByCap = group(D.real, "capability");
+  derive();
+}
+// Derived facts (see DERIVED in scripts/mapdata.py): who answers for an NCAF objective and which mandates it lies in
+// follow from who performs its functions and through which roles. They are recomputed for every snapshot.
+export function derive() {
+  const mo = (m) => +((D.mandate[m] || {}).order || 99);
+  D.objectives.forEach((o) => {
+    const reals = (D.capsBySpine[o.item] || []).flatMap((c) => realsOf(c.id));
+    o.functions = (D.capsBySpine[o.item] || []).length;
+    o.subjects = [...new Set(reals.filter((x) => x.part === "lead" && !isClass(D.actor[x.actor])).map((x) => x.actor))].join(";");
+    o.mandates = [...new Set(reals.filter((x) => x.role).map((x) => D.role[x.role].mandate))].sort((a, b) => mo(a) - mo(b)).join(";");
+  });
 }
 // ------------------------------------------------------------------ queries
 export const name = (id) => { const a = D.actor[id] || D.anyActor[id]; return a ? L(a, "short") : id; };
@@ -166,7 +192,8 @@ export function checks() {
   // body types the system lacks
   add("absent", "gap", D.types.filter((x) => x.coverage === "absent" || x.coverage === "unknown").map((x) => ({ type: x.id, text: L(x, "name"), coverage: x.coverage })));
   // NCAF objectives with no subject, and on a mandate boundary
-  add("noOwner", "gap", D.objectives.filter((o) => !o.subjects && o.plan_2026 !== "na").map((o) => ({ objective: o.id, text: L(o, "name") })));
+  add("noOwner", "gap", D.objectives.filter((o) => o.functions && !o.subjects).map((o) => ({ objective: o.id, text: L(o, "name") })));
+  add("objNoFunction", "info", D.objectives.filter((o) => !o.functions).map((o) => ({ objective: o.id, text: L(o, "name") })));
   add("boundary", "warn", D.objectives.filter((o) => many(o.mandates).filter((m) => m !== "OUT").length > 1 || many(o.mandates).includes("XC")).map((o) => ({ objective: o.id, text: L(o, "name") })));
   // handovers between mandates with no rule
   add("handoffs", "gap", D.handoffs.filter((h) => !h.rule_act).map((h) => ({ actor: D.step[h.from].actor, to: D.step[h.to].actor, text: L(h, "notes") })));

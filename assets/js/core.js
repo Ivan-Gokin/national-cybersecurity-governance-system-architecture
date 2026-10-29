@@ -90,6 +90,7 @@ export async function loadGraph() {
   D.types = g.expected_types; D.grcSectors = by(g.grc_sectors || []);
   D.types.forEach((x) => (x.ncaf = x.capability && D.cap[x.capability] ? D.cap[x.capability].objective : ""));
   D.refs = by(g.refs || []);
+  D.questions = g.questions || [];
   index();
 }
 

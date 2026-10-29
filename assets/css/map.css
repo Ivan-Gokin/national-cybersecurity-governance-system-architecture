@@ -487,3 +487,41 @@ table.model-t { min-width: 860px; }
 table.model-t th[scope="row"] { width: 18%; }
 table.model-t tr:target > * { background: var(--accent-tint); }
 .model-rules li { margin-bottom: .4em; max-width: 80ch; }
+
+/* ------------------------------------------------------------ the questions (Zachman) */
+.method .zachman { font-family: var(--sans); font-size: .9rem; line-height: 1.45; margin: 1.2em 0 1.6em; }
+.method.prose { max-width: 1180px; }
+.method.prose > #method-md > p, .method.prose > #method-md > ul, .method.prose > #method-md > ol, .method.prose > p { max-width: 74ch; }
+table.zgrid { min-width: 1080px; table-layout: fixed; }
+table.zgrid thead th { vertical-align: bottom; }
+table.zgrid th.corner { width: 120px; }
+table.zgrid tbody th[scope="row"] { vertical-align: top; }
+table.zgrid td { vertical-align: top; padding: 8px; }
+table.zgrid td.zempty { background: repeating-linear-gradient(135deg, transparent 0 8px, var(--surface-2) 8px 9px); }
+.zdesc { font: 400 .74rem/1.35 var(--sans); color: var(--muted); text-transform: none; letter-spacing: 0; margin-top: 4px; }
+table.zgrid li { padding: 6px 0; border-top: 1px solid var(--rule); }
+table.zgrid li:first-child { border-top: 0; padding-top: 0; }
+.zq { display: inline-flex; gap: 6px; align-items: baseline; color: var(--ink); text-decoration: none; }
+a.zq:hover .zqt { text-decoration: underline; color: var(--accent); }
+.zst { flex: none; display: inline-block; width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--full); background: var(--full); transform: translateY(1px); }
+.zq-partial .zst { border-color: var(--partial); background: linear-gradient(90deg, var(--partial) 50%, transparent 50%); }
+.zq-planned .zst { border-color: var(--muted); background: transparent; }
+.zqt { font-weight: 500; }
+.zmeta { display: block; margin: 3px 0 0 15px; }
+.zans { display: block; margin-left: 15px; font-size: .78rem; color: var(--muted); }
+.zlegend .zq { margin-right: 10px; }
+.fwb { display: inline-block; margin: 0 4px 2px 0; padding: 0 6px; font: 600 .7rem/1.55 var(--sans); color: var(--accent); border: 1px solid var(--accent); text-decoration: none; }
+.fwb-lens { color: var(--violet); border-color: var(--violet); }
+.fwb-object { color: var(--series-teal); border-color: var(--series-teal); }
+.fwb-national { color: var(--partial); border-color: var(--partial); }
+.fwb-questions, .fwb-method { color: var(--muted); border-color: var(--rule); }
+.fwb-benchmark { color: var(--ink); border-color: var(--ink); border-style: dashed; }
+.fw-questions { border-top-color: var(--muted); }
+.fw-method { border-top-color: var(--rule); }
+.fw-benchmark { border-top-color: var(--ink); border-top-style: dashed; }
+table.zover { min-width: 620px; }
+table.zover td.zhit { background: var(--accent-tint); font-weight: 600; }
+.vp-q { align-items: flex-start !important; }
+.vp-z { flex: none; min-width: 3.6em; font: 600 .78rem/1.6 var(--display); font-stretch: 85%; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.vp-qt { flex: 1; }
+.vp-q.zq-planned .vp-qt { color: var(--muted); }

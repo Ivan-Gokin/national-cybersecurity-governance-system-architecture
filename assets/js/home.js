@@ -1,5 +1,5 @@
 /* Level 0: the house (one picture of the whole system) and the doors into it (viewpoints). */
-import { D, S, t, fmt, esc, L, KLIMBURG, rolesOf, root, family, isClass, isUnit, mandatesOf, loadMd, checks } from "./core.js";
+import { D, S, t, fmt, esc, L, many, vl, KLIMBURG, rolesOf, root, family, isClass, isUnit, mandatesOf, loadMd, checks } from "./core.js";
 import { actorHref, mBadge, multiMark, covBadge, selectOf, plannedToggle, on, crumbs } from "./ui.js";
 import { setTitle, setParam, VIEWPOINTS } from "./app.js";
 
@@ -100,25 +100,18 @@ export function renderHouse(app) {
 
 // ------------------------------------------------------------------ viewpoints
 // A viewpoint (ISO/IEC 42010) names who is asking, what they care about, and which views answer their questions.
-const VP = {
-  org: { qs: [["vpOrgQ1", "#/actor/orgs"], ["vpOrgQ2", "#/actor/ci-operators"], ["vpOrgQ3", "#/actor/state-bodies"], ["vpOrgQ4", "#/actor/citizens"], ["vpOrgQ5", "#/flow"]], classes: true },
-  body: { qs: [["vpBodyQ1", "#/actors"], ["vpBodyQ2", "#/actor/ssscip"], ["vpBodyQ6", "#/functions?hl=ssscip"], ["vpBodyQ3", "#/links"], ["vpBodyQ4", "#/checks?c=watchers"], ["vpBodyQ5", "#/structure"]] },
-  law: { qs: [["vpLawQ1", "#/acts"], ["vpLawQ5", "#/time"], ["vpLawQ2", "#/mandates"], ["vpLawQ3", "#/checks?c=noBasis"], ["vpLawQ4", "#/checks?c=unverified"]] },
-  analysis: { qs: [["vpAnQ6", "#/functions"], ["vpAnQ1", "#/types"], ["vpAnQ2", "#/checks?c=sod"], ["vpAnQ3", "#/structure?hl=ssscip"], ["vpAnQ4", "#/ncaf"], ["vpAnQ7", "#/time"], ["vpAnQ5", "#/checks"]] },
-  crisis: { qs: [["vpCrQ1", "#/flow"], ["vpCrQ2", "#/checks?c=handoffs"], ["vpCrQ3", "#/types?t=crisis-authority"], ["vpCrQ4", "#/actor/nccc"]] },
-  partner: { qs: [["vpPaQ5", "#/functions?m=matrix"], ["vpPaQ1", "#/types"], ["vpPaQ2", "#/ncaf"], ["vpPaQ3", "#/mandates"], ["vpPaQ4", "#/actor/tallinn"]] },
-};
 export function renderViewpoint(app) {
-  const id = VP[S.arg] ? S.arg : "org";
-  const vp = VP[id];
+  const id = VIEWPOINTS.includes(S.arg) ? S.arg : "org";
+  const qs = D.questions.filter((q) => many(q.viewpoints).includes(id));
   setTitle(t(`vp_${id}`));
-  const classes = vp.classes ? `<div class="cards doors">${D.actors.filter(isClass).map((a) => `<a class="card door" href="${actorHref(a.id)}"><span class="kicker">${esc(t("iAmFrom"))}</span><h3>${esc(L(a, "name"))}</h3><p>${esc(t("classDoor"))}</p></a>`).join("")}</div>` : "";
+  const classes = id === "org" ? `<div class="cards doors">${D.actors.filter(isClass).map((a) => `<a class="card door" href="${actorHref(a.id)}"><span class="kicker">${esc(t("iAmFrom"))}</span><h3>${esc(L(a, "name"))}</h3><p>${esc(t("classDoor"))}</p></a>`).join("")}</div>` : "";
   app.innerHTML = `<article class="actor-page">
     ${crumbs(["#/home", t("navHome")], ["", t("navViewpoints")])}
     <header class="actor-head"><p class="kicker">${esc(t(`vp_${id}_who`))}</p><h1>${esc(t(`vp_${id}`))}</h1><p class="lead-sm">${esc(t(`vp_${id}_lead`))}</p></header>
     ${classes}
     <h2>${esc(t("vpQuestions"))}</h2>
-    <ul class="plain vp-qs">${vp.qs.map(([k, href]) => `<li><a class="card vp-q" href="${href}"><span>${esc(t(k))}</span><span class="vp-go" aria-hidden="true">→</span></a></li>`).join("")}</ul>
+    <ul class="plain vp-qs">${qs.map((q) => `<li><a class="card vp-q zq-${esc(q.status)}" href="${esc(q.href)}"><span class="vp-z">${esc(vl("zachman", q.zachman))}</span><span class="vp-qt">${esc(L(q, "question"))}<span class="block small muted">${esc(L(q, "answer"))}</span></span><span class="vp-go" aria-hidden="true">→</span></a></li>`).join("")}</ul>
+    <p class="hint">${esc(t("vpFromQuestions"))} <a href="#/method">${esc(t("nav_method"))}</a></p>
     <h2>${esc(t("vpOther"))}</h2>
     <p class="vp-other">${VIEWPOINTS.filter((v) => v !== id).map((v) => `<a class="btn btn-line" href="#/vp/${v}">${esc(t(`vp_${v}`))}</a>`).join("")}</p>
   </article>`;

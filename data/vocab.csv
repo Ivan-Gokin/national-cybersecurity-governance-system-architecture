@@ -78,7 +78,28 @@ coverage,absent,Немає,Absent,Такого органу немає.,No such 
 coverage,unknown,Невідомо,Unknown,Даних недостатньо; потрібна перевірка.,Not enough data; needs checking.
 part,lead,Відповідає,Leads,Головний виконавець функції за актом.,The main performer of the function under an act.
 part,contrib,Бере участь,Contributes,Виконує частину функції або в окремому секторі.,Performs part of the function or does it in one sector.
-fw_role,spine,Хребет,Spine,"Основна рамка: кожна функція карти належить одному її елементу.","The main framework: every function of the map belongs to one of its items."
-fw_role,lens,Лінза,Lens,"Рамка, що бачить те, чого не бачить хребет; функції поза хребтом стоять під її елементами.","A framework that sees what the spine cannot; functions outside the spine sit under its items."
-fw_role,object,Рівень організації,Organisation level,"Рамка для однієї організації; функції карти відповідають її елементам.","A framework for a single organisation; the map's functions map to its items."
-fw_role,national,Національна модель,National model,"Модель з українського акта; функції карти відповідають її положенням.","A model from a Ukrainian act; the map's functions map to its provisions."
+fw_role,spine,Хребет,Spine,Основна рамка: кожна функція карти належить одному її елементу.,The main framework: every function of the map belongs to one of its items.
+fw_role,lens,Лінза,Lens,"Рамка, що бачить те, чого не бачить хребет; функції поза хребтом стоять під її елементами.",A framework that sees what the spine cannot; functions outside the spine sit under its items.
+fw_role,object,Рівень організації,Organisation level,Рамка для однієї організації; функції карти відповідають її елементам.,A framework for a single organisation; the map's functions map to its items.
+fw_role,national,Національна модель,National model,Модель з українського акта; функції карти відповідають її положенням.,A model from a Ukrainian act; the map's functions map to its provisions.
+zachman,what,Що,What,"Інформація: що передається, повідомляється, захищається.","Information: what is passed on, reported, protected."
+zachman,how,Як,How,Функції і процеси: що система має вміти і як це робиться.,Functions and processes: what the system must be able to do and how it is done.
+zachman,where,Де,Where,"Структура: рівні, напрями, місце органу в системі.","Structure: levels, lines of work, a body's place in the system."
+zachman,who,Хто,Who,"Органи, ролі, мандати, відповідальність і підзвітність.","Bodies, roles, mandates, responsibility and accountability."
+zachman,when,Коли,When,"Час і режими: коли що з'явилося, що діє у кризу і воєнний стан, строки.","Time and regimes: when things appeared, what applies in a crisis and under martial law, deadlines."
+zachman,why,Чому,Why,"Підстави і мета: який акт це встановлює, якій цілі це служить.","Grounds and purpose: which act sets it, which goal it serves."
+zlevel,system,Система,System,Національна система загалом: контекст і межі.,The national system as a whole: context and scope.
+zlevel,institution,Установа,Institution,"Один орган разом з підрозділами: його функції, зв'язки, підстави.","One body with its units: its functions, links, legal bases."
+zlevel,organisation,Організація,Organisation,"Організація чи громадянин, на кого спрямовано вимоги: що робити і куди звертатися.",An organisation or citizen the requirements address: what to do and where to turn.
+viewpoint,org,Моя організація,My organisation,,
+viewpoint,body,Орган влади,Public body,,
+viewpoint,law,Право,Law,,
+viewpoint,analysis,Аналіз,Analysis,,
+viewpoint,crisis,Криза,Crisis,,
+viewpoint,partner,Партнерство,Partnership,,
+qstatus,answered,Є відповідь,Answered,Карта відповідає на це питання.,The map answers this question.
+qstatus,partial,Частково,Partly,"Відповідь є, але неповна: бракує даних чи вигляду.","There is an answer, but it is incomplete: data or a view is missing."
+qstatus,planned,Заплановано,Planned,"Питання поставлено, відповіді ще немає.",The question is set; there is no answer yet.
+fw_role,questions,Питання,Questions,"Рамка, що задає перелік питань, а не відповіді.","A framework that sets the list of questions, not the answers."
+fw_role,method,Метод,Method,"Як будується опис: погляди, вигляди, моделі.","How the description is built: viewpoints, views, models."
+fw_role,benchmark,Еталон,Benchmark,Що очікується від національної системи або як це зроблено в інших.,"What a national system is expected to have, or how others do it."

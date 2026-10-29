@@ -25,7 +25,8 @@ ACT_FIELDS = ["id", "register_no", "eli", "type", "number", "adopted", "short_re
 # (the GRC foundation's sectors). "item:<framework>" restricts a reference to one framework.
 SCHEMA = {
     "framework": {"file": "frameworks.csv", "layer": "frameworks", "key": "id",
-                  "cols": ["id", "name_uk", "name_en", "publisher_uk", "publisher_en", "year", "url", "role", "description_uk", "description_en"],
+                  "cols": ["id", "name_uk", "name_en", "short_uk", "short_en", "publisher_uk", "publisher_en", "year", "url", "role",
+                           "description_uk", "description_en"],
                   "refs": {"role": ("vocab:fw_role", False, False)},
                   "uk": "Рамка", "en": "Framework",
                   "about_uk": "Визнана рамка, на яку спирається карта: NCAF 2.0 — хребет, мандати Клімбурґа, NIST CSF і ОТМ — відповідності.",
@@ -98,6 +99,15 @@ SCHEMA = {
                 "uk": "Передача", "en": "Handover",
                 "about_uk": "Передача справи між кроками різних суб'єктів і правило, що її врегульовує.",
                 "about_en": "A case passing between steps of different actors, and the rule that governs it."},
+    "question": {"file": "questions.csv", "layer": "frameworks", "key": "id",
+                 "cols": ["id", "zachman", "level", "viewpoints", "frameworks", "entities", "href", "status", "question_uk", "question_en",
+                          "answer_uk", "answer_en"],
+                 "refs": {"zachman": ("vocab:zachman", False, False), "level": ("vocab:zlevel", False, False),
+                          "viewpoints": ("vocab:viewpoint", True, False), "frameworks": ("framework", True, True),
+                          "entities": ("entity", True, False), "status": ("vocab:qstatus", False, False)},
+                 "uk": "Питання", "en": "Question",
+                 "about_uk": "Що карта має розповісти: питання за Захманом (що, як, де, хто, коли, чому) на рівні системи, установи й організації, рамка, що дає основу відповіді, і вигляд, де її видно.",
+                 "about_en": "What the map must tell: Zachman's questions (what, how, where, who, when, why) at the level of the system, an institution and an organisation, the framework that grounds the answer and the view that shows it."},
     "ref": {"file": "refs.csv", "layer": "support", "key": "id",
             "cols": ["id", "title_uk", "title_en", "publisher_uk", "publisher_en", "url", "notes_uk", "notes_en"], "refs": {},
             "uk": "Вторинне джерело", "en": "Secondary source",
@@ -133,7 +143,8 @@ VIEWS = {
     "links": ["link", "actor"], "flow": ["step", "handoff", "capability", "actor"], "types": ["type", "capability", "actor"],
     "checks": ["actor", "role", "link", "capability", "realization", "type", "handoff"],
     "ncaf": ["item", "capability", "realization", "role", "type"], "time": ["actor", "role", "link"],
-    "acts": ["act", "role", "link", "realization", "handoff"], "frameworks": ["framework", "item", "capability", "realization"],
+    "acts": ["act", "role", "link", "realization", "handoff"], "frameworks": ["framework", "item", "capability", "realization", "question"],
+    "method": ["question", "framework"], "vp": ["question"],
 }
 
 
@@ -222,6 +233,8 @@ def check(t):
             return V.get(target[6:], set())
         if target == "sector":
             return {s["id"] for s in t["register_sectors"]}
+        if target == "entity":
+            return set(SCHEMA) | {"act"}
         if target.startswith("item:"):
             return {i for i, r in items.items() if r["framework"] == target[5:]}
         return keys.get(target, set())
@@ -264,6 +277,9 @@ def check(t):
     for r in t["actor"]:
         if r["parent"] == r["id"]:
             errors.append(f"{r['_where']}: an actor cannot be its own parent")
+    for r in t["question"]:
+        if not r["href"].startswith("#/"):
+            errors.append(f"{r['_where']}: href must be a link inside the site ('#/...')")
     for r in t["step"]:
         if r["absent"] not in ("yes", ""):
             errors.append(f"{r['_where']}: absent must be 'yes' or blank")
@@ -374,7 +390,7 @@ def graph(t):
         vocab.setdefault(r["vocab"], []).append({k: r[k] for k in ("id", "label_uk", "label_en", "description_uk", "description_en")})
     lock = t["lock"]
     schema = {ent: {"file": s["file"], "layer": s["layer"], "name_uk": s["uk"], "name_en": s["en"], "about_uk": s["about_uk"], "about_en": s["about_en"],
-                    "refs": {col: tgt for col, (tgt, _, _) in s["refs"].items() if not tgt.startswith("vocab:")}, "rows": len(t[ent])}
+                    "refs": {col: tgt for col, (tgt, _, _) in s["refs"].items() if not tgt.startswith("vocab:") and tgt != "entity"}, "rows": len(t[ent])}
               for ent, s in SCHEMA.items()}
     schema["act"] = {"file": "vendor/register/sources.csv", "layer": "support", "name_uk": "Акт (реєстр GRC-фундаменту)", "name_en": "Act (GRC foundation register)",
                      "about_uk": "Правова підстава. Окремої таблиці немає: акти беруться з закріпленої копії реєстру.",
@@ -399,6 +415,7 @@ def graph(t):
         "capabilities": strip(t["capability"]),
         "realizations": strip(t["realization"]),
         "refs": strip(t["ref"]),
+        "questions": strip(t["question"]),
         "grc_sectors": [{k: r[k] for k in ("id", "label_uk", "label_en")} for r in t["register_sectors"]
                         if r["id"] in {x for a in t["actor"] for x in many(a["grc_sectors"])}],
     }

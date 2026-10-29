@@ -3,6 +3,7 @@
 import { D, S, t, fmt, esc, L, many, live, vl, vd, order, name, rolesOf, checks, loadMd } from "./core.js";
 import { actorLink, actRef, actHref, covBadge, confBadge, gap, select, on, repo, ICON } from "./ui.js";
 import { setTitle, setParam } from "./app.js";
+import { zachmanSection } from "./model.js";
 
 const focusOn = (id) => { const el = document.getElementById(id); if (el) { el.classList.add("is-focus"); el.scrollIntoView({ block: "start" }); } };
 
@@ -115,7 +116,7 @@ export async function renderMethod(app) {
   const r = repo();
   const files = [["actors.csv", D.raw.actors], ["roles.csv", D.raw.roles], ["links.csv", D.raw.links], ["capabilities.csv", D.caps], ["realizations.csv", D.raw.realizations], ["expected_types.csv", D.types],
     ["flow_steps.csv", D.steps], ["flow_handoffs.csv", D.handoffs], ["frameworks.csv", D.frameworks], ["framework_items.csv", D.items.filter((i) => i.framework !== "klimburg")],
-    ["mandates.csv", D.mandates], ["refs.csv", Object.values(D.refs)]];
+    ["mandates.csv", D.mandates], ["questions.csv", D.questions], ["refs.csv", Object.values(D.refs)]];
   const vocabTable = (kind) => `<div class="table-wrap"><table class="vocab"><tbody>${order(kind).map((id) => `<tr><th scope="row"><code>${esc(id)}</code></th><td>${esc(vl(kind, id))}</td><td class="small muted">${esc(vd(kind, id))}</td></tr>`).join("")}</tbody></table></div>`;
   const conf = {};
   [D.actors, D.roles, D.links].forEach((rows) => rows.forEach((x) => (conf[x.confidence] = (conf[x.confidence] || 0) + 1)));
@@ -140,5 +141,5 @@ export async function renderMethod(app) {
   </article>`;
   const html = await loadMd("method");
   const box = document.getElementById("method-md");
-  if (box) box.innerHTML = html;
+  if (box) box.innerHTML = html.replace("<!--zachman-->", zachmanSection());
 }

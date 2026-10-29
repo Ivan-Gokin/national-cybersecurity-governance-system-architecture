@@ -1,6 +1,25 @@
 # Method
 
-## Three questions under one
+## The story the map tells
+
+The map answers one question — **who is responsible for what in Ukraine's national cybersecurity system** — and shows it so that a practitioner in an ordinary organisation, an official, an analyst and a foreign partner can all follow. The documents in force do not answer it: the law lists the actors, the OTM describes "infrastructures" and "forces", the action plan lists tasks, but nowhere does it say who exactly is responsible for each function, under which authority and on what basis.
+
+For the answer to be complete, the question has to be broken down. We break it down with the **Zachman Framework**: six questions — *what, how, where, who, when, why* — at three levels: the **system** as a whole, one **institution** with its units, one **organisation** or citizen the requirements address. Zachman only gives the list of questions, so nothing is missed. Recognised frameworks answer them:
+
+- **How** — ENISA NCAF 2.0: what the state must be able to do (20 objectives, the spine of the capability map); NIST CSF 2.0 — the same at the level of an organisation; the OTM — how the same function is written in the Ukrainian act (a crosswalk only).
+- **Who** — Klimburg's mandates (NATO CCDCOE): under which authority a body acts; NIS2 and EU member-state practice: which bodies are expected and which are missing.
+- **Where** — the structural view after interface's German map: levels × lines of work.
+- **When** — dates when bodies, roles and links came into and went out of force; regimes (martial law, crisis).
+- **Why** — legal bases from the GRC foundation register; NCAF objectives as the purpose of functions.
+- **What** — the information that passes between bodies: exchange, reporting (so far the map's weakest point).
+
+Each cell of the table below holds the concrete questions the map must answer, the framework that grounds the answer and the view that shows it. The same questions lead into the site's viewpoints: a viewpoint (after ISO/IEC/IEEE 42010) is the set of questions of one group of readers.
+
+<!--zachman-->
+
+The lower rows of the Zachman Framework — technical design, components, operations (systems, networks, protection tools) — are deliberately outside the map: the openness boundary says so.
+
+## Who: three questions under one
 
 "Who is responsible for what" is three different questions, and the map keeps them apart.
 

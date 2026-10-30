@@ -6,7 +6,7 @@
 
 Відкрите представлення національної системи кібербезпеки України: органи і їхні підрозділи, функції (ролі) з правовими підставами, мандати, типізовані зв'язки, класи організацій, на які спрямовано вимоги, і типові органи, яких у системі бракує. Одна модель — багато поглядів: фахівця організації, органу влади, юриста, аналітика, кризового реагування, міжнародного партнера.
 
-**Статус: прототип.** Дані зібрано з відкритих актів і вторинних джерел. Ролі основних суб'єктів, звітування, нагляд і пов'язані функції звірено з текстами законів 2163-VIII і 3475-IV (редакції з урахуванням 4336-IX) станом на 30.10.2026 — у таких рядках `confidence = high` і стоїть `last_verified`; решта ще чекає звірки. Сайт закритий від пошукових систем, на кожній сторінці — банер.
+**Статус: прототип.** Дані зібрано з відкритих актів і вторинних джерел. Ролі основних суб'єктів, звітування, нагляд і пов'язані функції звірено з текстами законів 2163-VIII і 3475-IV (редакції з урахуванням 4336-IX), законів про СБУ, Національну поліцію і розвідку та Положення про НКЦК станом на 30.10.2026 — у таких рядках `confidence = high` і стоїть `last_verified`; решта ще чекає звірки. Сайт закритий від пошукових систем, на кожній сторінці — банер.
 
 ### Будова
 
@@ -40,7 +40,7 @@
 
 An open representation of Ukraine's national cybersecurity system: bodies and their units, functions (roles) with their legal bases, mandates, typed links, the classes of organisations the requirements address, and the expected institution types the system lacks. One model, many viewpoints: a practitioner in an organisation, an official, a lawyer, an analyst, crisis response, an international partner.
 
-**Status: prototype.** Data compiled from open acts and secondary sources. The roles of the main actors, reporting, oversight and related functions were checked against the texts of Laws 2163-VIII and 3475-IV (as amended by 4336-IX) on 30.10.2026 — those rows have `confidence = high` and a `last_verified` date; the rest await checking. The site is closed to search engines and shows a banner on every page.
+**Status: prototype.** Data compiled from open acts and secondary sources. The roles of the main actors, reporting, oversight and related functions were checked against the texts of Laws 2163-VIII and 3475-IV (as amended by 4336-IX), the laws on the SBU, the National Police and intelligence, and the NCCC Regulation on 30.10.2026 — those rows have `confidence = high` and a `last_verified` date; the rest await checking. The site is closed to search engines and shows a banner on every page.
 
 ### Structure
 

@@ -103,3 +103,29 @@ qstatus,planned,Заплановано,Planned,"Питання поставле�
 fw_role,questions,Питання,Questions,"Рамка, що задає перелік питань, а не відповіді.","A framework that sets the list of questions, not the answers."
 fw_role,method,Метод,Method,"Як будується опис: погляди, вигляди, моделі.","How the description is built: viewpoints, views, models."
 fw_role,benchmark,Еталон,Benchmark,Що очікується від національної системи або як це зроблено в інших.,"What a national system is expected to have, or how others do it."
+driver_kind,threat,Загроза і війна,Threat and war,"Атаки, війна, воєнний стан.","Attacks, war, martial law."
+driver_kind,incident,Інцидент,Incident,"Конкретна подія з датою, після якої щось змінилося.",A dated event after which something changed.
+driver_kind,eu,ЄС і міжнародні зобов'язання,EU and international commitments,"Угода про асоціацію, статус кандидата, План України, наближення до NIS2.","The Association Agreement, candidate status, the Ukraine Plan, approximation to NIS2."
+driver_kind,strategy,Стратегія і політичні рішення,Strategy and political decisions,"Стратегія кібербезпеки, рішення РНБО, план заходів.","The Cybersecurity Strategy, NSDC decisions, the action plan."
+driver_kind,donor,Донори і ресурси,Donors and resources,"Міжнародна допомога, механізми підтримки, бюджет.","International assistance, support mechanisms, the budget."
+driver_kind,institutional,Інституційна історія,Institutional history,Як склалися органи і їхні повноваження; лише з відкритим документальним джерелом.,How the bodies and their powers came to be; only with an open documentary source.
+driver_kind,practice,Практика інших і професійні норми,Others' practice and professional norms,Як це зроблено в сусідів; стандарти і спільноти фахівців.,How neighbours do it; standards and professional communities.
+driver_kind,market,Ринок і бізнес,Market and business,"Вимоги клієнтів і партнерів, ринок ЄС, страхування, ланцюги постачання.","Customer and partner demands, the EU market, insurance, supply chains."
+driver_kind,society,Суспільство і права людини,Society and human rights,"Довіра, приватність, свобода.","Trust, privacy, freedom."
+driver_kind,technology,Технології,Technology,"Хмари, ШІ, цифровізація держави.","Cloud, AI, digitalisation of the state."
+mechanism,coercive,Примусовий,Coercive,"Тиск того, від кого залежиш: умови ЄС, донорів, закону (Ді Маджіо і Пауелл).","Pressure from those you depend on: EU, donor or legal conditions (DiMaggio and Powell)."
+mechanism,mimetic,Мімічний,Mimetic,"Перейняти рішення, що вже працює в інших (Ді Маджіо і Пауелл).",Adopting a solution that already works elsewhere (DiMaggio and Powell).
+mechanism,normative,Нормативний,Normative,"Професійні норми і стандарти, членство у спільнотах (Ді Маджіо і Пауелл).","Professional norms and standards, membership of communities (DiMaggio and Powell)."
+mechanism,pressure,Тиск обставин,Pressure of events,"Загроза чи подія, що вимагає реакції; «вікно можливостей» за Кінгдоном.",A threat or event that demands a response; Kingdon's window of opportunity.
+mechanism,resource,Ресурсна залежність,Resource dependence,"Хто дає ресурси, той впливає на те, що існує (Пфеффер і Саланчик).",Whoever provides resources shapes what exists (Pfeffer and Salancik).
+mechanism,path,Історична залежність,Path dependence,"Нове будують на тому, що вже є.",New things are built on what already exists.
+effect,creates,Спричиняє,Creates,,
+effect,accelerates,Прискорює,Accelerates,,
+effect,shapes,Формує,Shapes,,
+effect,funds,Фінансує,Funds,,
+effect,expects,Очікує,Expects,"Драйвер очікує функцію чи орган, яких може й не бути.",The driver expects a function or body that may not exist.
+effect,conditions,Обумовлює,Conditions,Ресурси чи статус залежать від виконання.,Resources or status depend on delivery.
+effect,challenges,Ставить під питання,Challenges,"Драйвер суперечить тому, як є.",The driver runs against how things are.
+why_facet,basis,Підстава,Basis,"На якій підставі: акт, що дає право.",On what basis: the act that grants the power.
+why_facet,driver,Драйвер,Driver,Через що: що підштовхнуло чи підштовхує.,Because of what: what pushed or pushes it.
+why_facet,goal,Мета,Goal,"Для чого: ціль, якій це служить.",What for: the goal it serves.

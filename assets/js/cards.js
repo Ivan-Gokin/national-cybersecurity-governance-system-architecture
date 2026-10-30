@@ -5,6 +5,7 @@ import { CFG, D, S, t, fmt, esc, L, many, group, live, vl, KLIMBURG, ROLE_GROUP,
 import { LINK_GLYPH, actorLink, actorHref, actRef, grcActHref, mBadge, confBadge, statusBadge, covBadge, gap, crumbs, repo, ext } from "./ui.js";
 import { setTitle } from "./app.js";
 import { capsSection } from "./capmap.js";
+import { whySection } from "./why.js";
 
 export function renderActorCard(app) {
   const a = D.actor[S.arg];
@@ -56,6 +57,7 @@ function bodyCard(app, a) {
     ${fam.length > 1 || nGroups > 1 ? `<h2>${esc(fmt(r === a.id ? t("profileTitle") : t("profileOf"), name(r)))}</h2>
       <p class="lead-sm">${esc(fmt(t("profileLead"), nGroups, fam.length, fam.reduce((s, m) => s + rolesOf(m).length, 0)))}</p>${profile}` : ""}
     ${flags.length ? `<div class="flags">${flags.map((f) => `<p class="notice flag-${esc(f.c)}"><b>${esc(t("chk_" + f.c))}.</b> ${esc(f.text)}</p>`).join("")}</div>` : ""}
+    ${whySection("actor", fam)}
     ${famTypes.length ? `<h2>${esc(t("typesFilled"))}</h2><p class="lead-sm">${esc(t("typesFilledLead"))}</p>
       <ul class="plain type-list">${famTypes.map((x) => `<li><a href="#/types?t=${esc(x.id)}">${esc(L(x, "name"))}</a> ${covBadge(x.coverage)} <span class="small muted">${many(x.actors).filter((m) => fam.includes(m)).map((m) => esc(name(m))).join(", ")}</span></li>`).join("")}</ul>` : ""}
     ${capsSection(r)}
@@ -142,6 +144,7 @@ export function renderActCard(app) {
     <h2>${esc(fmt(t("actLinks"), links.length))}</h2>
     ${links.length ? `<ul class="plain legend">${links.map((k) => `<li><span class="lglyph lt-${esc(k.type)}">${LINK_GLYPH[k.type] || "·"}</span><span>${actorLink(k.from)} → ${actorLink(k.to)}: ${esc(vl("link_type", k.type))}${L(k, "notes") ? `<span class="block small muted">${esc(L(k, "notes"))}</span>` : ""}</span></li>`).join("")}</ul>` : `<p class="muted">—</p>`}
     ${hand.length ? `<h2>${esc(t("actHandoffs"))}</h2><ul class="plain">${hand.map((h) => `<li>${actorLink(D.step[h.from].actor)} → ${actorLink(D.step[h.to].actor)}</li>`).join("")}</ul>` : ""}
+    ${whySection("act", a.id)}
     ${rel.length ? `<h2>${esc(t("actRelations"))}</h2><ul class="plain">${rel.map((x) => `<li>${relName(x.source_id)} <span class="muted">${esc(t("rel_" + x.relation) !== "rel_" + x.relation ? t("rel_" + x.relation) : x.relation)}</span> ${relName(x.related_id)}</li>`).join("")}</ul>` : ""}
   </article>`;
 }

@@ -5,6 +5,7 @@ import { D, S, t, fmt, esc, L, many, vl, vd, name, root, family, isClass, rolesO
   existsAt, day, setDate } from "./core.js";
 import { actorLink, actorHref, actRef, mBadge, confBadge, statusBadge, covBadge, gap, selectOf, plannedToggle, on, crumbs } from "./ui.js";
 import { setTitle, setParam, fmtDate } from "./app.js";
+import { whySection, driverEvents } from "./why.js";
 
 const capHref = (id) => `#/cap/${encodeURIComponent(id)}`;
 export const csfBadge = (c) => (c && D.item[`csf2:${c}`] ? `<span class="csf csf-${esc(c)}" title="NIST CSF 2.0: ${esc(L(D.item[`csf2:${c}`], "name"))}">${esc(c)}</span>` : "");
@@ -135,6 +136,10 @@ export function renderCapCard(app) {
     ${rows ? `<div class="table-wrap"><table class="roles"><thead><tr><th>${esc(t("colActor"))}</th><th>${esc(t("colPart"))}</th><th>${esc(t("colRoleBasis"))}</th><th>${esc(t("colInstrument"))}</th><th>${esc(t("colConf"))}</th><th>${esc(t("colNotes"))}</th></tr></thead><tbody>${rows}</tbody></table></div>
       <p class="hint">${esc(t("capRoleVsAct"))}</p>` : `<p>${gap(t("capNobody"))}</p>`}
     ${f.multi ? `<p class="notice">${esc(t("capMultiLead"))}</p>` : ""}
+    ${whySection("capability", c.id, {
+      basis: (() => { const acts = [...new Set(rs.flatMap((x) => [x.act, x.role && D.role[x.role] ? D.role[x.role].act : ""]).filter(Boolean))];
+        return acts.length ? `<ul class="plain small">${acts.map((a) => `<li>${actRef(a)}</li>`).join("")}</ul>` : `<p class="small">${gap(t("noBasis"))}</p>`; })(),
+      goal: `<p>${itemLabel(sp)}</p>` })}
     ${types.length ? `<h2>${esc(t("capTypes"))}</h2><ul class="plain type-list">${types.map((x) => `<li><a href="#/types?t=${esc(x.id)}">${esc(L(x, "name"))}</a> ${covBadge(x.coverage)} <span class="small muted">${esc(L(x, "basis"))}</span></li>`).join("")}</ul>` : ""}
     ${sources}
     ${sib.length ? `<h2>${esc(fmt(t("capSiblings"), L(sp, "name")))}</h2>
@@ -174,6 +179,7 @@ function events() {
   any.roles.forEach((r) => { if (r.valid_from) ev.push({ d: day(r.valid_from), kind: "role", html: `${actorLink(r.actor)}: ${esc(vl("role", r.role))}`, text: t("evRole") }); if (r.valid_to) ev.push({ d: day(r.valid_to), kind: "end", html: `${actorLink(r.actor)}: ${esc(vl("role", r.role))}`, text: t("evRoleEnd") }); });
   any.links.forEach((k) => { if (k.valid_from) ev.push({ d: day(k.valid_from), kind: "link", html: `${actorLink(k.from)} → ${actorLink(k.to)}: ${esc(vl("link_type", k.type))}`, text: t("evLink") }); });
   D.acts.filter((a) => a.adopted).forEach((a) => ev.push({ d: a.adopted, kind: "act", html: actRef(a.id), text: t("evAct") }));
+  driverEvents().forEach((e) => ev.push(e));
   return ev.sort((a, b) => a.d.localeCompare(b.d));
 }
 export function renderTime(app) {

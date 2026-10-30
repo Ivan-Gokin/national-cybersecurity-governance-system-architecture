@@ -4,6 +4,7 @@ import { D, S, t, fmt, esc, L, many, live, vl, vd, order, name, rolesOf, checks,
 import { actorLink, actRef, actHref, covBadge, confBadge, gap, select, on, repo, ICON } from "./ui.js";
 import { setTitle, setParam } from "./app.js";
 import { zachmanSection } from "./model.js";
+import { driversOn, driverHref } from "./why.js";
 
 const focusOn = (id) => { const el = document.getElementById(id); if (el) { el.classList.add("is-focus"); el.scrollIntoView({ block: "start" }); } };
 
@@ -23,6 +24,7 @@ export function renderTypes(app) {
     <p class="small"><b>${esc(t("typeBasis"))}:</b> ${esc(L(x, "basis"))}</p>
     <p>${many(x.actors).length ? `${esc(t("typeWho"))}: ${many(x.actors).map((id) => actorLink(id)).join(", ")}` : gap(x.coverage === "unknown" ? t("typeUnknown") : t("typeNobody"))}</p>
     ${L(x, "notes") ? `<p class="obj-note">${esc(L(x, "notes"))}</p>` : ""}
+    ${driversOn("type", x.id).length ? `<p class="small">${esc(t("typeDrivers"))}: ${driversOn("type", x.id).map((i) => `<a href="${driverHref(i.driver)}">${esc(L(D.driver[i.driver], "name"))}</a>`).join(", ")}</p>` : ""}
     <p class="obj-foot">${confBadge(x.confidence)}</p></li>`;
   app.innerHTML = `<article class="wide">
     <div class="results-head"><h1>${esc(t("nav_types"))}</h1><p class="lead-sm">${esc(t("typesLead"))}</p></div>
@@ -116,7 +118,7 @@ export async function renderMethod(app) {
   const r = repo();
   const files = [["actors.csv", D.raw.actors], ["roles.csv", D.raw.roles], ["links.csv", D.raw.links], ["capabilities.csv", D.caps], ["realizations.csv", D.raw.realizations], ["expected_types.csv", D.types],
     ["flow_steps.csv", D.steps], ["flow_handoffs.csv", D.handoffs], ["frameworks.csv", D.frameworks], ["framework_items.csv", D.items.filter((i) => i.framework !== "klimburg")],
-    ["mandates.csv", D.mandates], ["questions.csv", D.questions], ["refs.csv", Object.values(D.refs)]];
+    ["mandates.csv", D.mandates], ["questions.csv", D.questions], ["drivers.csv", D.drivers], ["influences.csv", D.influences], ["refs.csv", Object.values(D.refs)]];
   const vocabTable = (kind) => `<div class="table-wrap"><table class="vocab"><tbody>${order(kind).map((id) => `<tr><th scope="row"><code>${esc(id)}</code></th><td>${esc(vl(kind, id))}</td><td class="small muted">${esc(vd(kind, id))}</td></tr>`).join("")}</tbody></table></div>`;
   const conf = {};
   [D.actors, D.roles, D.links].forEach((rows) => rows.forEach((x) => (conf[x.confidence] = (conf[x.confidence] || 0) + 1)));

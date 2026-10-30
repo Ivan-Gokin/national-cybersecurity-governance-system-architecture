@@ -117,8 +117,13 @@ export const fwBadge = (id) => (D.fw[id] ? `<a class="fwb fwb-${esc(D.fw[id].rol
 export const qLink = (q) => `<a class="zq zq-${esc(q.status)}" href="${esc(q.href)}"><span class="zst" title="${esc(vl("qstatus", q.status))}"></span><span class="zqt">${esc(L(q, "question"))}</span></a>`;
 export function zachmanSection() {
   const Z = order("zachman"), LV = order("zlevel");
-  const cell = (lv, z) => D.questions.filter((q) => q.level === lv && q.zachman === z).map((q) => `<li>${qLink(q)}
-    <span class="zmeta">${many(q.frameworks).map(fwBadge).join("")}</span><span class="zans">${esc(L(q, "answer"))}</span></li>`).join("");
+  const li = (q) => `<li>${qLink(q)}<span class="zmeta">${many(q.frameworks).map(fwBadge).join("")}</span><span class="zans">${esc(L(q, "answer"))}</span></li>`;
+  const cell = (lv, z) => {
+    const qs = D.questions.filter((q) => q.level === lv && q.zachman === z);
+    if (z !== "why") return qs.map(li).join("");
+    return order("why_facet").filter((f) => qs.some((q) => q.facet === f))
+      .map((f) => `<li class="zfacet">${esc(vl("why_facet", f))}</li>${qs.filter((q) => q.facet === f).map(li).join("")}`).join("");
+  };
   const grid = `<div class="table-wrap"><table class="zgrid"><thead><tr><th class="corner"></th>${Z.map((z) => `<th scope="col">${esc(vl("zachman", z))}<span class="block zdesc">${esc(vd("zachman", z))}</span></th>`).join("")}</tr></thead>
     <tbody>${LV.map((lv) => `<tr><th scope="row">${esc(vl("zlevel", lv))}<span class="block zdesc">${esc(vd("zlevel", lv))}</span></th>${Z.map((z) => { const c = cell(lv, z); return `<td${c ? "" : ' class="zempty"'}>${c ? `<ul class="plain">${c}</ul>` : ""}</td>`; }).join("")}</tr>`).join("")}</tbody></table></div>`;
   const n = (st) => D.questions.filter((q) => q.status === st).length;

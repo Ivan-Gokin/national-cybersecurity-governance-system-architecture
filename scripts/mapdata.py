@@ -100,14 +100,28 @@ SCHEMA = {
                 "about_uk": "Передача справи між кроками різних суб'єктів і правило, що її врегульовує.",
                 "about_en": "A case passing between steps of different actors, and the rule that governs it."},
     "question": {"file": "questions.csv", "layer": "frameworks", "key": "id",
-                 "cols": ["id", "zachman", "level", "viewpoints", "frameworks", "entities", "href", "status", "question_uk", "question_en",
+                 "cols": ["id", "zachman", "facet", "level", "viewpoints", "frameworks", "entities", "href", "status", "question_uk", "question_en",
                           "answer_uk", "answer_en"],
-                 "refs": {"zachman": ("vocab:zachman", False, False), "level": ("vocab:zlevel", False, False),
+                 "refs": {"zachman": ("vocab:zachman", False, False), "facet": ("vocab:why_facet", False, True), "level": ("vocab:zlevel", False, False),
                           "viewpoints": ("vocab:viewpoint", True, False), "frameworks": ("framework", True, True),
                           "entities": ("entity", True, False), "status": ("vocab:qstatus", False, False)},
                  "uk": "Питання", "en": "Question",
                  "about_uk": "Що карта має розповісти: питання за Захманом (що, як, де, хто, коли, чому) на рівні системи, установи й організації, рамка, що дає основу відповіді, і вигляд, де її видно.",
                  "about_en": "What the map must tell: Zachman's questions (what, how, where, who, when, why) at the level of the system, an institution and an organisation, the framework that grounds the answer and the view that shows it."},
+    "driver": {"file": "drivers.csv", "layer": "model", "key": "id",
+               "cols": ["id", "kind", "mechanism", "date", "name_uk", "name_en", "description_uk", "description_en", "ref", "act", "confidence"],
+               "refs": {"kind": ("vocab:driver_kind", False, False), "mechanism": ("vocab:mechanism", False, False), "ref": ("ref", False, True),
+                        "act": ("act", False, True), "confidence": ("vocab:confidence", False, False)},
+               "uk": "Драйвер", "en": "Driver",
+               "about_uk": "Через що система така, яка є: загроза, подія, ЄС, донори, інституційна історія, практика інших, ринок, суспільство, технології. Не плутати з правовою підставою.",
+               "about_en": "Why the system is the way it is: a threat, an event, the EU, donors, institutional history, others' practice, the market, society, technology. Not to be confused with the legal basis."},
+    "influence": {"file": "influences.csv", "layer": "model", "key": "id",
+                  "cols": ["id", "driver", "target_type", "target", "effect", "ref", "act", "confidence", "notes_uk", "notes_en"],
+                  "refs": {"driver": ("driver", False, False), "effect": ("vocab:effect", False, False), "ref": ("ref", False, True),
+                           "act": ("act", False, True), "confidence": ("vocab:confidence", False, False)},
+                  "uk": "Вплив драйвера", "en": "Influence of a driver",
+                  "about_uk": "На що драйвер діє (функцію, орган, роль, акт, типовий орган чи інший драйвер), як (спричиняє, формує, фінансує, очікує…) і з яким доказом.",
+                  "about_en": "What a driver acts on (a function, body, role, act, expected body or another driver), how (creates, shapes, funds, expects…) and with what evidence."},
     "ref": {"file": "refs.csv", "layer": "support", "key": "id",
             "cols": ["id", "title_uk", "title_en", "publisher_uk", "publisher_en", "url", "notes_uk", "notes_en"], "refs": {},
             "uk": "Вторинне джерело", "en": "Secondary source",
@@ -133,6 +147,8 @@ DERIVED = [
      "the objective of the function the body would perform"),
     ("snapshot", "Стан на дату", "State as of a date", "рядки, чинні на дату (valid_from, valid_to, status)",
      "rows in force on the date (valid_from, valid_to, status)"),
+    ("driver_gap", "Драйвер без функції", "A driver without a function",
+     "вплив «очікує» на функцію без відповідального чи на типовий орган, якого немає", "an \"expects\" influence on a function nobody leads or on an expected body that is absent"),
     ("checks", "Перевірки", "Checks", "прогалини, конфлікти функцій, концентрація — з тих самих таблиць",
      "gaps, conflicting functions, concentration — from the same tables"),
 ]
@@ -144,7 +160,7 @@ VIEWS = {
     "checks": ["actor", "role", "link", "capability", "realization", "type", "handoff"],
     "ncaf": ["item", "capability", "realization", "role", "type"], "time": ["actor", "role", "link"],
     "acts": ["act", "role", "link", "realization", "handoff"], "frameworks": ["framework", "item", "capability", "realization", "question"],
-    "method": ["question", "framework"], "vp": ["question"],
+    "method": ["question", "framework"], "vp": ["question"], "why": ["driver", "influence", "ref", "act"],
 }
 
 
@@ -216,7 +232,7 @@ def check(t):
                 ok = re.match(r"^[a-z0-9]+:[A-Za-z0-9.]+$", rid)
             elif ent == "mandate":
                 ok = re.match(r"^[A-Z0-9]+$", rid)
-            elif ent in ("link", "realization"):  # composite ids, checked below
+            elif ent in ("link", "realization", "influence"):  # composite ids, checked below
                 ok = bool(rid)
             else:
                 ok = ID_RE.match(rid)
@@ -277,6 +293,26 @@ def check(t):
     for r in t["actor"]:
         if r["parent"] == r["id"]:
             errors.append(f"{r['_where']}: an actor cannot be its own parent")
+    # drivers: dates, evidence, and targets of the right type
+    targets = {"capability": keys["capability"], "actor": keys["actor"], "role": keys["role"], "act": set(acts), "type": keys["type"],
+               "driver": keys["driver"], "link": keys["link"]}
+    for r in t["driver"]:
+        if r["date"] and not DATE_RE.match(r["date"]):
+            errors.append(f"{r['_where']}: date '{r['date']}' is not a date")
+        if not r["ref"] and not r["act"]:
+            errors.append(f"{r['_where']}: a driver needs evidence: a ref or an act")
+    for r in t["influence"]:
+        if r["target_type"] not in targets:
+            errors.append(f"{r['_where']}: target_type '{r['target_type']}' must be one of {', '.join(targets)}")
+        elif r["target"] not in targets[r["target_type"]]:
+            errors.append(f"{r['_where']}: {r['target_type']} '{r['target']}' does not exist")
+        if not r["ref"] and not r["act"]:
+            errors.append(f"{r['_where']}: an influence needs evidence: a ref or an act")
+        if r["id"] != f"{r['driver']}>{r['target_type']}:{r['target']}":
+            errors.append(f"{r['_where']}: id must be '<driver>><target_type>:<target>', got '{r['id']}'")
+    for r in t["question"]:
+        if (r["zachman"] == "why") != bool(r["facet"]):
+            errors.append(f"{r['_where']}: a 'why' question needs a facet (basis, driver, goal), and only a 'why' question has one")
     for r in t["question"]:
         if not r["href"].startswith("#/"):
             errors.append(f"{r['_where']}: href must be a link inside the site ('#/...')")
@@ -362,7 +398,8 @@ def check(t):
 
 
 def cited(t):
-    return ({r["act"] for n in ("role", "link", "realization") for r in t[n] if r["act"]}
+    return ({r["act"] for n in ("role", "link", "realization", "driver", "influence") for r in t[n] if r["act"]}
+            | {r["target"] for r in t["influence"] if r["target_type"] == "act"}
             | {r["rule_act"] for r in t["handoff"] if r["rule_act"]})
 
 
@@ -416,6 +453,8 @@ def graph(t):
         "realizations": strip(t["realization"]),
         "refs": strip(t["ref"]),
         "questions": strip(t["question"]),
+        "drivers": strip(t["driver"]),
+        "influences": strip(t["influence"]),
         "grc_sectors": [{k: r[k] for k in ("id", "label_uk", "label_en")} for r in t["register_sectors"]
                         if r["id"] in {x for a in t["actor"] for x in many(a["grc_sectors"])}],
     }

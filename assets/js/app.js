@@ -10,6 +10,7 @@ import * as cards from "./cards.js";
 import * as analysis from "./analysis.js";
 import * as capmap from "./capmap.js";
 import * as model from "./model.js";
+import * as why from "./why.js";
 
 const app = document.getElementById("app");
 const ROUTES = {
@@ -20,13 +21,13 @@ const ROUTES = {
   types: analysis.renderTypes, checks: analysis.renderChecks, acts: analysis.renderActs,
   search: analysis.renderSearch, method: analysis.renderMethod,
   functions: capmap.renderFunctions, cap: capmap.renderCapCard, time: capmap.renderTime,
-  frameworks: model.renderFrameworks, model: model.renderModel,
+  frameworks: model.renderFrameworks, model: model.renderModel, why: why.renderWhy,
 };
 // Navigation: viewpoints are ways in (who is asking), views are the projections themselves
 export const VIEW_MENU = [
   ["menuMap", ["house", "structure", "functions", "actors"]],
   ["menuPowers", ["mandates", "links", "flow"]],
-  ["menuAnalysis", ["types", "checks", "ncaf", "time"]],
+  ["menuAnalysis", ["types", "checks", "why", "ncaf", "time"]],
   ["menuLaw", ["acts"]],
   ["menuModel", ["frameworks", "model"]],
 ];

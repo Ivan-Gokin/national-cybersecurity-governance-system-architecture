@@ -91,6 +91,7 @@ export async function loadGraph() {
   D.types.forEach((x) => (x.ncaf = x.capability && D.cap[x.capability] ? D.cap[x.capability].objective : ""));
   D.refs = by(g.refs || []);
   D.questions = g.questions || [];
+  D.drivers = g.drivers || []; D.driver = by(D.drivers); D.influences = g.influences || [];
   index();
 }
 
@@ -208,6 +209,13 @@ export function checks() {
   add("capNoLead", "gap", leaves.filter((c) => capFlags(c.id).noLead).map((c) => ({ cap: c.id, text: L(c, "name") })));
   add("capMulti", "warn", leaves.filter((c) => capFlags(c.id).multi).map((c) => ({ cap: c.id, text: `${L(c, "name")}: ${[...new Set(leadsOf(c.id).map((x) => name(root(x.actor))))].join(", ")}` })));
   add("capNoBasis", "info", D.real.filter((x) => !x.role).map((x) => ({ actor: x.actor, cap: x.capability, text: L(D.cap[x.capability], "name") })));
+  // drivers that expect a function or body the system does not have
+  add("driverNoFunction", "gap", D.influences.filter((x) => x.effect === "expects" && (
+    (x.target_type === "capability" && D.cap[x.target] && capFlags(x.target).noLead)
+    || (x.target_type === "type" && D.types.some((y) => y.id === x.target && (y.coverage === "absent" || y.coverage === "unknown")))))
+    .map((x) => (x.target_type === "capability"
+      ? { cap: x.target, text: `${L(D.cap[x.target], "name")} ← ${L(D.driver[x.driver], "name")}` }
+      : { type: x.target, text: `${L(D.types.find((y) => y.id === x.target), "name")} ← ${L(D.driver[x.driver], "name")}`, coverage: D.types.find((y) => y.id === x.target).coverage })));
   // acts cited but not checked in the register
   add("unverified", "info", D.acts.filter((a) => !a.last_verified).map((a) => ({ act: a.id })));
   return out;

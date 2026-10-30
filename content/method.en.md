@@ -10,7 +10,7 @@ For the answer to be complete, the question has to be broken down. We break it d
 - **Who** — Klimburg's mandates (NATO CCDCOE): under which authority a body acts; NIS2 and EU member-state practice: which bodies are expected and which are missing.
 - **Where** — the structural view after interface's German map: levels × lines of work.
 - **When** — dates when bodies, roles and links came into and went out of force; regimes (martial law, crisis).
-- **Why** — legal bases from the GRC foundation register; NCAF objectives as the purpose of functions.
+- **Why** — three different answers, regulation being only one of them: the **basis** (an act from the GRC foundation register), the **driver** (the war, an event, the EU, donors, institutional history, others' practice — after ArchiMate's motivation layer, with mechanisms of influence from institutional theory) and the **goal** (the NCAF objective a function serves). Every influence of a driver has evidence; a link that is only the compiler's inference is marked as such. See "Why".
 - **What** — the information that passes between bodies: exchange, reporting (so far the map's weakest point).
 
 Each cell of the table below holds the concrete questions the map must answer, the framework that grounds the answer and the view that shows it. The same questions lead into the site's viewpoints: a viewpoint (after ISO/IEC/IEEE 42010) is the set of questions of one group of readers.

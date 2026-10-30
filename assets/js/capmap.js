@@ -121,7 +121,7 @@ export function renderCapCard(app) {
     return `<tr><th scope="row">${actorLink(x.actor, "ent")}${root(x.actor) !== x.actor ? `<span class="ent-parent">${esc(t("partOf"))} ${actorLink(root(x.actor))}</span>` : ""}</th>
       <td><span class="badge part-${esc(x.part)}">${esc(vl("part", x.part))}</span></td>
       <td>${r ? `${esc(vl("role", r.role))}${statusBadge(r.status)} ${mBadge(r.mandate)}<span class="block small muted">${actRef(r.act, r.provision)}</span>` : gap(t("capNoRole"))}</td>
-      <td>${x.act ? actRef(x.act, x.provision) : "—"}</td><td>${confBadge(x.confidence)}</td><td class="small">${esc(L(x, "notes"))}</td></tr>`;
+      <td>${x.act ? actRef(x.act, x.provision) : "—"}</td><td>${confBadge(x.confidence, x.last_verified)}</td><td class="small">${esc(L(x, "notes"))}</td></tr>`;
   }).join("");
   const types = D.types.filter((x) => x.capability === c.id);
   const sib = (D.capsBySpine[c.spine] || []).filter((k) => k.id !== c.id);

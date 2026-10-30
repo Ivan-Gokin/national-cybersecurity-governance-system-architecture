@@ -163,7 +163,7 @@ export function renderLinks(app) {
   const legend = order("link_type").map((ty) => `<li><span class="lglyph lt-${esc(ty)}">${LINK_GLYPH[ty] || "·"}</span><span><b>${esc(vl("link_type", ty))}</b>${vd("link_type", ty) ? `<span class="block muted">${esc(vd("link_type", ty))}</span>` : ""}</span></li>`).join("");
   const byType = group(shown, "type");
   const lists = order("link_type").filter((ty) => byType[ty]).map((ty) => `<tr class="group"><th colspan="4">${LINK_GLYPH[ty] || ""} ${esc(vl("link_type", ty))} (${byType[ty].length})</th></tr>${byType[ty].map((k) => `<tr>
-      <th scope="row">${actorLink(k.from)} → ${actorLink(k.to)}${statusBadge(k.status)}</th><td>${actRef(k.act)}</td><td>${confBadge(k.confidence)}</td><td class="small">${esc(L(k, "notes"))}</td></tr>`).join("")}`).join("");
+      <th scope="row">${actorLink(k.from)} → ${actorLink(k.to)}${statusBadge(k.status)}</th><td>${actRef(k.act)}</td><td>${confBadge(k.confidence, k.last_verified)}</td><td class="small">${esc(L(k, "notes"))}</td></tr>`).join("")}`).join("");
   const withLinks = [...new Set(D.links.flatMap((k) => [k.from, k.to]))].sort((a, b) => D.order[a] - D.order[b]).map((id) => [id, name(id)]);
   app.innerHTML = `<div class="workspace">
     <details class="panel" open><summary>${esc(t("filters"))}</summary><div class="panel-body">

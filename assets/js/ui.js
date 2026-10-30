@@ -28,7 +28,8 @@ export function actRef(actId, provision) {
 export const grcActHref = (id) => (CFG.grcUrl ? `${CFG.grcUrl}#/sources?act=${encodeURIComponent(id)}` : "");
 
 export const mBadge = (m) => (D.mandate[m] ? `<span class="mb mb-${esc(m)}" title="${esc(L(D.mandate[m], "name"))}">${esc(m === "OUT" ? t("outShort") : m)}</span>` : "");
-export const confBadge = (c) => (c ? `<span class="badge conf conf-${esc(c)}" title="${esc(vd("confidence", c))}">${esc(vl("confidence", c))}</span>` : "");
+const dmy = (d) => (d ? d.split("-").reverse().join(".") : "");
+export const confBadge = (c, checked) => (c ? `<span class="badge conf conf-${esc(c)}" title="${esc(vd("confidence", c) + (checked ? ` · ${t("checkedOn")} ${dmy(checked)}` : ""))}">${esc(vl("confidence", c))}${checked ? ` · ${esc(dmy(checked))}` : ""}</span>` : "");
 export const statusBadge = (st) => (st && st !== "in_force" ? ` <span class="badge st-${esc(st)}">${esc(vl("status", st))}</span>` : "");
 export const covBadge = (c) => `<span class="badge cov cov-${esc(c)}" title="${esc(vd("coverage", c))}">${esc(vl("coverage", c))}</span>`;
 export const multiMark = (id) => (isMulti(id) ? ` <span class="multi" title="${esc(t("multiHint"))}">${esc(t("multiShort"))}</span>` : "");

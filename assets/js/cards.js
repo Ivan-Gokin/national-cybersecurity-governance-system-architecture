@@ -42,13 +42,13 @@ function bodyCard(app, a) {
   const famTypes = [...new Map(fam.flatMap((m) => typesOf(m).map((x) => [x.id, x]))).values()];
   const flags = checks().filter((c) => ["sod", "watchers"].includes(c.id)).flatMap((c) => c.items.filter((i) => fam.includes(i.actor)).map((i) => ({ c: c.id, text: i.text || t("noOversightIn") })));
   const roleRows = roles.map((x) => `<tr><th scope="row">${esc(vl("role", x.role))}${statusBadge(x.status)}<span class="block small muted">${esc(t("grp_" + (ROLE_GROUP[x.role] || "other")))}</span></th><td>${mBadge(x.mandate)}</td>
-    <td>${actRef(x.act, x.provision)}</td><td>${esc(vl("regime", x.regime))}</td><td>${confBadge(x.confidence)}</td><td class="small">${esc(L(x, "notes"))}</td></tr>`).join("");
+    <td>${actRef(x.act, x.provision)}</td><td>${esc(vl("regime", x.regime))}</td><td>${confBadge(x.confidence, x.last_verified)}</td><td class="small">${esc(L(x, "notes"))}</td></tr>`).join("");
   const objs = objectivesOf(a.id), steps = stepsOf(a.id);
   app.innerHTML = `<article class="actor-page">
     ${crumbs(["#/actors", t("nav_actors")], ...chain.map((c) => [actorHref(c), name(c)]), ["", L(a, "short")])}
     <header class="actor-head"><p class="kicker">${esc(vl("actor_type", a.type))} · ${esc(vl("level", a.level))}</p>
       <h1>${esc(L(a, "name"))}</h1>
-      <p class="actor-meta">${mandatesOf(a.id).map(mBadge).join(" ")}${isMulti(a.id) ? ` <span class="multi">${esc(t("multiLong"))}</span>` : ""} ${confBadge(a.confidence)}</p>
+      <p class="actor-meta">${mandatesOf(a.id).map(mBadge).join(" ")}${isMulti(a.id) ? ` <span class="multi">${esc(t("multiLong"))}</span>` : ""} ${confBadge(a.confidence, a.last_verified)}</p>
       ${kids.length ? `<p>${esc(t("units"))}: ${kids.map((k) => actorLink(k.id)).join(", ")}</p>` : ""}
       ${many(a.categories).length ? `<p class="small muted">${esc(t("categories"))}: ${many(a.categories).map((c) => esc(vl("category", c))).join(" · ")}</p>` : ""}
       ${L(a, "notes") ? `<p class="actor-note">${esc(L(a, "notes"))}</p>` : ""}
